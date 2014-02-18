@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e19b5afe-39b4-4e25-b3bc-6caeac79ef47" name="Default" comment="" />
+    <list default="true" id="df747121-a2bf-4b65-8750-de8fc92e1ae9" name="Default" comment="" />
     <ignored path="ContactManager.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -64,28 +64,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Meeting.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/Meeting.java">
+      <file leaf-file-name="Contact.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/Contact.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0" vertical-offset="627" max-vertical-offset="741">
+            <state line="5" column="8" selection-start="226" selection-end="226" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="703">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MeetingImpl.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/MeetingImpl.java">
+      <file leaf-file-name="ContactTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/test/src/meetingItem/ContactTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="126" selection-end="126" vertical-scroll-proportion="0.15363881" vertical-offset="0" max-vertical-offset="742">
-              <folding />
+            <state line="13" column="24" selection-start="329" selection-end="329" vertical-scroll-proportion="0.50718683" vertical-offset="0" max-vertical-offset="487">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MeetingImplTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/test/java/meetingItem/MeetingImplTest.java">
+      <file leaf-file-name="ContactImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/ContactImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="108" selection-end="108" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="266">
+            <state line="0" column="11" selection-start="11" selection-end="11" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="817">
               <folding />
             </state>
           </provider>
@@ -101,14 +103,23 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/Meeting.java" />
+        <option value="$PROJECT_DIR$/src/com/keimiokamoto/test/java/MeetingItem/MeetingImplTest.java" />
         <option value="$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/MeetingImpl.java" />
-        <option value="$PROJECT_DIR$/src/com/keimiokamoto/test/java/meetingItem/MeetingImplTest.java" />
+        <option value="$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/Meeting.java" />
+        <option value="$PROJECT_DIR$/src/com/keimiokamoto/test/java/MeetingItem/ContactTest.java" />
+        <option value="$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/ContactTest.java" />
+        <option value="$PROJECT_DIR$/src/com/keimiokamoto/test/java/meetingItem/ContactImplTest.java" />
+        <option value="$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/ContactImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/keimiokamoto/test/java/meetingItem/ContactTest.java" />
+        <option value="$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/Contact.java" />
+        <option value="$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/ContactImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/Contact.java" />
+        <option value="$PROJECT_DIR$/src/com/keimiokamoto/test/src/meetingItem/ContactTest.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2" />
+    <option name="x" value="8" />
     <option name="y" value="22" />
     <option name="width" value="1400" />
     <option name="height" value="860" />
@@ -141,6 +152,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -174,6 +186,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="keimiokamoto" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -200,7 +216,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="keimiokamoto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -210,7 +234,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -222,15 +245,15 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
-    <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
-    <property name="FullScreen" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
@@ -238,9 +261,123 @@
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="java.meetingItem" />
+      <recent name="com.keimiokamoto.main.java.meetingItem" />
+      <recent name="java.MeetingItem" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ContactTest (1)">
+    <configuration default="false" name="ContactTest.shouldBeAbleToGetId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="java.meetingItem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ContactManager" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="java.meetingItem" />
+      <option name="MAIN_CLASS_NAME" value="java.meetingItem.ContactTest" />
+      <option name="METHOD_NAME" value="shouldBeAbleToGetId" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ContactTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="java.meetingItem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ContactManager" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="java.meetingItem" />
+      <option name="MAIN_CLASS_NAME" value="java.meetingItem.ContactTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="java.meetingItem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="java.meetingItem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="java.meetingItem" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ContactTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="src.meetingItem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ContactManager" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="src.meetingItem" />
+      <option name="MAIN_CLASS_NAME" value="src.meetingItem.ContactTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -313,18 +450,18 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="com" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
+        <value defaultName="wholeProject" />
       </option>
       <envs />
       <patterns />
@@ -383,6 +520,21 @@
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
       <method />
     </configuration>
     <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" output_log_level="null" package_name="" scope="Class">
@@ -452,78 +604,69 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <list size="0" />
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="JUnit.ContactTest.shouldBeAbleToGetId" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ContactTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.java.meetingItem" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ContactTest (1)" />
+    </list>
+    <recent_temporary>
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ContactTest (1)" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ContactTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.java.meetingItem" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ContactTest.shouldBeAbleToGetId" />
+      </list>
+    </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
-    <option name="USER" value="" />
-    <option name="PASSWORD" value="" />
-    <option name="mySSHConnectionTimeout" value="30000" />
-    <option name="mySSHReadTimeout" value="30000" />
-    <option name="LAST_MERGED_REVISION" />
-    <option name="MERGE_DRY_RUN" value="false" />
-    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
-    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
-    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
-    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
-    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <option name="FORCE_UPDATE" value="false" />
-    <option name="IGNORE_EXTERNALS" value="false" />
-    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e19b5afe-39b4-4e25-b3bc-6caeac79ef47" name="Default" comment="" />
-      <created>1392738004083</created>
-      <updated>1392738004083</updated>
-      <workItem from="1392738011308" duration="3812000" />
-      <workItem from="1392747200671" duration="265000" />
-      <workItem from="1392747511242" duration="170000" />
-      <workItem from="1392747695431" duration="851000" />
-      <workItem from="1392748605031" duration="563000" />
-      <workItem from="1392749420695" duration="154000" />
-      <workItem from="1392749593638" duration="50000" />
-      <workItem from="1392749690521" duration="660000" />
+      <changelist id="df747121-a2bf-4b65-8750-de8fc92e1ae9" name="Default" comment="" />
+      <created>1392752749894</created>
+      <updated>1392752749894</updated>
+      <workItem from="1392752757740" duration="8017000" />
+      <workItem from="1392765348064" duration="1671000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6525000" />
+    <option name="totallyTimeSpent" value="9688000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="22" width="1400" height="860" extended-state="0" />
+    <frame x="8" y="22" width="1400" height="860" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19366716" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987013" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33072916" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2496318" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3294271" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -547,94 +690,49 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/Meeting.java">
+    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/test/src/meetingItem/ContactTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="741">
+        <state line="8" column="26" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0" vertical-offset="152" max-vertical-offset="475">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/Contact.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="266" selection-end="266" vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="779">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/MeetingImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/ContactImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="247">
+        <state line="7" column="24" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="817">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/Meeting.java">
+    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/ContactImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0" vertical-offset="627" max-vertical-offset="741">
+        <state line="0" column="11" selection-start="11" selection-end="11" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="817">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/MeetingImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/Contact.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="247">
+        <state line="5" column="8" selection-start="226" selection-end="226" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="703">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/Meeting.java">
+    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/test/src/meetingItem/ContactTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="741">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/MeetingImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="247">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/Meeting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="20" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0" vertical-offset="228" max-vertical-offset="684">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/Meeting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="195">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/Meeting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="195">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/Meeting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="195">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/Meeting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="741">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/test/java/meetingItem/MeetingImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="108" selection-end="108" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="266">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/MeetingImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="126" selection-end="126" vertical-scroll-proportion="0.15363881" vertical-offset="0" max-vertical-offset="742">
-          <folding />
+        <state line="13" column="24" selection-start="329" selection-end="329" vertical-scroll-proportion="0.50718683" vertical-offset="0" max-vertical-offset="487">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

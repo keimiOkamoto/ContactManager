@@ -3,16 +3,21 @@ package src.meetingItem;
 import org.junit.*;
 import static org.junit.Assert.*;
 
-/**
- * Created by keimiokamoto on 18/02/2014.
- */
 public class ContactTest {
+
     @Test
-    public void shouldBeAbleToGetId() {
-        ContactImpl aContactImpl = new ContactImpl();
-        int actual = aContactImpl.getId();
-        int expected = 2;
+    public void shouldBeAbleToGetUniqueId() {
+        Contact aContact = new ContactImpl(1);
+        int actual = aContact.getId();
+        int expected = 1;
 
         assertEquals(expected, actual);
+
+        Contact aContact1 = new ContactImpl(1);
+        int actual1 = aContact1.getId();
+        int expected1 = 1;
+
+        assertEquals(expected1, actual1);
     }
+
 }

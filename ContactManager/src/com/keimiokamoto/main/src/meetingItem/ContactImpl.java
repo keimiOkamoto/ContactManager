@@ -1,12 +1,18 @@
 package src.meetingItem;
 
 public class ContactImpl implements Contact {
-   /**
+    private int id;
+
+    public ContactImpl(int id) {
+        this.id = id;
+    }
+
+    /**
     * Returns the ID of the contact.
     * @return the ID of the contact.
     */
     public int getId() {
-        return 0;
+        return id;
     }
 
     /**

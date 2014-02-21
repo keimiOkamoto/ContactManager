@@ -78,7 +78,7 @@
       <file leaf-file-name="ContactTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/test/src/meetingItem/ContactTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="41" selection-start="927" selection-end="927" vertical-scroll-proportion="0.7817048" vertical-offset="344" max-vertical-offset="918">
+            <state line="43" column="33" selection-start="1028" selection-end="1028" vertical-scroll-proportion="0.7006237" vertical-offset="437" max-vertical-offset="1008">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,10 +89,12 @@
       <file leaf-file-name="ContactImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/ContactImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="20" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0" vertical-offset="203" max-vertical-offset="936">
+            <state line="24" column="39" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="972">
               <folding>
-                <element signature="e#343#344#0" expanded="true" />
-                <element signature="e#368#369#0" expanded="true" />
+                <element signature="e#405#406#0" expanded="true" />
+                <element signature="e#430#431#0" expanded="true" />
+                <element signature="e#557#558#0" expanded="true" />
+                <element signature="e#584#585#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -641,12 +643,12 @@
       <updated>1392752749894</updated>
       <workItem from="1392752757740" duration="8017000" />
       <workItem from="1392765348064" duration="3588000" />
-      <workItem from="1392936826033" duration="4441000" />
+      <workItem from="1392936826033" duration="5526000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16046000" />
+    <option name="totallyTimeSpent" value="17131000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="22" width="1438" height="874" extended-state="0" />
@@ -723,8 +725,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="882">
           <folding>
-            <element signature="e#343#344#0" expanded="true" />
-            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#405#406#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#584#585#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -751,8 +755,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="24" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="817">
           <folding>
-            <element signature="e#343#344#0" expanded="true" />
-            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#405#406#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#584#585#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -775,17 +781,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/ContactImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="20" selection-start="517" selection-end="517" vertical-scroll-proportion="0.0" vertical-offset="203" max-vertical-offset="936">
+        <state line="24" column="39" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="972">
           <folding>
-            <element signature="e#343#344#0" expanded="true" />
-            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#405#406#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#584#585#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/test/src/meetingItem/ContactTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="41" selection-start="927" selection-end="927" vertical-scroll-proportion="0.7817048" vertical-offset="344" max-vertical-offset="918">
+        <state line="43" column="33" selection-start="1028" selection-end="1028" vertical-scroll-proportion="0.7006237" vertical-offset="437" max-vertical-offset="1008">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

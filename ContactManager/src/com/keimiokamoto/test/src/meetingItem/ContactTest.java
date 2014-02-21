@@ -4,9 +4,9 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class ContactTest {
-    Contact aContact = new ContactImpl();
-    Contact aContact1 = new ContactImpl();
-    Contact aContact2 = new ContactImpl();
+    Contact aContact = new ContactImpl("Adam");
+    Contact aContact1 = new ContactImpl("Barry");
+    Contact aContact2 = new ContactImpl("Clare");
 
     @Test
     public void shouldBeAbleToGetUniqueId() {
@@ -39,6 +39,11 @@ public class ContactTest {
         String expected1 = "Barry";
 
         assertEquals(actual1, expected1);
+
+        String actual2 = aContact2.getName();
+        String expected2 = "Clare";
+
+        assertEquals(actual2, expected2);
 
     }
 

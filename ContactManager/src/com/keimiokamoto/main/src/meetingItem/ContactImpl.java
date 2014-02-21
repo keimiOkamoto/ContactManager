@@ -4,9 +4,11 @@ public class ContactImpl implements Contact {
     private static int count = 0;
     private final int CONTACT_ID = count++;
     private int id;
+    private String name;
 
 
-    public ContactImpl() {
+    public ContactImpl(String name) {
+        this.name = name;
         id = CONTACT_ID;
     }
 
@@ -23,7 +25,7 @@ public class ContactImpl implements Contact {
      * @return the name of the contact.
      */
     public String getName() {
-        return "Adam";
+        return name;
     }
 
     /**

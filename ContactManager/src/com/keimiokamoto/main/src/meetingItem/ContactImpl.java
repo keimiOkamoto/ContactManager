@@ -12,7 +12,7 @@ public class ContactImpl implements Contact {
         id = CONTACT_ID;
     }
 
-    /**
+   /**
     * Returns the ID of the contact.
     * @return the ID of the contact.
     */
@@ -20,28 +20,28 @@ public class ContactImpl implements Contact {
         return id;
     }
 
-    /**
-     * Returns the name of the contact.
-     * @return the name of the contact.
-     */
+   /**
+    * Returns the name of the contact.
+    * @return the name of the contact.
+    */
     public String getName() {
         return name;
     }
 
-    /**
-     * Returns our notes about the contact, if any.
-     * If we have not written anything about the contact, the empty
-     * string is returned. *
-     * @return a string with notes about the contact, maybe empty.
-     */
+   /**
+    * Returns our notes about the contact, if any.
+    * If we have not written anything about the contact, the empty
+    * string is returned. *
+    * @return a string with notes about the contact, maybe empty.
+    */
     public String getNotes() {
-        return null;
+        return "";
     }
 
-    /**
-     * Add notes about the contact.
-     * @param note the notes to be added
-     */
+   /**
+    * Add notes about the contact.
+    * @param note the notes to be added
+    */
     public void addNotes(String note) {
 
     }

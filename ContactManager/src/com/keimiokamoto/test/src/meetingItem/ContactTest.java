@@ -10,7 +10,6 @@ public class ContactTest {
 
     @Test
     public void shouldBeAbleToGetUniqueId() {
-
         int actual = aContact.getId();
         int expected = 0;
 
@@ -20,7 +19,6 @@ public class ContactTest {
         int expected1 = 1;
 
         assertEquals(expected1, actual1);
-
 
         int actual2 = aContact2.getId();
         int expected2 = 2;
@@ -44,7 +42,14 @@ public class ContactTest {
         String expected2 = "Clare";
 
         assertEquals(actual2, expected2);
+    }
 
+    @Test
+    public void shouldBeAbleToGetNotes() {
+        String actual = aContact.getNotes();
+        String expected = "";
+
+        assertEquals(actual, expected);
     }
 
 }

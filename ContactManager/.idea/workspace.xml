@@ -75,10 +75,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ContactTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/test/src/meetingItem/ContactTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="9" selection-start="641" selection-end="641" vertical-scroll-proportion="0.4074844" vertical-offset="344" max-vertical-offset="828">
+            <state line="30" column="9" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0" vertical-offset="344" max-vertical-offset="828">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,10 +86,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactImpl.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ContactImpl.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/ContactImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="19" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0" vertical-offset="440" max-vertical-offset="936">
+            <state line="25" column="20" selection-start="517" selection-end="517" vertical-scroll-proportion="0.32016632" vertical-offset="296" max-vertical-offset="936">
               <folding>
                 <element signature="e#343#344#0" expanded="true" />
                 <element signature="e#368#369#0" expanded="true" />
@@ -118,8 +118,8 @@
         <option value="$PROJECT_DIR$/src/com/keimiokamoto/test/java/meetingItem/ContactTest.java" />
         <option value="$PROJECT_DIR$/src/com/keimiokamoto/main/java/meetingItem/Contact.java" />
         <option value="$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/Contact.java" />
-        <option value="$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/ContactImpl.java" />
         <option value="$PROJECT_DIR$/src/com/keimiokamoto/test/src/meetingItem/ContactTest.java" />
+        <option value="$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/ContactImpl.java" />
       </list>
     </option>
   </component>
@@ -641,12 +641,12 @@
       <updated>1392752749894</updated>
       <workItem from="1392752757740" duration="8017000" />
       <workItem from="1392765348064" duration="3588000" />
-      <workItem from="1392936826033" duration="4019000" />
+      <workItem from="1392936826033" duration="4208000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15624000" />
+    <option name="totallyTimeSpent" value="15813000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="22" width="1438" height="874" extended-state="0" />
@@ -773,21 +773,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/ContactImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/test/src/meetingItem/ContactTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="19" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0" vertical-offset="440" max-vertical-offset="936">
+        <state line="30" column="9" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0" vertical-offset="344" max-vertical-offset="828">
           <folding>
-            <element signature="e#343#344#0" expanded="true" />
-            <element signature="e#368#369#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/test/src/meetingItem/ContactTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/ContactImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="9" selection-start="641" selection-end="641" vertical-scroll-proportion="0.4074844" vertical-offset="344" max-vertical-offset="828">
+        <state line="25" column="20" selection-start="517" selection-end="517" vertical-scroll-proportion="0.32016632" vertical-offset="296" max-vertical-offset="936">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#343#344#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
           </folding>
         </state>
       </provider>

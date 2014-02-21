@@ -4,9 +4,16 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class ContactTest {
-    Contact aContact = new ContactImpl("Adam");
-    Contact aContact1 = new ContactImpl("Barry");
-    Contact aContact2 = new ContactImpl("Clare");
+    Contact aContact;
+    Contact aContact1;
+    Contact aContact2;
+
+    @Before
+    public void buildUp() {
+        aContact = new ContactImpl("Adam");
+        aContact1 = new ContactImpl("Barry");
+        aContact2 = new ContactImpl("Clare");
+    }
 
     @Test
     public void shouldBeAbleToGetUniqueId() {

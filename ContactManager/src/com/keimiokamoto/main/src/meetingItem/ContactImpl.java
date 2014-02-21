@@ -5,6 +5,7 @@ public class ContactImpl implements Contact {
     private final int CONTACT_ID = count++;
     private int id;
     private String name;
+    private String note;
 
 
     public ContactImpl(String name) {
@@ -35,7 +36,7 @@ public class ContactImpl implements Contact {
     * @return a string with notes about the contact, maybe empty.
     */
     public String getNotes() {
-        return "Works for company A as a manager in department A";
+        return note;
     }
 
    /**
@@ -43,6 +44,6 @@ public class ContactImpl implements Contact {
     * @param note the notes to be added
     */
     public void addNotes(String note) {
-
+        this.note = note;
     }
 }

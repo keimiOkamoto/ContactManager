@@ -35,7 +35,7 @@ public class ContactImpl implements Contact {
     * @return a string with notes about the contact, maybe empty.
     */
     public String getNotes() {
-        return "";
+        return "Works for company A as a manager in department A";
     }
 
    /**

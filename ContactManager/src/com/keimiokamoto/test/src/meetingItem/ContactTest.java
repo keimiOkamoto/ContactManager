@@ -47,9 +47,13 @@ public class ContactTest {
     @Test
     public void shouldBeAbleToGetNotes() {
         String actual = aContact.getNotes();
-        String expected = "";
+        String expected = "Works for company A as a manager in department A";
 
         assertEquals(actual, expected);
-    }
 
+        String actual1 = aContact1.getNotes();
+        String expected1 = "Barry works for company B as a business analyst.";
+
+        assertEquals(actual1, expected1);
+    }
 }

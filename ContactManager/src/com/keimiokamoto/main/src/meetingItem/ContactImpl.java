@@ -1,10 +1,13 @@
 package src.meetingItem;
 
 public class ContactImpl implements Contact {
+    private static int count = 0;
+    private final int CONTACT_ID = count++;
     private int id;
 
-    public ContactImpl(int id) {
-        this.id = id;
+
+    public ContactImpl() {
+        id = CONTACT_ID;
     }
 
     /**

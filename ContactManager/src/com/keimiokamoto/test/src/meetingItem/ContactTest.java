@@ -35,6 +35,11 @@ public class ContactTest {
 
         assertEquals(expected,actual);
 
+        String actual1 = aContact1.getName();
+        String expected1 = "Barry";
+
+        assertEquals(actual1, expected1);
+
     }
 
 }

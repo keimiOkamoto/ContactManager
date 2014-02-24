@@ -67,7 +67,7 @@
       <file leaf-file-name="Contact.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/Contact.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="17" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="738">
+            <state line="7" column="17" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="738">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -75,10 +75,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ContactTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/keimi/okamoto/meetingItem/ContactTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="39" selection-start="1974" selection-end="1974" vertical-scroll-proportion="0.0" vertical-offset="27" max-vertical-offset="1512">
+            <state line="37" column="39" selection-start="893" selection-end="893" vertical-scroll-proportion="1.0" vertical-offset="153" max-vertical-offset="990">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,11 +86,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactImpl.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ContactImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/ContactImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="45" selection-start="85" selection-end="85" vertical-scroll-proportion="0.07017544" vertical-offset="0" max-vertical-offset="1026">
-              <folding />
+            <state line="7" column="45" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1080">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,12 +119,12 @@
         <option value="$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/Contact.java" />
         <option value="$PROJECT_DIR$/src/com/keimiokamoto/main/src/meetingItem/ContactImpl.java" />
         <option value="$PROJECT_DIR$/src/com/keimiokamoto/test/src/meetingItem/ContactTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/keimi/okamoto/meetingItem/ContactTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/keimi/okamoto/meetingItem/utils/NumberGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/ContactImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/utils/UniqueNumberGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/utils/UniqueNumberGeneratorImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/keimi/okamoto/meetingItem/utils/UniqueNumberGeneratorTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/ContactImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/keimi/okamoto/meetingItem/ContactTest.java" />
       </list>
     </option>
   </component>
@@ -231,6 +233,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ContactManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ContactManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meetingItem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -280,35 +312,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/com/keimi/okamoto" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UniqueNumberGeneratorTest.shouldBeAbleToGenerateUniqueNumber">
-    <configuration default="false" name="ContactTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="java.meetingItem.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ContactManager" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="PACKAGE_NAME" value="java.meetingItem" />
-      <option name="MAIN_CLASS_NAME" value="java.meetingItem.ContactTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="wholeProject" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.ContactTest (2)">
     <configuration default="false" name="ContactTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -413,6 +417,34 @@
       <option name="MAIN_CLASS_NAME" value="com.keimi.okamoto.meetingItem.utils.UniqueNumberGeneratorTest" />
       <option name="METHOD_NAME" value="shouldBeAbleToGenerateUniqueNumber" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ContactTest (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.keimi.okamoto.meetingItem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ContactManager" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="com.keimi.okamoto.meetingItem" />
+      <option name="MAIN_CLASS_NAME" value="com.keimi.okamoto.meetingItem.ContactTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -654,19 +686,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.ContactTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ContactTest (1)" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.ContactTest.shouldBeAbleToGetEmptyStringIfContactHasNoNotes" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.ContactTest.shouldBeAbleToGetEmptyStringIfContactHasNoNotes (1)" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.UniqueNumberGeneratorTest.shouldBeAbleToGenerateUniqueNumber" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.ContactTest (1)" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ContactTest.shouldBeAbleToGetEmptyStringIfContactHasNoNotes" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ContactTest.shouldBeAbleToGetEmptyStringIfContactHasNoNotes (1)" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.UniqueNumberGeneratorTest.shouldBeAbleToGenerateUniqueNumber" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ContactTest (2)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.UniqueNumberGeneratorTest.shouldBeAbleToGenerateUniqueNumber" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ContactTest.shouldBeAbleToGetEmptyStringIfContactHasNoNotes (1)" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ContactTest.shouldBeAbleToGetEmptyStringIfContactHasNoNotes" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ContactTest (1)" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.ContactTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ContactTest (2)" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.UniqueNumberGeneratorTest.shouldBeAbleToGenerateUniqueNumber" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ContactTest.shouldBeAbleToGetEmptyStringIfContactHasNoNotes (1)" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ContactTest.shouldBeAbleToGetEmptyStringIfContactHasNoNotes" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.ContactTest (1)" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -682,12 +714,12 @@
       <updated>1392752749894</updated>
       <workItem from="1392752757740" duration="8017000" />
       <workItem from="1392765348064" duration="3588000" />
-      <workItem from="1392936826033" duration="17026000" />
+      <workItem from="1392936826033" duration="18353000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28631000" />
+    <option name="totallyTimeSpent" value="29958000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="22" width="1438" height="874" extended-state="6" />
@@ -713,7 +745,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24283667" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30818415" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30818415" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -763,7 +795,9 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/ContactImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="882">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -788,7 +822,9 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/ContactImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="24" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="817">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -822,15 +858,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/keimi/okamoto/meetingItem/ContactTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="39" selection-start="1974" selection-end="1974" vertical-scroll-proportion="0.0" vertical-offset="27" max-vertical-offset="1512">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/Contact.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="17" selection-start="273" selection-end="273" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="738">
@@ -842,8 +869,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/ContactImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="45" selection-start="85" selection-end="85" vertical-scroll-proportion="0.07017544" vertical-offset="0" max-vertical-offset="1026">
-          <folding />
+        <state line="7" column="45" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1080">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/keimi/okamoto/meetingItem/ContactTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="39" selection-start="893" selection-end="893" vertical-scroll-proportion="1.0" vertical-offset="153" max-vertical-offset="990">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,16 +1,19 @@
 package com.keimi.okamoto.meetingItem;
 
+import com.keimi.okamoto.meetingItem.utils.UniqueNumberGenerator;
+import com.keimi.okamoto.meetingItem.utils.UniqueNumberGeneratorImpl;
+
+import javax.rmi.CORBA.Util;
+
 public class ContactImpl implements Contact {
-    private static int count = 0;
-    private final int CONTACT_ID = count++;
     private int id;
     private String name;
     private String note;
 
 
-    public ContactImpl(String name) {
+    public ContactImpl(String name, int id) {
         this.name = name;
-        id = CONTACT_ID;
+        this.id = id;
     }
 
     /**

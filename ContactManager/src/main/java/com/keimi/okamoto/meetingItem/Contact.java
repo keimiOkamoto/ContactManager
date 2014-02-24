@@ -3,7 +3,7 @@
  * Contacts have an ID (unique), a name (probably unique, but maybe
  * not), and notes that the user may want to save about them.
  */
-package src.meetingItem;
+package com.keimi.okamoto.meetingItem;
 
 public interface Contact {
 

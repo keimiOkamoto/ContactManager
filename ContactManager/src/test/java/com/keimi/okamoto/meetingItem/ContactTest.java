@@ -1,4 +1,4 @@
-package src.meetingItem;
+package com.keimi.okamoto.meetingItem;
 
 import org.junit.*;
 import static org.junit.Assert.*;

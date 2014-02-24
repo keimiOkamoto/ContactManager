@@ -3,6 +3,7 @@ package src.meetingItem;
 import org.junit.*;
 import static org.junit.Assert.*;
 
+
 public class ContactTest {
     Contact aContact;
     Contact aContact1;
@@ -52,7 +53,7 @@ public class ContactTest {
     }
 
     @Test
-    public void shouldBeAbleToGetNotes() {
+    public void shouldBeAbleToGetNotesIfContactHasNotes() {
         aContact.addNotes("Works for company A as a manager in department A");
         String actual = aContact.getNotes();
         String expected = "Works for company A as a manager in department A";
@@ -64,5 +65,14 @@ public class ContactTest {
         String expected1 = "Barry works for company B as a business analyst.";
 
         assertEquals(actual1, expected1);
+    }
+
+    @Test
+    public void shouldBeAbleToGetEmptyStringIfContactHasNoNotes() {
+        aContact.addNotes("");
+        String actual = "";
+        String expected = "";
+
+        assertEquals(actual, expected);
     }
 }

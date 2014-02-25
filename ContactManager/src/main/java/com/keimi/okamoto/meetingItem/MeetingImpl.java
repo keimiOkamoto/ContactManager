@@ -9,6 +9,12 @@ import java.util.Set;
 
 public class MeetingImpl implements Meeting {
     private int id = 0;
+    private Calendar aCalendar;
+
+    public MeetingImpl(int id, Calendar aCalendar) {
+        this.id = id;
+        this.aCalendar = aCalendar;
+    }
 
     /**
      * Returns the id of the
@@ -23,7 +29,7 @@ public class MeetingImpl implements Meeting {
      * @return the date of the meeting.
      */
     public Calendar getDate() {
-        return null;
+        return aCalendar;
     }
 
     /**

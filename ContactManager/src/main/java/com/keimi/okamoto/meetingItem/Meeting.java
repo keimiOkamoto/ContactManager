@@ -2,7 +2,6 @@
  * A class to represent meetings
  * Meetings have unique IDs, scheduled date and a list of participating contacts
  * */
-
 package com.keimi.okamoto.meetingItem;
 
 import java.util.Calendar;

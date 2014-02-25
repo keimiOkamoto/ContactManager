@@ -30,4 +30,6 @@ public class MeetingTest {
 
         assertSame(expected, actual);
     }
+
+
 }

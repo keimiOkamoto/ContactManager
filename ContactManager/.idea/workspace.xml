@@ -105,7 +105,7 @@
       <file leaf-file-name="Meeting.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/Meeting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="28" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="666">
+            <state line="29" column="31" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="666">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -114,10 +114,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MeetingTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MeetingTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/keimi/okamoto/meetingItem/MeetingTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="11" selection-start="246" selection-end="246" vertical-scroll-proportion="0.10526316" vertical-offset="162" max-vertical-offset="702">
+            <state line="33" column="0" selection-start="685" selection-end="685" vertical-scroll-proportion="0.0" vertical-offset="189" max-vertical-offset="738">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,10 +125,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MeetingImpl.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MeetingImpl.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/MeetingImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="24" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="918">
+            <state line="17" column="0" selection-start="432" selection-end="432" vertical-scroll-proportion="-0.19298245" vertical-offset="405" max-vertical-offset="918">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -729,12 +729,12 @@
       <updated>1392752749894</updated>
       <workItem from="1392752757740" duration="8017000" />
       <workItem from="1392765348064" duration="3588000" />
-      <workItem from="1392936826033" duration="23833000" />
+      <workItem from="1392936826033" duration="24079000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35438000" />
+    <option name="totallyTimeSpent" value="35684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="22" width="1438" height="874" extended-state="6" />
@@ -917,9 +917,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/Meeting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="28" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="666">
+        <state line="29" column="31" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="666">
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/keimi/okamoto/meetingItem/MeetingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="685" selection-end="685" vertical-scroll-proportion="0.0" vertical-offset="189" max-vertical-offset="738">
+          <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -927,7 +936,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/MeetingImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="24" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="918">
+        <state line="17" column="0" selection-start="432" selection-end="432" vertical-scroll-proportion="-0.19298245" vertical-offset="405" max-vertical-offset="918">
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -935,15 +944,6 @@
             <element signature="e#555#556#0" expanded="true" />
             <element signature="e#683#684#0" expanded="true" />
             <element signature="e#715#716#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/keimi/okamoto/meetingItem/MeetingTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="11" selection-start="246" selection-end="246" vertical-scroll-proportion="0.10526316" vertical-offset="162" max-vertical-offset="702">
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

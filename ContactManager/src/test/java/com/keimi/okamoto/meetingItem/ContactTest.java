@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 
 public class ContactTest {
-    Contact aContact;
+    private Contact aContact;
 
     @Before
     public void buildUp() {

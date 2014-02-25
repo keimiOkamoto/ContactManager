@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 
 public class MeetingTest {
 
+    private Meeting aMeeting;
+    
     @Test
     public void shouldBeAbleToGetMeetingId() {
         Meeting aMeeting = new MeetingImpl();
@@ -12,5 +14,10 @@ public class MeetingTest {
         int expected = 0;
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldBeAbleToGetDate() {
+
     }
 }

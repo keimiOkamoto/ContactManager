@@ -9,12 +9,14 @@ import java.util.Set;
 
 public class MeetingImpl implements Meeting {
     private int id = 0;
-    private Calendar aCalendar;
+    private Calendar date;
+    private Set<Contact> aListOfContacts;
 
-
-    public MeetingImpl(int id, Calendar aCalendar) {
+    public MeetingImpl(int id, Calendar date, Set<Contact> aListOfContacts) throws IllegalMeetingException {
+        if (aListOfContacts.size() < 1) throw new IllegalMeetingException();
         this.id = id;
-        this.aCalendar = aCalendar;
+        this.date = date;
+        this.aListOfContacts = aListOfContacts;
     }
 
     /**
@@ -30,7 +32,7 @@ public class MeetingImpl implements Meeting {
      * @return the date of the meeting.
      */
     public Calendar getDate() {
-        return aCalendar;
+        return date;
     }
 
     /**
@@ -41,6 +43,6 @@ public class MeetingImpl implements Meeting {
      * @return the details of people that attended the meeting.
      */
     public Set<Contact> getContacts() {
-        return null;
+        return aListOfContacts;
     }
 }

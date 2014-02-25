@@ -3,16 +3,19 @@ package com.keimi.okamoto.meetingItem;
 import org.junit.*;
 import static org.junit.Assert.*;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.Set;
-
 
 public class MeetingTest {
     private Meeting aMeeting;
-    private Calendar aCalendar;
+    private Calendar date;
+    private Set<Contact> aContactSet;
 
     @Before
-    public void buildUp() {
-        aMeeting = new MeetingImpl(0, aCalendar);
+    public void buildUp() throws IllegalMeetingException {
+        aContactSet = contacts();
+        date = Calendar.getInstance();
+        aMeeting = new MeetingImpl(0, date, aContactSet);
     }
 
     @Test
@@ -26,8 +29,28 @@ public class MeetingTest {
     @Test
     public void shouldBeAbleToGetDate() {
         Calendar actual = aMeeting.getDate();
-        Calendar expected = aCalendar;
+        Calendar expected = date;
 
         assertSame(expected, actual);
+    }
+
+    @Test
+    public void shouldBeAbleToGetContacts() {
+        Set<Contact> actual = aMeeting.getContacts();
+        Set<Contact> expected = aContactSet;
+
+        assertSame(expected, actual);
+    }
+
+    @Test(expected = IllegalMeetingException.class)
+    public void shouldOnlyBeAbleToCreateMeetingWithAtLeastOneContact() throws IllegalMeetingException {
+        new MeetingImpl(0, date, new HashSet<Contact>());
+    }
+
+    private Set<Contact> contacts() {
+        Contact user = new ContactImpl("user1",0);
+        Set<Contact> aSet = new HashSet<>();
+        aSet.add(user);
+        return aSet;
     }
 }

@@ -117,7 +117,7 @@
       <file leaf-file-name="MeetingTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/keimi/okamoto/meetingItem/MeetingTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="3" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="738">
+            <state line="31" column="5" selection-start="683" selection-end="683" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="702">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,16 +128,14 @@
       <file leaf-file-name="MeetingImpl.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/MeetingImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="5" selection-start="1147" selection-end="1147" vertical-scroll-proportion="1.5438596" vertical-offset="0" max-vertical-offset="936">
+            <state line="45" column="1" selection-start="1097" selection-end="1097" vertical-scroll-proportion="0.75438595" vertical-offset="423" max-vertical-offset="936">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#572#573#0" expanded="true" />
-                <element signature="e#597#598#0" expanded="true" />
-                <element signature="e#725#726#0" expanded="true" />
-                <element signature="e#757#758#0" expanded="true" />
-                <element signature="e#1108#1109#0" expanded="true" />
-                <element signature="e#1146#1147#0" expanded="true" />
+                <element signature="e#531#532#0" expanded="true" />
+                <element signature="e#556#557#0" expanded="true" />
+                <element signature="e#684#685#0" expanded="true" />
+                <element signature="e#716#717#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -173,8 +171,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/utils/MeetingImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/keimi/okamoto/meetingItem/ContactTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/Meeting.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/MeetingImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/keimi/okamoto/meetingItem/MeetingTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/MeetingImpl.java" />
       </list>
     </option>
   </component>
@@ -731,16 +729,16 @@
       <updated>1392752749894</updated>
       <workItem from="1392752757740" duration="8017000" />
       <workItem from="1392765348064" duration="3588000" />
-      <workItem from="1392936826033" duration="25202000" />
+      <workItem from="1392936826033" duration="25360000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36807000" />
+    <option name="totallyTimeSpent" value="36965000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="22" width="1438" height="874" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -761,8 +759,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2191977" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30818415" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2191977" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30818415" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -957,7 +955,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/keimi/okamoto/meetingItem/MeetingTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="3" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="738">
+        <state line="31" column="5" selection-start="683" selection-end="683" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="702">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -966,16 +964,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/meetingItem/MeetingImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="5" selection-start="1147" selection-end="1147" vertical-scroll-proportion="1.5438596" vertical-offset="0" max-vertical-offset="936">
+        <state line="45" column="1" selection-start="1097" selection-end="1097" vertical-scroll-proportion="0.75438595" vertical-offset="423" max-vertical-offset="936">
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#725#726#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
-            <element signature="e#1108#1109#0" expanded="true" />
-            <element signature="e#1146#1147#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#556#557#0" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
+            <element signature="e#716#717#0" expanded="true" />
           </folding>
         </state>
       </provider>

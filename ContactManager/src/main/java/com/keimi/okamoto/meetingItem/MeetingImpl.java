@@ -10,7 +10,7 @@ import java.util.Set;
 public class MeetingImpl implements Meeting {
     private int id = 0;
     private Calendar aCalendar;
-    private Set<Contact> meetingAttendee;
+
 
     public MeetingImpl(int id, Calendar aCalendar) {
         this.id = id;
@@ -41,6 +41,6 @@ public class MeetingImpl implements Meeting {
      * @return the details of people that attended the meeting.
      */
     public Set<Contact> getContacts() {
-        return meetingAttendee;
+        return null;
     }
 }

@@ -7,10 +7,10 @@ import org.junit.rules.ExpectedException;
 public class IllegalMeetingExceptionTest {
 
     @Rule
-    public ExpectedException thrown= ExpectedException.none();
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test
-   public void shouldHaveAppropriateMessage() throws IllegalMeetingException {
+    public void shouldHaveAppropriateMessage() throws IllegalMeetingException {
         thrown.expect(IllegalMeetingException.class);
         thrown.expectMessage("Meeting must contain at least one contact.");
 

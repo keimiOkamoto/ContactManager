@@ -26,6 +26,9 @@ public class MeetingTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     *
+     */
     @Test
     public void shouldBeAbleToGetDate() {
         Calendar actual = aMeeting.getDate();
@@ -34,6 +37,9 @@ public class MeetingTest {
         assertSame(expected, actual);
     }
 
+    /**
+     * Tests for a set with one contact in the set.
+     */
     @Test
     public void shouldBeAbleToGetContacts() {
         Set<Contact> actual = aMeeting.getContacts();
@@ -42,11 +48,21 @@ public class MeetingTest {
         assertSame(expected, actual);
     }
 
+    /**
+     * Test that drives the creation of IllegalMeetingExpression.
+     * If the contact manager was to try to create a set with no
+     * contacts an exception will be thrown with an message.
+     * @throws IllegalMeetingException
+     */
     @Test(expected = IllegalMeetingException.class)
     public void shouldOnlyBeAbleToCreateMeetingWithAtLeastOneContact() throws IllegalMeetingException {
         new MeetingImpl(0, date, new HashSet<Contact>());
     }
 
+    /**
+     * A method that helps the shouldBeAbleToGetContacts test.
+     * @return the set containing one contact.
+     */
     private Set<Contact> contacts() {
         Contact user = new ContactImpl("user1",0);
         Set<Contact> aSet = new HashSet<>();
@@ -54,3 +70,5 @@ public class MeetingTest {
         return aSet;
     }
 }
+
+

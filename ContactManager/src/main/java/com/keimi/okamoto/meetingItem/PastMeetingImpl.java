@@ -8,9 +8,6 @@ import java.util.Calendar;
 import java.util.Set;
 
 public class PastMeetingImpl extends MeetingImpl implements PastMeeting {
-    private int id;
-    private Calendar date;
-    private Set<Contact> aListOfContacts;
     private String note = "";
 
     /**

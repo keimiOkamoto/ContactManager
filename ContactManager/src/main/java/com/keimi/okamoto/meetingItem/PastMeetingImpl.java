@@ -27,6 +27,7 @@ public class PastMeetingImpl extends MeetingImpl implements PastMeeting {
      *
      * @return the notes from the meeting.
      */
+    @Override
     public String getNotes() {
         return note;
     }

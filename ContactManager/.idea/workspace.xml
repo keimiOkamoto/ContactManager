@@ -69,19 +69,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ContactManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/app/organisers/ContactManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="0" selection-start="2306" selection-end="2306" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2520">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContactManagerTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ContactManagerTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/keimi/okamoto/app/organisers/ContactManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="47" selection-start="2414" selection-end="2414" vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="1638">
+            <state line="97" column="21" selection-start="2787" selection-end="2787" vertical-scroll-proportion="0.8245614" vertical-offset="1323" max-vertical-offset="1926">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -93,16 +84,16 @@
       <file leaf-file-name="ContactManagerImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/app/organisers/ContactManagerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="9" selection-start="2023" selection-end="2023" vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="1656">
+            <state line="83" column="22" selection-start="2046" selection-end="2046" vertical-scroll-proportion="0.0" vertical-offset="1143" max-vertical-offset="1656">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactsContainerTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ContactsContainerTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/keimi/okamoto/app/organisers/ContactsContainerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="323" selection-end="323" vertical-scroll-proportion="-0.01754386" vertical-offset="279" max-vertical-offset="792">
+            <state line="15" column="0" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0" vertical-offset="279" max-vertical-offset="792">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -114,7 +105,7 @@
       <file leaf-file-name="ContactsContainerImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/app/organisers/ContactsContainerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="5" selection-start="1516" selection-end="1516" vertical-scroll-proportion="0.0" vertical-offset="596" max-vertical-offset="1116">
+            <state line="53" column="24" selection-start="1510" selection-end="1510" vertical-scroll-proportion="0.0" vertical-offset="619" max-vertical-offset="1116">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -190,8 +181,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/keimi/okamoto/app/organisers/ContactsContainer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/keimi/okamoto/app/organisers/ContactsContainerImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/keimi/okamoto/app/organisers/ContactManagerImpl.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/keimi/okamoto/app/organisers/ContactManagerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/keimi/okamoto/app/organisers/ContactsContainerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/keimi/okamoto/app/organisers/ContactManagerTest.java" />
       </list>
     </option>
   </component>
@@ -828,12 +819,12 @@
       <workItem from="1392936826033" duration="28238000" />
       <workItem from="1393343842100" duration="12682000" />
       <workItem from="1393599721543" duration="7291000" />
-      <workItem from="1393636459528" duration="21736000" />
+      <workItem from="1393636459528" duration="24226000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81552000" />
+    <option name="totallyTimeSpent" value="84042000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1165,13 +1156,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/app/organisers/ContactManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="0" selection-start="2306" selection-end="2306" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2520">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/app/items/FutureMeetingImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="29" selection-start="191" selection-end="242" vertical-scroll-proportion="0.22040816" vertical-offset="0" max-vertical-offset="490">
@@ -1231,26 +1215,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/keimi/okamoto/app/organisers/ContactManagerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/app/organisers/ContactManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="47" selection-start="2414" selection-end="2414" vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="1638">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/app/organisers/ContactManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="9" selection-start="2023" selection-end="2023" vertical-scroll-proportion="0.0" vertical-offset="866" max-vertical-offset="1656">
+        <state line="61" column="0" selection-start="2306" selection-end="2306" vertical-scroll-proportion="-1.5087719" vertical-offset="1746" max-vertical-offset="2520">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/app/organisers/ContactsContainerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="5" selection-start="1516" selection-end="1516" vertical-scroll-proportion="0.0" vertical-offset="362" max-vertical-offset="1116">
+        <state line="53" column="24" selection-start="1510" selection-end="1510" vertical-scroll-proportion="0.0" vertical-offset="596" max-vertical-offset="1116">
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -1270,7 +1244,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/keimi/okamoto/app/organisers/ContactsContainerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="323" selection-end="323" vertical-scroll-proportion="-0.01754386" vertical-offset="279" max-vertical-offset="792">
+        <state line="15" column="0" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0" vertical-offset="279" max-vertical-offset="792">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/keimi/okamoto/app/organisers/ContactManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="22" selection-start="2046" selection-end="2046" vertical-scroll-proportion="0.0" vertical-offset="1143" max-vertical-offset="1656">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/keimi/okamoto/app/organisers/ContactManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="21" selection-start="2787" selection-end="2787" vertical-scroll-proportion="0.8245614" vertical-offset="1323" max-vertical-offset="1926">
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />

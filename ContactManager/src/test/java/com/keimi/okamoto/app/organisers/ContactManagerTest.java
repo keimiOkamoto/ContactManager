@@ -8,8 +8,10 @@ import com.keimi.okamoto.app.items.Contact;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashSet;
 import java.util.Set;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class ContactManagerTest {
@@ -76,10 +78,24 @@ public class ContactManagerTest {
         aContactManager.addNewContact(name3, notes);
         aContactManager.addNewContact(name4, notes);
 
-        Set<Contact> aSetOfContacts = aContactManager.getContacts(0,1,4,5);
+        Set<Contact> aSetOfContacts = aContactManager.getContacts(0,1,4);
         int actualSize = aSetOfContacts.size();
-        int expectedSize = 4;
+        int expectedSize = 3;
 
         assertEquals(expectedSize, actualSize);
+
+
+        String[] contactNameActual = new String[aSetOfContacts.size()];
+
+        int y = 0;
+        for (Contact x : aSetOfContacts) {
+            contactNameActual[y] = x.getName();
+            y++;
+        }
+
+        String[] contactsNameExpected = {name0, name1, name4};
+
+        assertTrue();
+
     }
 }

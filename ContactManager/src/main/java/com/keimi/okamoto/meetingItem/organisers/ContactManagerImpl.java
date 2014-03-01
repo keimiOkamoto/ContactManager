@@ -9,10 +9,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by keimiokamoto on 28/02/2014.
- */
 public class ContactManagerImpl implements ContactManager {
+
     @Override
     public int addFutureMeeting(Set<Contact> contacts, Calendar date) {
         return 0;

@@ -2,7 +2,6 @@
  * Interface for ContactContainer.
  * ContactsContainer class created to take the implementation
  * responsibilities away from ContactManager.
- *
  */
 package com.keimi.okamoto.meetingItem.organisers;
 
@@ -12,5 +11,5 @@ public interface ContactsContainer {
 
     void addContact(String name, String notes);
 
-    Contact getContact();
+    Contact getContact(int contactID);
 }

@@ -17,8 +17,8 @@ import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.*;
 
 
 public class ContactManagerTest {
@@ -65,42 +65,17 @@ public class ContactManagerTest {
     }
 
     /**
-     * Test that should get a set of contacts.
-     * First it will test fot the correct number contacts using size()
-     * after the contact manager has added contacts.
-     * Lastly it will test that the correct contacts are in the HashSet
-     * for a more accurate test.
+     * Using the mocking framework test is made simpler
+     * first verify, verifies the number of times the
+     * getContacts() is being called 4 times ensuring that
+     * 4 elements have been added.
      */
     @Test
     public void shouldBeAbleToGetSetOfContactsDependingOnId() {
-        String name0 = "Adam";
-        String name1 = "Barry";
-        String name2 = "Carl";
-        String name3 = "Darren";
-        String name4 = "Eric";
+        when(aContactContainer.getContact(anyInt())).thenReturn(mock(Contact.class), mock(Contact.class), mock(Contact.class), mock(Contact.class));
+        Set<Contact> contactSet = aContactManager.getContacts(1, 2, 3, 4);
+        verify(aContactContainer, times(4)).getContact(anyInt());
 
-        aContactManager.addNewContact(name0, notes);
-        aContactManager.addNewContact(name1, notes);
-        aContactManager.addNewContact(name2, notes);
-        aContactManager.addNewContact(name3, notes);
-        aContactManager.addNewContact(name4, notes);
-
-        Set<Contact> aSetOfContacts = aContactManager.getContacts(0, 1, 4);
-        int actualSize = aSetOfContacts.size();
-        int expectedSize = 3;
-
-        assertEquals(expectedSize, actualSize);
-
-        Set<String> contactNameActual = new HashSet<>();
-        for (Contact x : aSetOfContacts) {
-            contactNameActual.add(x.getName());
-        }
-
-        Set<String> contactsNameExpected = new HashSet<>();
-        contactsNameExpected.add(name0);
-        contactsNameExpected.add(name1);
-        contactsNameExpected.add(name4);
-
-        assertTrue(contactsNameExpected.equals(contactNameActual));
+        assertEquals(contactSet.size(), 4);
     }
 }

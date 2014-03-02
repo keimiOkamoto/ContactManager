@@ -7,6 +7,8 @@ import com.keimi.okamoto.app.items.Contact;
 
 import com.keimi.okamoto.app.utils.ContactFactory;
 import com.keimi.okamoto.app.utils.ContactFactoryImpl;
+import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
+import com.keimi.okamoto.app.utils.UniqueNumberGeneratorImpl;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,6 +24,7 @@ public class ContactManagerTest {
     private String name;
     private ContactsContainer aContactContainer;
     private ContactManager aContactManager;
+    private UniqueNumberGenerator aUniqueNumberGenerator;
 
     /**
      * Just builds up a new ContactsContainerImpl
@@ -29,7 +32,9 @@ public class ContactManagerTest {
     @Before
     public void buildUp() {
         ContactFactory aContactFactory = new ContactFactoryImpl();
-        aContactContainer = new ContactsContainerImpl(aContactFactory);
+        aUniqueNumberGenerator = UniqueNumberGeneratorImpl.getInstance();
+
+        aContactContainer = new ContactsContainerImpl(aContactFactory,aUniqueNumberGenerator);
         aContactManager = new ContactManagerImpl(aContactContainer);
         notes = "Some notes go here";
         name = "Adam";

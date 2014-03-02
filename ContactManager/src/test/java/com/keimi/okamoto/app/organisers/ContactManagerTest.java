@@ -8,9 +8,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Matchers;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.*;
 
@@ -20,6 +22,7 @@ public class ContactManagerTest {
     private String name;
     private ContactsContainer aContactContainer;
     private ContactManager aContactManager;
+    private Contact aContact;
 
     /**
      * Just builds up a new ContactsContainerImpl
@@ -27,7 +30,7 @@ public class ContactManagerTest {
     @Before
     public void buildUp() {
         aContactContainer = mock(ContactsContainer.class);
-
+        aContact = mock(Contact.class);
         aContactManager = new ContactManagerImpl(aContactContainer);
         notes = "Some notes go here";
         name = "Adam";
@@ -68,6 +71,7 @@ public class ContactManagerTest {
     public void shouldBeAbleToGetSetOfContactsDependingOnId() {
         when(aContactContainer.checkForValidId(Matchers.<int[]>anyVararg())).thenReturn(true);
         when(aContactContainer.getContact(anyInt())).thenReturn(mock(Contact.class), mock(Contact.class), mock(Contact.class), mock(Contact.class));
+
         Set<Contact> contactSet = aContactManager.getContacts(1, 2, 3, 4);
         verify(aContactContainer, times(4)).getContact(anyInt());
 
@@ -85,4 +89,13 @@ public class ContactManagerTest {
         aContactManager.getContacts(num);
     }
 
+    @Test
+    public void shouldBeAbleToGetSetOfContactsByName() {
+        Set<Contact> expected = new HashSet<>();
+        when(aContactManager.getContacts(anyString())).thenReturn(expected);
+        Set<Contact> actual = aContactManager.getContacts(name);
+        verify(aContactContainer).getContacts(name);
+
+        assertEquals(actual, expected);
+    }
 }

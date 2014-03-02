@@ -35,7 +35,7 @@ public class ContactsContainerImpl implements ContactsContainer {
     /**
      * Method that adds a contact to a HashMap
      *
-     * @param name Contacts name
+     * @param name  Contacts name
      * @param notes Contact note
      */
     @Override
@@ -68,9 +68,14 @@ public class ContactsContainerImpl implements ContactsContainer {
         boolean result = true;
         for (int id : ids) {
             if (!contactMap.containsKey(id)) {
-               result = false;
+                result = false;
             }
         }
         return result;
+    }
+
+    @Override
+    public Set<Contact> getContacts(String name) {
+        return null;
     }
 }

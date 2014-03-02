@@ -100,6 +100,6 @@ public class ContactManagerImpl implements ContactManager {
 
     @Override
     public Set<Contact> getContacts(String name) {
-        return null;
+        return aContactsContainer.getContacts(name);
     }
 }

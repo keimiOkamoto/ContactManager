@@ -26,9 +26,11 @@ public class ContactsContainerTest {
     private ContactsContainer aContactContainer;
     private UniqueNumberGenerator aUniqueNumberGenerator;
     private ContactFactory aContactFactory;
+    private Contact aContact;
 
     @Before
     public void buildUp() {
+        aContact = mock(Contact.class);
         aContactFactory = mock(ContactFactory.class);
         aUniqueNumberGenerator = mock(UniqueNumberGenerator.class);
         aContactContainer = new ContactsContainerImpl(aContactFactory, aUniqueNumberGenerator);
@@ -44,7 +46,6 @@ public class ContactsContainerTest {
         String notesExpected = "Some notes goes here...";
         int id = 5;
 
-        Contact aContact = mock(Contact.class);
         when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id);
         when(aContact.getName()).thenReturn(nameExpected);
         when(aContactFactory.createContact(anyInt(), anyString(), anyString())).thenReturn(aContact);
@@ -64,9 +65,8 @@ public class ContactsContainerTest {
     public void shouldBeAbleToCheckForValidId() {
         assertFalse(aContactContainer.checkForValidId(0));
 
-        assertFalse(aContactContainer.checkForValidId(1,2));
+        assertFalse(aContactContainer.checkForValidId(1, 2));
 
-        Contact aContact = mock(Contact.class);
         when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(1);
         when(aContactFactory.createContact(anyInt(), anyString(), anyString())).thenReturn(aContact);
         aContactContainer.addContact("Adam", "Some notes go here");
@@ -78,6 +78,8 @@ public class ContactsContainerTest {
         aContactContainer.addContact("Carl", "Some notes about Carl...");
         aContactContainer.addContact("Derek", "Some notes about Derek...");
 
-        assertFalse(aContactContainer.checkForValidId(1,2,26));
+        assertFalse(aContactContainer.checkForValidId(1, 2, 26));
     }
+
+
 }

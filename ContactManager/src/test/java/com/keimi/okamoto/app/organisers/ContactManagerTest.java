@@ -4,19 +4,12 @@
 package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.Contact;
-
-import com.keimi.okamoto.app.utils.ContactFactory;
-import com.keimi.okamoto.app.utils.ContactFactoryImpl;
-import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
-import com.keimi.okamoto.app.utils.UniqueNumberGeneratorImpl;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.*;
 
@@ -44,7 +37,7 @@ public class ContactManagerTest {
      */
     @Test
     public void shouldBeAbleToAddNewContact() {
-        aContactContainer.addContact(name, notes);
+        aContactManager.addNewContact(name, notes);
         verify(aContactContainer).addContact(name, notes);
     }
 
@@ -53,7 +46,7 @@ public class ContactManagerTest {
      */
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIfNameIsEmpty() throws NullPointerException {
-        aContactContainer.addContact(null, notes);
+        aContactManager.addNewContact(null, notes);
     }
 
     /**
@@ -61,7 +54,7 @@ public class ContactManagerTest {
      */
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIfNotesIsNull() throws NullPointerException {
-        aContactContainer.addContact(name, null);
+        aContactManager.addNewContact(name, null);
     }
 
     /**

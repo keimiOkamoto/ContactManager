@@ -81,11 +81,15 @@ public class ContactManagerImpl implements ContactManager {
 
     /**
      * Gets a Set of contacts based on ID parameter.
+     *
      * @param ids an arbitrary number of contact IDs (variable argument)
      * @return a Set of contacts based on ID parameter.
+     * @throws java.lang.NullPointerException when parameter is null
      */
     @Override
-    public Set<Contact> getContacts(int... ids) {
+    public Set<Contact> getContacts(int... ids) throws NullPointerException {
+        if (ids == null) throw new NullPointerException();
+
         Set<Contact> result = new HashSet<>();
         for (int id : ids) {
             result.add(aContactsContainer.getContact(id));

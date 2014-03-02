@@ -71,4 +71,10 @@ public class ContactManagerTest {
 
         assertEquals(contactSet.size(), 4);
     }
+
+    @Test (expected = NullPointerException.class)
+    public void shouldThrowNullPointerExceptionIfParameterIsNull() {
+        Integer num = null;
+        aContactManager.getContacts(num);
+    }
 }

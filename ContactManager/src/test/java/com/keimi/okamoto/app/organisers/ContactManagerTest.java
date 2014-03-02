@@ -17,6 +17,8 @@ import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 
 public class ContactManagerTest {
@@ -24,17 +26,14 @@ public class ContactManagerTest {
     private String name;
     private ContactsContainer aContactContainer;
     private ContactManager aContactManager;
-    private UniqueNumberGenerator aUniqueNumberGenerator;
 
     /**
      * Just builds up a new ContactsContainerImpl
      */
     @Before
     public void buildUp() {
-        ContactFactory aContactFactory = new ContactFactoryImpl();
-        aUniqueNumberGenerator = UniqueNumberGeneratorImpl.getInstance();
+        aContactContainer = mock(ContactsContainer.class);
 
-        aContactContainer = new ContactsContainerImpl(aContactFactory,aUniqueNumberGenerator);
         aContactManager = new ContactManagerImpl(aContactContainer);
         notes = "Some notes go here";
         name = "Adam";
@@ -46,12 +45,7 @@ public class ContactManagerTest {
     @Test
     public void shouldBeAbleToAddNewContact() {
         aContactContainer.addContact(name, notes);
-        Contact aContact = aContactContainer.getContact(0);
-
-        String actualName = aContact.getName();
-        String expectedName = name;
-
-        assertEquals(actualName, expectedName);
+        verify(aContactContainer).addContact(name, notes);
     }
 
     /**

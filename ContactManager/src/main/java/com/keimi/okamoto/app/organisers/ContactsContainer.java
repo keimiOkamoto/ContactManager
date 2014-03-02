@@ -9,6 +9,7 @@ import com.keimi.okamoto.app.items.Contact;
 
 import java.util.Set;
 
+
 public interface ContactsContainer {
 
     void addContact(String name, String notes);

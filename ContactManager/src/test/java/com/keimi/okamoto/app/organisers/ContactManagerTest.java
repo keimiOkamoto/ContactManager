@@ -5,19 +5,22 @@ package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.Contact;
 
+import com.keimi.okamoto.app.utils.ContactFactory;
+import com.keimi.okamoto.app.utils.ContactFactoryImpl;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 
 public class ContactManagerTest {
-    private ContactsContainer aContactContainer;
     private String notes;
     private String name;
+    private ContactsContainer aContactContainer;
     private ContactManager aContactManager;
 
     /**
@@ -25,10 +28,11 @@ public class ContactManagerTest {
      */
     @Before
     public void buildUp() {
-        aContactContainer = new ContactsContainerImpl();
+        ContactFactory aContactFactory = new ContactFactoryImpl();
+        aContactContainer = new ContactsContainerImpl(aContactFactory);
+        aContactManager = new ContactManagerImpl(aContactContainer);
         notes = "Some notes go here";
         name = "Adam";
-        aContactManager = new ContactManagerImpl();
     }
 
     /**
@@ -62,7 +66,11 @@ public class ContactManagerTest {
     }
 
     /**
-     * Test that should get a set of contacts
+     * Test that should get a set of contacts.
+     * First it will test fot the correct number contacts using size()
+     * after the contact manager has added contacts.
+     * Lastly it will test that the correct contacts are in the HashSet
+     * for a more accurate test.
      */
     @Test
     public void shouldBeAbleToGetSetOfContactsDependingOnId() {
@@ -78,24 +86,22 @@ public class ContactManagerTest {
         aContactManager.addNewContact(name3, notes);
         aContactManager.addNewContact(name4, notes);
 
-        Set<Contact> aSetOfContacts = aContactManager.getContacts(0,1,4);
+        Set<Contact> aSetOfContacts = aContactManager.getContacts(0, 1, 4);
         int actualSize = aSetOfContacts.size();
         int expectedSize = 3;
 
         assertEquals(expectedSize, actualSize);
 
-
-        String[] contactNameActual = new String[aSetOfContacts.size()];
-
-        int y = 0;
+        Set<String> contactNameActual = new HashSet<>();
         for (Contact x : aSetOfContacts) {
-            contactNameActual[y] = x.getName();
-            y++;
+            contactNameActual.add(x.getName());
         }
 
-        String[] contactsNameExpected = {name0, name1, name4};
+        Set<String> contactsNameExpected = new HashSet<>();
+        contactsNameExpected.add(name0);
+        contactsNameExpected.add(name1);
+        contactsNameExpected.add(name4);
 
-        assertTrue();
-
+        assertTrue(contactsNameExpected.equals(contactNameActual));
     }
 }

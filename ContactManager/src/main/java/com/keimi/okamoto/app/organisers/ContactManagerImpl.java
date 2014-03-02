@@ -4,11 +4,21 @@ import com.keimi.okamoto.app.items.Contact;
 import com.keimi.okamoto.app.items.FutureMeeting;
 import com.keimi.okamoto.app.items.Meeting;
 import com.keimi.okamoto.app.items.PastMeeting;
+import com.keimi.okamoto.app.utils.ContactFactory;
+import com.keimi.okamoto.app.utils.ContactFactoryImpl;
 
 import java.util.*;
 
+
 public class ContactManagerImpl implements ContactManager {
-    ContactsContainer contactsContainer = new ContactsContainerImpl();
+    private ContactsContainer aContactsContainer;
+
+    /**
+     * @param aContactsContainer A container that holds contacts
+     */
+    public ContactManagerImpl(ContactsContainer aContactsContainer) {
+        this.aContactsContainer = aContactsContainer;
+    }
 
     @Override
     public int addFutureMeeting(Set<Contact> contacts, Calendar date) {
@@ -66,20 +76,19 @@ public class ContactManagerImpl implements ContactManager {
     public void addNewContact(String name, String notes) throws NullPointerException {
         if (name == null || notes == null) throw new NullPointerException();
 
-        contactsContainer.addContact(name, notes);
+        aContactsContainer.addContact(name, notes);
     }
 
     /**
-     *
+     * Gets a Set of contacts based on ID parameter.
      * @param ids an arbitrary number of contact IDs (variable argument)
-     * @return
+     * @return a Set of contacts based on ID parameter.
      */
     @Override
     public Set<Contact> getContacts(int... ids) {
         Set<Contact> result = new HashSet<>();
-
         for (int id : ids) {
-            result.add(contactsContainer.getContact(id));
+            result.add(aContactsContainer.getContact(id));
         }
         return result;
     }

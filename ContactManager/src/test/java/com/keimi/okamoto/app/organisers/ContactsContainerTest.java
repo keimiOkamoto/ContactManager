@@ -4,6 +4,8 @@
 package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.Contact;
+import com.keimi.okamoto.app.utils.ContactFactory;
+import com.keimi.okamoto.app.utils.ContactFactoryImpl;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,11 +14,12 @@ import java.util.Set;
 import static org.junit.Assert.assertEquals;
 
 public class ContactsContainerTest {
-    ContactsContainer aContactContainer;
+    private ContactsContainer aContactContainer;
 
     @Before
     public void buildUp() {
-        aContactContainer = new ContactsContainerImpl();
+        ContactFactory aContactFactory = new ContactFactoryImpl();
+        aContactContainer = new ContactsContainerImpl(aContactFactory);
     }
 
     /**

@@ -6,6 +6,7 @@ package com.keimi.okamoto.app.organisers;
 import com.keimi.okamoto.app.items.Contact;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Matchers;
 
 import java.util.Set;
 
@@ -65,6 +66,7 @@ public class ContactManagerTest {
      */
     @Test
     public void shouldBeAbleToGetSetOfContactsDependingOnId() {
+        when(aContactContainer.checkForValidId(Matchers.<int[]>anyVararg())).thenReturn(true);
         when(aContactContainer.getContact(anyInt())).thenReturn(mock(Contact.class), mock(Contact.class), mock(Contact.class), mock(Contact.class));
         Set<Contact> contactSet = aContactManager.getContacts(1, 2, 3, 4);
         verify(aContactContainer, times(4)).getContact(anyInt());
@@ -72,9 +74,15 @@ public class ContactManagerTest {
         assertEquals(contactSet.size(), 4);
     }
 
-    @Test (expected = NullPointerException.class)
-    public void shouldThrowNullPointerExceptionIfParameterIsNull() {
-        Integer num = null;
+    /**
+     * Tests that an IllegalArgumentException is thrown if
+     * non-existent id is asked for.
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfIdIsNotValid() {
+        Integer num = 26;
+        when(aContactContainer.checkForValidId(anyInt())).thenReturn(false);
         aContactManager.getContacts(num);
     }
+
 }

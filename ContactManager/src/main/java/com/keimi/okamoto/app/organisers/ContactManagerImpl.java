@@ -84,12 +84,13 @@ public class ContactManagerImpl implements ContactManager {
      *
      * @param ids an arbitrary number of contact IDs (variable argument)
      * @return a Set of contacts based on ID parameter.
-     * @throws java.lang.NullPointerException when parameter is null
+     * @throws java.lang.IllegalArgumentException if ID does not exist
      */
     @Override
-    public Set<Contact> getContacts(int... ids) throws NullPointerException {
-        if (ids == null) throw new NullPointerException();
-
+    public Set<Contact> getContacts(int... ids) throws IllegalArgumentException {
+        if (!aContactsContainer.checkForValidId(ids)) {
+            throw new IllegalArgumentException();
+        }
         Set<Contact> result = new HashSet<>();
         for (int id : ids) {
             result.add(aContactsContainer.getContact(id));

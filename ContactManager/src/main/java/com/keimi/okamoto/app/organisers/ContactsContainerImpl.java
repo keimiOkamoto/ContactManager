@@ -56,4 +56,21 @@ public class ContactsContainerImpl implements ContactsContainer {
     public Contact getContact(int contactId) {
         return contactMap.get(contactId);
     }
+
+    /**
+     * Checks for a valid id.
+     *
+     * @param ids Contact id
+     * @return true if the contact exists.
+     */
+    @Override
+    public boolean checkForValidId(int... ids) {
+        boolean result = true;
+        for (int id : ids) {
+            if (!contactMap.containsKey(id)) {
+               result = false;
+            }
+        }
+        return result;
+    }
 }

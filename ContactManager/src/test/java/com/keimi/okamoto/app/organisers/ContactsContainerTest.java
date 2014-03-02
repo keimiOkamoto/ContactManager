@@ -15,6 +15,8 @@ import org.mockito.Mock;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
@@ -53,5 +55,29 @@ public class ContactsContainerTest {
         String actualName = actual.getName();
 
         assertEquals(actualName, nameExpected);
+    }
+
+    /**
+     * Test to check that the valid Id exists
+     */
+    @Test
+    public void shouldBeAbleToCheckForValidId() {
+        assertFalse(aContactContainer.checkForValidId(0));
+
+        assertFalse(aContactContainer.checkForValidId(1,2));
+
+        Contact aContact = mock(Contact.class);
+        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(1);
+        when(aContactFactory.createContact(anyInt(), anyString(), anyString())).thenReturn(aContact);
+        aContactContainer.addContact("Adam", "Some notes go here");
+
+        assertTrue(aContactContainer.checkForValidId(1));
+
+        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(2, 3, 4);
+        aContactContainer.addContact("Barry", "Some notes about Barry...");
+        aContactContainer.addContact("Carl", "Some notes about Carl...");
+        aContactContainer.addContact("Derek", "Some notes about Derek...");
+
+        assertFalse(aContactContainer.checkForValidId(1,2,26));
     }
 }

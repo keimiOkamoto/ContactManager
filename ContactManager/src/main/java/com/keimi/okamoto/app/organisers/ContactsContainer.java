@@ -11,9 +11,21 @@ import java.util.Set;
 
 
 public interface ContactsContainer {
-
+    /**
+     * Method that adds a contact to a HashMap
+     *
+     * @param name Contacts name
+     * @param notes Contact note
+     */
     void addContact(String name, String notes);
 
-    Contact getContact(int contactID);
+    /**
+     * Gets a contact from HashMap using the contacts ID.
+     *
+     * @param contactId contact's ID
+     * @return a contact
+     */
+    Contact getContact(int contactId);
 
+    boolean checkForValidId(int... ids);
 }

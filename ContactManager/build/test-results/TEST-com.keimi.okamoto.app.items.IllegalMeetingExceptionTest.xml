@@ -1,0 +1,7 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<testsuite name="com.keimi.okamoto.app.items.IllegalMeetingExceptionTest" tests="1" failures="0" errors="0" timestamp="2014-03-02T16:08:48" hostname="keimis-air.home" time="0.016">
+  <properties/>
+  <testcase name="shouldHaveAppropriateMessage" classname="com.keimi.okamoto.app.items.IllegalMeetingExceptionTest" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

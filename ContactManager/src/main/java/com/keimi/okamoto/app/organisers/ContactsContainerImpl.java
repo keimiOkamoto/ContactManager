@@ -18,16 +18,18 @@ import java.util.Set;
 public class ContactsContainerImpl implements ContactsContainer {
     private Map<Integer, Contact> contactMap;
     private ContactFactory aContactFactory;
-
+    private UniqueNumberGenerator aGenarator;
 
     /**
      * Constructor that makes a HashMap.
      * Constructor dependency injection to inject aContactFactory
      * so a contactFactor must be passed through.
+     * Dependency injection for unique number.
      */
-    public ContactsContainerImpl(ContactFactory aContactFactory) {
+    public ContactsContainerImpl(ContactFactory aContactFactory, UniqueNumberGenerator aGenarator) {
         contactMap = new HashMap<>();
         this.aContactFactory = aContactFactory;
+        this.aGenarator = aGenarator;
     }
 
     /**
@@ -38,7 +40,6 @@ public class ContactsContainerImpl implements ContactsContainer {
      */
     @Override
     public void addContact(String name, String notes) {
-        UniqueNumberGenerator aGenarator = UniqueNumberGeneratorImpl.getInstance();
         int uniqueID = aGenarator.getUniqueNumber();
 
         Contact aNewContact = aContactFactory.createContact(uniqueID, name, notes);

@@ -36,5 +36,7 @@ public interface ContactsContainer {
      */
     boolean checkForValidId(int... ids);
 
-    Set<Contact> getContacts(String s);
+    Set<Contact> getContacts(String name);
+
+    boolean checkForValidName(String name);
 }

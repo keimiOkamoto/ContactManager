@@ -78,4 +78,9 @@ public class ContactsContainerImpl implements ContactsContainer {
     public Set<Contact> getContacts(String name) {
         return null;
     }
+
+    @Override
+    public boolean checkForValidName(String name) {
+        return false;
+    }
 }

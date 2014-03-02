@@ -89,6 +89,9 @@ public class ContactManagerTest {
         aContactManager.getContacts(num);
     }
 
+    /**
+     * Test that should return a set of contacts by name.
+     */
     @Test
     public void shouldBeAbleToGetSetOfContactsByName() {
         Set<Contact> expected = new HashSet<>();
@@ -97,5 +100,16 @@ public class ContactManagerTest {
         verify(aContactContainer).getContacts(name);
 
         assertEquals(actual, expected);
+    }
+
+    /**
+     * Test that checks that a NullPointerException is being
+     * thrown if the parameter is null.
+     */
+    @Test (expected = NullPointerException.class)
+    public void shouldThrowNullPointerExceptionIfParameterIsNull() {
+        String name = null;
+        when(aContactContainer.checkForValidName(anyString())).thenReturn(false);
+        aContactManager.getContacts(name);
     }
 }

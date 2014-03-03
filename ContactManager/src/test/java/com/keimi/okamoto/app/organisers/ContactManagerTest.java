@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Matchers;
 
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,15 +24,17 @@ public class ContactManagerTest {
     private ContactsContainer aContactContainer;
     private ContactManager aContactManager;
     private Contact aContact;
+    private MeetingContainer aMeetingContainer;
 
     /**
      * Just builds up a new ContactsContainerImpl
      */
     @Before
     public void buildUp() {
+        aMeetingContainer = mock(MeetingContainer.class);
         aContactContainer = mock(ContactsContainer.class);
         aContact = mock(Contact.class);
-        aContactManager = new ContactManagerImpl(aContactContainer);
+        aContactManager = new ContactManagerImpl(aContactContainer, aMeetingContainer);
         notes = "Some notes go here";
         name = "Adam";
     }
@@ -113,5 +116,29 @@ public class ContactManagerTest {
         String name = null;
         when(aContactContainer.checkForValidName(anyString())).thenReturn(false);
         aContactManager.getContacts(name);
+    }
+
+    @Test
+    public void shouldBeAbleToAddFutureMeeting() {
+        Set<Contact> aSetOfContacts = new HashSet<>();
+        Calendar date = Calendar.getInstance();
+
+        aContactManager.addFutureMeeting(aSetOfContacts, date);
+        verify(aMeetingContainer).addFutureMeeting(aSetOfContacts, date);
+    }
+
+    /**
+     * time is set in the past
+     * contact is unknown - zak
+     * non-existant - null
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfDateIsInThePast() {
+        Set<Contact> aSetOfContacts = new HashSet<>();
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, -1);
+
+        when(aMeetingContainer.checkForValidDate(date)).thenReturn(false);
+        aContactManager.addFutureMeeting(aSetOfContacts, date);
     }
 }

@@ -12,17 +12,22 @@ import java.util.*;
 
 public class ContactManagerImpl implements ContactManager {
     private ContactsContainer aContactsContainer;
+    private MeetingContainer aMeetingContainer;
 
     /**
      * @param aContactsContainer A container that holds contacts
      */
-    public ContactManagerImpl(ContactsContainer aContactsContainer) {
+    public ContactManagerImpl(ContactsContainer aContactsContainer, MeetingContainer aMeetingContainer) {
         this.aContactsContainer = aContactsContainer;
+        this.aMeetingContainer = aMeetingContainer;
     }
 
     @Override
-    public int addFutureMeeting(Set<Contact> contacts, Calendar date) {
-        return 0;
+    public int addFutureMeeting(Set<Contact> contacts, Calendar date) throws IllegalArgumentException {
+        if (!aMeetingContainer.checkForValidDate(date)) {
+            throw new IllegalArgumentException();
+        }
+        return aMeetingContainer.addFutureMeeting(contacts, date);
     }
 
     @Override

@@ -36,8 +36,18 @@ public interface ContactsContainer {
      */
     boolean checkForValidId(int... ids);
 
+    /**
+     * Gets a set of contacts by name
+     *
+     * @param name of contact
+     * @return a Set of contacts by name
+     */
     Set<Contact> getContacts(String name);
 
-
+    /**
+     * boolean that returns true if the name is valid
+     * @param name of contact
+     * @return boolean that returns true if the name is valid
+     */
     boolean checkForValidName(String name);
 }

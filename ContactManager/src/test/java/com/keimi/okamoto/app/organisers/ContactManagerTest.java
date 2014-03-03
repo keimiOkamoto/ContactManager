@@ -94,6 +94,8 @@ public class ContactManagerTest {
      */
     @Test
     public void shouldBeAbleToGetSetOfContactsByName() {
+        when(aContactContainer.checkForValidName(anyString())).thenReturn(true);
+
         Set<Contact> expected = new HashSet<>();
         when(aContactManager.getContacts(anyString())).thenReturn(expected);
         Set<Contact> actual = aContactManager.getContacts(name);

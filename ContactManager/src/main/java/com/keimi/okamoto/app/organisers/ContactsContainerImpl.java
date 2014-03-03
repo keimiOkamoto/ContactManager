@@ -10,10 +10,7 @@ import com.keimi.okamoto.app.utils.ContactFactory;
 import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
 import com.keimi.okamoto.app.utils.UniqueNumberGeneratorImpl;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class ContactsContainerImpl implements ContactsContainer {
     private Map<Integer, Contact> contactMap;
@@ -76,7 +73,15 @@ public class ContactsContainerImpl implements ContactsContainer {
 
     @Override
     public Set<Contact> getContacts(String name) {
-        return null;
+        Set<Contact> resultSet = new HashSet<>();
+
+        for (Contact c : contactMap.values()) {
+            if(c != null && c.getName().equals(name)) {
+                resultSet.add(c);
+            }
+        }
+        return resultSet;
+
     }
 
     @Override

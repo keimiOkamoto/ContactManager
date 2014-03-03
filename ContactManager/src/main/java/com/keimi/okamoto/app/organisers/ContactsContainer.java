@@ -38,5 +38,6 @@ public interface ContactsContainer {
 
     Set<Contact> getContacts(String name);
 
+
     boolean checkForValidName(String name);
 }

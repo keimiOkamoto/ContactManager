@@ -98,6 +98,14 @@ public class ContactManagerImpl implements ContactManager {
         return result;
     }
 
+    /**
+     * Gets a Set containing the relevant contacts
+     * from contact container.
+     *
+     * @param name the string to search for
+     * @return a Set of contacts retrieved by name
+     * @throws NullPointerException if the name is equal to null
+     */
     @Override
     public Set<Contact> getContacts(String name) throws NullPointerException {
         if (!aContactsContainer.checkForValidName(name)) {

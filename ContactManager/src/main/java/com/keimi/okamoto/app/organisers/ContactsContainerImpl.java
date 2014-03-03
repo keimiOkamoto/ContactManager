@@ -86,6 +86,12 @@ public class ContactsContainerImpl implements ContactsContainer {
 
     @Override
     public boolean checkForValidName(String name) {
-        return false;
+        boolean result = false;
+        for (Contact c : contactMap.values()) {
+            if(c != null && c.getName().equals(name)) {
+                result = true;
+            }
+        }
+        return result;
     }
 }

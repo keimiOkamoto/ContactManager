@@ -117,6 +117,18 @@ public class ContactsContainerTest {
     }
 
     /**
+     * Test that makes sure checkForValidName()
+     * is working.
+     */
+    @Test
+    public void shouldBeAbleToCheckForValidName() {
+        addContact("Adam", 1 , "Some notes about Adam...");
+        assertTrue(aContactContainer.checkForValidName("Adam"));
+
+        assertFalse(aContactContainer.checkForValidName("Terry"));
+    }
+
+    /**
      * A method that helps add a contact to avoid
      * repeating code.
      *

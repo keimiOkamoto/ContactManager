@@ -153,10 +153,14 @@ public class ContactManagerTest {
     }
 
     /**
-     * non-existant - null
+     * non-existent - null
      */
-    @Test
+    @Test (expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionIfContactDoesNotExistInSet() {
+        Set<Contact> aSetOfContacts = new HashSet<>();
+        Calendar date = Calendar.getInstance();
 
+        when(aContactContainer.checkForValidSetOfContacts(aSetOfContacts)).thenReturn(false);
+        aContactManager.addFutureMeeting(null, date);
     }
 }

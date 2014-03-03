@@ -94,4 +94,9 @@ public class ContactsContainerImpl implements ContactsContainer {
         }
         return result;
     }
+
+    @Override
+    public boolean checkForValidSetOfContacts(Set<Contact> aSetOfContacts) {
+        return false;
+    }
 }

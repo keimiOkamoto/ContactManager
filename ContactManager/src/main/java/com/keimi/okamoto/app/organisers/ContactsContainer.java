@@ -50,4 +50,6 @@ public interface ContactsContainer {
      * @return boolean that returns true if the name is valid
      */
     boolean checkForValidName(String name);
+
+    boolean checkForValidSetOfContacts(Set<Contact> aSetOfContacts);
 }

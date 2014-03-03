@@ -129,8 +129,6 @@ public class ContactManagerTest {
 
     /**
      * time is set in the past
-     * contact is unknown - zak
-     * non-existant - null
      */
     @Test (expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionIfDateIsInThePast() {
@@ -140,5 +138,25 @@ public class ContactManagerTest {
 
         when(aMeetingContainer.checkForValidDate(date)).thenReturn(false);
         aContactManager.addFutureMeeting(aSetOfContacts, date);
+    }
+
+    /**
+     * contact is unknown - zak
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfContactIsUnknownInSet() {
+        Set<Contact> aSetOfContacts = new HashSet<>();
+        Calendar date = Calendar.getInstance();
+
+        when(aContactContainer.checkForValidSetOfContacts(aSetOfContacts)).thenReturn(false);
+        aContactManager.addFutureMeeting(aSetOfContacts, date);
+    }
+
+    /**
+     * non-existant - null
+     */
+    @Test
+    public void shouldThrowIllegalArgumentExceptionIfContactDoesNotExistInSet() {
+
     }
 }

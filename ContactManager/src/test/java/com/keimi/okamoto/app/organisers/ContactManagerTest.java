@@ -120,8 +120,10 @@ public class ContactManagerTest {
 
     @Test
     public void shouldBeAbleToAddFutureMeeting() {
+
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
+        when(aMeetingContainer.checkForValidDate(date)).thenReturn(true);
 
         aContactManager.addFutureMeeting(aSetOfContacts, date);
         verify(aMeetingContainer).addFutureMeeting(aSetOfContacts, date);

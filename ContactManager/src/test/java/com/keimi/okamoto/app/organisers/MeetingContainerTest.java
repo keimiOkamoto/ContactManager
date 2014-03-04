@@ -10,20 +10,28 @@ import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 
 public class MeetingContainerTest {
     private MeetingContainer aMeetingContainer;
 
+
     @Test
-    public void shouldBeAbleToAddFutureMeeting() {
-//        Set<Contact> aSetOfContacts = new HashSet<>();
-//        Calendar date = Calendar.getInstance();
-//
-//
-//        int actual = aMeetingContainer.addFutureMeeting(aSetOfContacts, date);
-//        int expected = 0;
-//
-//        assertEquals(actual, expected);
+    public void shouldBeAbleToAddFutureMeetingAndReturnId() {
+        Set<Contact> aSetOfContacts = new HashSet<>();
+        Calendar date = Calendar.getInstance();
+        aMeetingContainer = new MeetingContainerImpl();
+
+        int actual = aMeetingContainer.addFutureMeeting(aSetOfContacts, date);
+        int expected = 1;
+
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    public void shouldBeAbleToReturnCorrectIdWhenFutureMeetingIsAdded() {
+
     }
 }

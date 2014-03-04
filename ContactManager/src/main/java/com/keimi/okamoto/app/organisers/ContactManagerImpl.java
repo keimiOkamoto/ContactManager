@@ -4,8 +4,6 @@ import com.keimi.okamoto.app.items.Contact;
 import com.keimi.okamoto.app.items.FutureMeeting;
 import com.keimi.okamoto.app.items.Meeting;
 import com.keimi.okamoto.app.items.PastMeeting;
-import com.keimi.okamoto.app.utils.ContactFactory;
-import com.keimi.okamoto.app.utils.ContactFactoryImpl;
 
 import java.util.*;
 
@@ -24,7 +22,7 @@ public class ContactManagerImpl implements ContactManager {
 
     @Override
     public int addFutureMeeting(Set<Contact> contacts, Calendar date) throws IllegalArgumentException {
-        if (!aMeetingContainer.checkForValidDate(date)) {
+        if (!aMeetingContainer.checkForValidDate(date) || !aContactsContainer.checkForValidSetOfContacts(contacts)) {
             throw new IllegalArgumentException();
         }
         return aMeetingContainer.addFutureMeeting(contacts, date);

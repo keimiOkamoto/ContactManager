@@ -22,7 +22,7 @@ public class MeetingContainerImpl implements MeetingContainer {
      */
     @Override
     public int addFutureMeeting(Set<Contact> aSetOfContacts, Calendar date) {
-    return 0;
+        return 1;
     }
 
     @Override

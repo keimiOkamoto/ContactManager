@@ -71,6 +71,12 @@ public class ContactsContainerImpl implements ContactsContainer {
         return result;
     }
 
+    /**
+     * Get's contact by name.
+     *
+     * @param name of contact
+     * @return a Set if contacts by valid names
+     */
     @Override
     public Set<Contact> getContacts(String name) {
         Set<Contact> resultSet = new HashSet<>();
@@ -84,6 +90,13 @@ public class ContactsContainerImpl implements ContactsContainer {
 
     }
 
+    /**
+     * check for valid name, if not valid returns
+     * false.
+     *
+     * @param name of contact
+     * @return false if name does not exist
+     */
     @Override
     public boolean checkForValidName(String name) {
         boolean result = false;
@@ -95,6 +108,11 @@ public class ContactsContainerImpl implements ContactsContainer {
         return result;
     }
 
+    /**
+     * Method checks that all contacts exist or is not null
+     * @param aSetOfContacts
+     * @return false if the contact doesn't exist or is a null Set
+     */
     @Override
     public boolean checkForValidSetOfContacts(Set<Contact> aSetOfContacts) {
         return false;

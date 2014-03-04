@@ -13,7 +13,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.*;
 
@@ -85,7 +84,7 @@ public class ContactManagerTest {
      * Tests that an IllegalArgumentException is thrown if
      * non-existent id is asked for.
      */
-    @Test (expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionIfIdIsNotValid() {
         Integer num = 26;
         when(aContactContainer.checkForValidId(anyInt())).thenReturn(false);
@@ -111,16 +110,18 @@ public class ContactManagerTest {
      * Test that checks that a NullPointerException is being
      * thrown if the parameter is null.
      */
-    @Test (expected = NullPointerException.class)
+    @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIfParameterIsNull() {
         String name = null;
         when(aContactContainer.checkForValidName(anyString())).thenReturn(false);
         aContactManager.getContacts(name);
     }
 
+    /**
+     * Test that a future meeting can be added.
+     */
     @Test
     public void shouldBeAbleToAddFutureMeeting() {
-
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
         when(aMeetingContainer.checkForValidDate(date)).thenReturn(true);
@@ -130,9 +131,10 @@ public class ContactManagerTest {
     }
 
     /**
-     * time is set in the past
+     * Test for Illegal Argument exception if a
+     * meeting is set in the past.
      */
-    @Test (expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionIfDateIsInThePast() {
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
@@ -145,7 +147,7 @@ public class ContactManagerTest {
     /**
      * contact is unknown - zak
      */
-    @Test (expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionIfContactIsUnknownInSet() {
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
@@ -155,9 +157,10 @@ public class ContactManagerTest {
     }
 
     /**
-     * non-existent - null
+     * Test for Illegal Argument exception if a
+     * non-existent contact Set is added. (with null value)
      */
-    @Test (expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionIfContactDoesNotExistInSet() {
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();

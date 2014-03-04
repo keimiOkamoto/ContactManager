@@ -80,9 +80,8 @@ public class ContactsContainerImpl implements ContactsContainer {
     @Override
     public Set<Contact> getContacts(String name) {
         Set<Contact> resultSet = new HashSet<>();
-
         for (Contact c : contactMap.values()) {
-            if(c != null && c.getName().equals(name)) {
+            if (c != null && c.getName().equals(name)) {
                 resultSet.add(c);
             }
         }
@@ -101,7 +100,7 @@ public class ContactsContainerImpl implements ContactsContainer {
     public boolean checkForValidName(String name) {
         boolean result = false;
         for (Contact c : contactMap.values()) {
-            if(c != null && c.getName().equals(name)) {
+            if (c != null && c.getName().equals(name)) {
                 result = true;
             }
         }
@@ -110,11 +109,20 @@ public class ContactsContainerImpl implements ContactsContainer {
 
     /**
      * Method checks that all contacts exist or is not null
+     *
      * @param aSetOfContacts
      * @return false if the contact doesn't exist or is a null Set
      */
     @Override
     public boolean checkForValidSetOfContacts(Set<Contact> aSetOfContacts) {
-        return false;
+        boolean result = false;
+        if (aSetOfContacts != null) {
+            for (Contact c : aSetOfContacts) {
+                if (checkForValidId(c.getId())) {
+                    result = true;
+                }
+            }
+        }
+        return result;
     }
 }

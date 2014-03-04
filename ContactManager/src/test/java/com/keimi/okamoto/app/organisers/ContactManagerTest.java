@@ -103,7 +103,7 @@ public class ContactManagerTest {
         Set<Contact> actual = aContactManager.getContacts(name);
         verify(aContactContainer).getContacts(name);
 
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     /**

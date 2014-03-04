@@ -27,11 +27,7 @@ public class MeetingContainerTest {
         int actual = aMeetingContainer.addFutureMeeting(aSetOfContacts, date);
         int expected = 1;
 
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
-    @Test
-    public void shouldBeAbleToReturnCorrectIdWhenFutureMeetingIsAdded() {
-
-    }
 }

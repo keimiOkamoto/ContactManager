@@ -5,12 +5,14 @@ import com.keimi.okamoto.app.items.FutureMeeting;
 import com.keimi.okamoto.app.items.Meeting;
 
 import java.util.Calendar;
+import java.util.Map;
 import java.util.Set;
 
 /**
  * Created by keimiokamoto on 03/03/2014.
  */
 public class MeetingContainerImpl implements MeetingContainer {
+    Map<Integer, Contact> aFutureMeetingMap;
 
     /**
      * A method to add a future meeting, taking in a Set of contacts

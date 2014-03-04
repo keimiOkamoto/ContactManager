@@ -19,9 +19,7 @@ import java.util.Set;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.anyInt;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.contains;
+import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -65,7 +63,7 @@ public class ContactsContainerTest {
         Contact actual = aContactContainer.getContact(id);
         String actualName = actual.getName();
 
-        assertEquals(actualName, nameExpected);
+        assertEquals(nameExpected, actualName);
     }
 
     /**
@@ -100,7 +98,7 @@ public class ContactsContainerTest {
         Set<Contact> actualSet = aContactContainer.getContacts(name);
         String actual = actualSet.toArray(new Contact[0])[0].getName();
 
-        assertEquals(actual, name);
+        assertEquals(name, actual);
 
         addContact("Benny", 1, notes);
         addContact(name, 2, notes);
@@ -126,6 +124,27 @@ public class ContactsContainerTest {
         assertTrue(aContactContainer.checkForValidName("Adam"));
 
         assertFalse(aContactContainer.checkForValidName("Terry"));
+    }
+
+    //if set is null should return false
+    //if id doesn't exist in set then null
+    @Test
+    public void shouldBeAbleToCheckForValidSetOfContacts() {
+        assertFalse(aContactContainer.checkForValidSetOfContacts(null));
+
+        String name1 = "Adam";
+        String name2 = "Benny";
+        int id1 = 1;
+        int id2 =2;
+
+        Set<Contact> contactSet = new HashSet<>();
+        contactSet.add(new ContactImpl(name1, id1));
+        contactSet.add(new ContactImpl(name2, id2));
+
+        addContact(name1, id1, "Some notes about Adam...");
+        addContact(name2, id2 , "Some notes about Benny...");
+
+        assertTrue(aContactContainer.checkForValidSetOfContacts(contactSet));
     }
 
     /**

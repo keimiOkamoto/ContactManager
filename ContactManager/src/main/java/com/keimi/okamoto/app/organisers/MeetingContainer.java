@@ -11,7 +11,7 @@ import java.util.Set;
 public interface MeetingContainer {
 
     /**
-     * A method to add a future meeting, taking in a Set of contacts
+     * A method to add a checkForFuture meeting, taking in a Set of contacts
      * and the date.
      *
      * @param aSetOfContacts contacts that will attend the meeting
@@ -20,7 +20,7 @@ public interface MeetingContainer {
      */
     int addFutureMeeting(Set<Contact> aSetOfContacts, Calendar date) throws IllegalMeetingException;
 
-    boolean future(Calendar date);
+    boolean checkForFuture(Calendar date);
 
     boolean checkForPast(Calendar date);
 
@@ -30,5 +30,12 @@ public interface MeetingContainer {
 
     PastMeeting getPastMeeting(int id);
 
+    /**
+     * adds a past meeting to map
+     *
+     * @param aSetOfContacts
+     * @param date
+     * @param notes
+     */
     void addPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes);
 }

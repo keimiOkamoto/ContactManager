@@ -1,7 +1,7 @@
 /**
  * A simple factory to control the creationg of a contact.
  * Factories help maitain organised code and hides the
- * implementation. Factories allow flexible future modification.
+ * implementation. Factories allow flexible checkForFuture modification.
  */
 package com.keimi.okamoto.app.utils;
 

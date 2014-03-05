@@ -19,7 +19,7 @@ public class ContactManagerImpl implements ContactManager {
 
     @Override
     public int addFutureMeeting(Set<Contact> contacts, Calendar date) throws IllegalArgumentException, IllegalMeetingException {
-        if (!aMeetingContainer.future(date) || !aContactsContainer.checkForValidSetOfContacts(contacts)) {
+        if (!aMeetingContainer.checkForFuture(date) || !aContactsContainer.checkForValidSetOfContacts(contacts)) {
             throw new IllegalArgumentException();
         }
         return aMeetingContainer.addFutureMeeting(contacts, date);
@@ -28,7 +28,7 @@ public class ContactManagerImpl implements ContactManager {
     @Override
     public PastMeeting getPastMeeting(int id) throws IllegalArgumentException {
         PastMeeting pastMeeting = aMeetingContainer.getPastMeeting(id);
-        if (pastMeeting != null && aMeetingContainer.future(pastMeeting.getDate())) {
+        if (pastMeeting != null && aMeetingContainer.checkForFuture(pastMeeting.getDate())) {
             throw new IllegalArgumentException();
         }
         return pastMeeting;
@@ -64,8 +64,12 @@ public class ContactManagerImpl implements ContactManager {
     }
 
     @Override
-    public void addNewPastMeeting(Set<Contact> contacts, Calendar date, String text) {
+    public void addNewPastMeeting(Set<Contact> contacts, Calendar date, String text) throws IllegalArgumentException {
+        if (!aContactsContainer.checkForValidSetOfContacts(contacts)) {
+            throw new IllegalArgumentException();
+        }
         aMeetingContainer.addPastMeeting(contacts, date, text);
+
     }
 
     @Override

@@ -9,7 +9,6 @@ import org.junit.Test;
 import org.mockito.Matchers;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -127,18 +126,18 @@ public class ContactManagerTest {
     }
 
     /**
-     * Test that a future meeting can be added.
+     * Test that a checkForFuture meeting can be added.
      */
     @Test
     public void shouldBeAbleToAddFutureMeeting() throws IllegalMeetingException {
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
-        when(aMeetingContainer.future(date)).thenReturn(true);
+        when(aMeetingContainer.checkForFuture(date)).thenReturn(true);
 
         aContactManager.addFutureMeeting(aSetOfContacts, date);
         verify(aMeetingContainer).addFutureMeeting(aSetOfContacts, date);
     }
-
+//////////////////////
     /**
      * Test for Illegal Argument exception if a
      * meeting is set in the past.
@@ -149,7 +148,7 @@ public class ContactManagerTest {
         Calendar date = Calendar.getInstance();
         date.add(Calendar.DATE, -1);
 
-        when(aMeetingContainer.future(date)).thenReturn(false);
+        when(aMeetingContainer.checkForFuture(date)).thenReturn(false);
         aContactManager.addFutureMeeting(aSetOfContacts, date);
     }
 
@@ -233,6 +232,7 @@ public class ContactManagerTest {
     }
 
     /**
+     * Tests For Adding new pass meeting
      * Note to self: refactor.
      */
     @Test
@@ -246,6 +246,25 @@ public class ContactManagerTest {
         verify(aMeetingContainer).addPastMeeting(aSetOfContacts, date, notes);
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfListOfContactsIsEmpty() {
+        Calendar date = Calendar.getInstance();
+        aContactManager.addNewPastMeeting(null, date , notes);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfContactDoesNotExist() {
+
+    }
+
+    @Test (expected = NullPointerException.class)
+    public void shouldThrowNullPointerExceptionIfAnyOfTheArgumentsIsNull () {
+
+    }
+
+    /**
+     * Test for getPastMeeting
+     */
     @Test
     public void shouldReturnPastMeetingWithTheRequestedId() {
         int id = 1;
@@ -275,8 +294,7 @@ public class ContactManagerTest {
 
         when(aPastMeeting.getDate()).thenReturn(date);
         when(aMeetingContainer.getPastMeeting(anyInt())).thenReturn(aPastMeeting);
-        when(aMeetingContainer.future(eq(date))).thenReturn(true);
+        when(aMeetingContainer.checkForFuture(eq(date))).thenReturn(true);
         aContactManager.getPastMeeting(id);
     }
-
 }

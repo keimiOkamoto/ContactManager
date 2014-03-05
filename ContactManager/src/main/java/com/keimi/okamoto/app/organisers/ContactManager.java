@@ -9,7 +9,7 @@ import java.util.Set;
 
 public interface ContactManager {
     /**
-     * Add a new meeting to be held in the future.
+     * Add a new meeting to be held in the checkForFuture.
      *
      * @param contacts a list of contacts that will participate in the meeting
      * @param date     the date on which the meeting will take place
@@ -24,7 +24,7 @@ public interface ContactManager {
      *
      * @param id the ID for the meeting
      * @return the meeting with the requested ID, or null if it there is none.
-     * @throws IllegalArgumentException if there is a meeting with that ID happening in the future
+     * @throws IllegalArgumentException if there is a meeting with that ID happening in the checkForFuture
      */
     PastMeeting getPastMeeting(int id);
 
@@ -46,13 +46,13 @@ public interface ContactManager {
     Meeting getMeeting(int id);
 
     /**
-     * Returns the list of future meetings scheduled with this contact.
+     * Returns the list of checkForFuture meetings scheduled with this contact.
      * <p/>
      * If there are none, the returned list will be empty. Otherwise,
      * the list will be chronologically sorted and will not contain any duplicates.
      *
      * @param contact one of the user’s contacts
-     * @return the list of future meeting(s) scheduled with this contact (maybe empty).
+     * @return the list of checkForFuture meeting(s) scheduled with this contact (maybe empty).
      * @throws IllegalArgumentException if the contact does not exist
      */
     List<Meeting> getFutureMeetingList(Contact contact);
@@ -76,7 +76,7 @@ public interface ContactManager {
      * the list will be chronologically sorted and will not contain any duplicates.
      *
      * @param contact one of the user’s contacts
-     * @return the list of future meeting(s) scheduled with this contact (maybe empty).
+     * @return the list of checkForFuture meeting(s) scheduled with this contact (maybe empty).
      * @throws IllegalArgumentException if the contact does not exist
      */
     List<PastMeeting> getPastMeetingList(Contact contact);
@@ -96,7 +96,7 @@ public interface ContactManager {
     /**
      * Add notes to a meeting.
      * <p/>
-     * This method is used when a future meeting takes place, and is
+     * This method is used when a checkForFuture meeting takes place, and is
      * then converted to a past meeting (with notes).
      * <p/>
      * It can be also used to add notes to a past meeting at a later date.
@@ -104,7 +104,7 @@ public interface ContactManager {
      * @param id   the ID of the meeting
      * @param text messages to be added about the meeting.
      * @throws IllegalArgumentException if the meeting does not exist
-     * @throws IllegalStateException    if the meeting is set for a date in the future
+     * @throws IllegalStateException    if the meeting is set for a date in the checkForFuture
      * @throws NullPointerException     if the notes are null
      */
     void addMeetingNotes(int id, String text);

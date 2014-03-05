@@ -1,6 +1,6 @@
 /**
  * Test class for Contact
- * A contact is a person we are making business with or may do in the future.
+ * A contact is a person we are making business with or may do in the checkForFuture.
  * Contacts have an ID (unique), a name (probably unique, but maybe
  * not), and notes that the user may want to save about them.
  */

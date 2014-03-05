@@ -57,10 +57,10 @@ public class MeetingContainerTest {
         Calendar date = Calendar.getInstance();
 
         date.add(Calendar.DATE, -1);
-        assertFalse(aMeetingContainer.future(date));
+        assertFalse(aMeetingContainer.checkForFuture(date));
 
         date.add(Calendar.DATE, 2);
-        assertTrue(aMeetingContainer.future(date));
+        assertTrue(aMeetingContainer.checkForFuture(date));
     }
 
     @Test

@@ -22,7 +22,7 @@ public class MeetingContainerImpl implements MeetingContainer {
     }
 
     /**
-     * A method to add a future meeting, taking in a Set of contacts
+     * A method to add a checkForFuture meeting, taking in a Set of contacts
      * and the date.
      *
      * @param aSetOfContacts contacts that will attend the meeting
@@ -33,7 +33,7 @@ public class MeetingContainerImpl implements MeetingContainer {
     public int addFutureMeeting(Set<Contact> aSetOfContacts, Calendar date) {
         int uniqueID = aUniqueNumberGenerator.getUniqueNumber();
 
-        if (future(date)) {
+        if (checkForFuture(date)) {
             FutureMeeting aNewMeeting = null;
             try {
                 aNewMeeting = aMeetingFactory.createFutureMeeting(uniqueID, date, aSetOfContacts);
@@ -48,10 +48,10 @@ public class MeetingContainerImpl implements MeetingContainer {
     /**
      * method that checks if the date is in the past
      * @param date A date
-     * @return true if date is in the future
+     * @return true if date is in the checkForFuture
      */
     @Override
-    public boolean future(Calendar date) {
+    public boolean checkForFuture(Calendar date) {
         Calendar now = Calendar.getInstance();
         if (date.before(now)) {
             return false;
@@ -78,7 +78,7 @@ public class MeetingContainerImpl implements MeetingContainer {
      * Returns the FutureMeeting corresponding to that id in
      * aMeetingMAp and null if there is none.
      *
-     * @param id future meeting ID
+     * @param id checkForFuture meeting ID
      * @return FutureMeeting if ID exists null if id doesn't exist
      */
     @Override

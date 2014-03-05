@@ -12,6 +12,7 @@ public class MeetingImpl implements Meeting {
     private Calendar date;
     private Set<Contact> aListOfContacts;
 
+
     public MeetingImpl(int id, Calendar date, Set<Contact> aListOfContacts) throws IllegalMeetingException {
         if (aListOfContacts.size() < 1) throw new IllegalMeetingException();
         this.id = id;

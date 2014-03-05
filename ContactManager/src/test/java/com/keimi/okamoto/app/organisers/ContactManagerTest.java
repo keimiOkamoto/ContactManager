@@ -4,6 +4,7 @@
 package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.Contact;
+import com.keimi.okamoto.app.items.IllegalMeetingException;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Matchers;
@@ -121,10 +122,10 @@ public class ContactManagerTest {
      * Test that a future meeting can be added.
      */
     @Test
-    public void shouldBeAbleToAddFutureMeeting() {
+    public void shouldBeAbleToAddFutureMeeting() throws IllegalMeetingException {
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
-        when(aMeetingContainer.checkForValidDate(date)).thenReturn(true);
+        when(aMeetingContainer.future(date)).thenReturn(true);
 
         aContactManager.addFutureMeeting(aSetOfContacts, date);
         verify(aMeetingContainer).addFutureMeeting(aSetOfContacts, date);
@@ -135,12 +136,12 @@ public class ContactManagerTest {
      * meeting is set in the past.
      */
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowIllegalArgumentExceptionIfDateIsInThePast() {
+    public void shouldThrowIllegalArgumentExceptionIfDateIsInThePast() throws IllegalMeetingException {
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
         date.add(Calendar.DATE, -1);
 
-        when(aMeetingContainer.checkForValidDate(date)).thenReturn(false);
+        when(aMeetingContainer.future(date)).thenReturn(false);
         aContactManager.addFutureMeeting(aSetOfContacts, date);
     }
 
@@ -148,7 +149,7 @@ public class ContactManagerTest {
      * contact is unknown - zak
      */
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowIllegalArgumentExceptionIfContactIsUnknownInSet() {
+    public void shouldThrowIllegalArgumentExceptionIfContactIsUnknownInSet() throws IllegalMeetingException {
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
 
@@ -161,7 +162,7 @@ public class ContactManagerTest {
      * non-existent contact Set is added. (with null value)
      */
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowIllegalArgumentExceptionIfContactDoesNotExistInSet() {
+    public void shouldThrowIllegalArgumentExceptionIfContactDoesNotExistInSet() throws IllegalMeetingException {
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
 

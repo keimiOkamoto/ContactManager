@@ -1,9 +1,6 @@
 package com.keimi.okamoto.app.organisers;
 
-import com.keimi.okamoto.app.items.Contact;
-import com.keimi.okamoto.app.items.FutureMeeting;
-import com.keimi.okamoto.app.items.Meeting;
-import com.keimi.okamoto.app.items.PastMeeting;
+import com.keimi.okamoto.app.items.*;
 
 import java.util.Calendar;
 import java.util.List;
@@ -20,7 +17,7 @@ public interface ContactManager {
      * @throws IllegalArgumentException if the meeting is set for a time in the past,
      * or if and contact is unknown / non-existent.
      */
-    int addFutureMeeting(Set<Contact> contacts, Calendar date);
+    int addFutureMeeting(Set<Contact> contacts, Calendar date) throws IllegalMeetingException;
 
     /**
      * Returns the PAST meeting with the requested ID, or null if it there is none.

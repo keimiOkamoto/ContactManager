@@ -5,17 +5,15 @@
 package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.Contact;
-import com.keimi.okamoto.app.items.ContactImpl;
 import com.keimi.okamoto.app.utils.ContactFactory;
 import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
-import com.keimi.okamoto.app.utils.UniqueNumberGeneratorImpl;
 
 import java.util.*;
 
 public class ContactsContainerImpl implements ContactsContainer {
     private Map<Integer, Contact> contactMap;
     private ContactFactory aContactFactory;
-    private UniqueNumberGenerator aGenarator;
+    private UniqueNumberGenerator aUniqueNumberGenerator;
 
     /**
      * Constructor that makes a HashMap.
@@ -23,10 +21,10 @@ public class ContactsContainerImpl implements ContactsContainer {
      * so a contactFactor must be passed through.
      * Dependency injection for unique number.
      */
-    public ContactsContainerImpl(ContactFactory aContactFactory, UniqueNumberGenerator aGenarator) {
+    public ContactsContainerImpl(ContactFactory aContactFactory, UniqueNumberGenerator aUniqueNumberGenerator) {
         contactMap = new HashMap<>();
         this.aContactFactory = aContactFactory;
-        this.aGenarator = aGenarator;
+        this.aUniqueNumberGenerator = aUniqueNumberGenerator;
     }
 
     /**
@@ -37,7 +35,7 @@ public class ContactsContainerImpl implements ContactsContainer {
      */
     @Override
     public void addContact(String name, String notes) {
-        int uniqueID = aGenarator.getUniqueNumber();
+        int uniqueID = aUniqueNumberGenerator.getUniqueNumber();
 
         Contact aNewContact = aContactFactory.createContact(uniqueID, name, notes);
         contactMap.put(uniqueID, aNewContact);
@@ -110,7 +108,7 @@ public class ContactsContainerImpl implements ContactsContainer {
     /**
      * Method checks that all contacts exist or is not null
      *
-     * @param aSetOfContacts
+     * @param aSetOfContacts a list of contacts
      * @return false if the contact doesn't exist or is a null Set
      */
     @Override

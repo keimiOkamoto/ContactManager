@@ -14,7 +14,7 @@ public class ContactFactoryTest {
      * Test that the correct contact is being made.
      */
     @Test
-    public void shouldCreateAContact() {
+    public void shouldBeAbleToCreateAFutureMeeting() {
         int id = 0;
         String name = "Adam";
         String note = "Some noes go here...";

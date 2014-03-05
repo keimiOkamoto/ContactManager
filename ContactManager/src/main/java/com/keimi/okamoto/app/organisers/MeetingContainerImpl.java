@@ -1,9 +1,6 @@
 package com.keimi.okamoto.app.organisers;
 
-import com.keimi.okamoto.app.items.Contact;
-import com.keimi.okamoto.app.items.FutureMeeting;
-import com.keimi.okamoto.app.items.IllegalMeetingException;
-import com.keimi.okamoto.app.items.Meeting;
+import com.keimi.okamoto.app.items.*;
 import com.keimi.okamoto.app.utils.MeetingFactory;
 import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
 
@@ -95,5 +92,10 @@ public class MeetingContainerImpl implements MeetingContainer {
     @Override
     public Meeting getMeeting(int id) {
         return aMeetingMap.get(id);
+    }
+
+    @Override
+    public PastMeeting getPastMeeting(int id) {
+        return null;
     }
 }

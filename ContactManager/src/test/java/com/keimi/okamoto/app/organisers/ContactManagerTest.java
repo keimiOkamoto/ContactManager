@@ -242,7 +242,13 @@ public class ContactManagerTest {
 
     @Test
     public void shouldReturnNullIfIdDoesNotCorrespondAPastMeeting() {
+        int id = 1;
+        when(aMeetingContainer.getPastMeeting(anyInt())).thenReturn(null);
 
+        PastMeeting actualPastMeeting = aContactManager.getPastMeeting(id);
+        verify(aMeetingContainer).getPastMeeting(id);
+
+        assertEquals(null, actualPastMeeting);
     }
 
     @Test

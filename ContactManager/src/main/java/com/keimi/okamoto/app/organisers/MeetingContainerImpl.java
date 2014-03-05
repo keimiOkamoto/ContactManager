@@ -75,6 +75,8 @@ public class MeetingContainerImpl implements MeetingContainer {
     }
 
     /**
+     * Returns the FutureMeeting corresponding to that id in
+     * aMeetingMAp and null if there is none.
      *
      * @param id future meeting ID
      * @return FutureMeeting if ID exists null if id doesn't exist

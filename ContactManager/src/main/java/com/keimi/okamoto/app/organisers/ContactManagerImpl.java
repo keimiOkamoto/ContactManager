@@ -26,8 +26,12 @@ public class ContactManagerImpl implements ContactManager {
     }
 
     @Override
-    public PastMeeting getPastMeeting(int id) {
-        return aMeetingContainer.getPastMeeting(id);
+    public PastMeeting getPastMeeting(int id) throws IllegalArgumentException {
+        PastMeeting pastMeeting = aMeetingContainer.getPastMeeting(id);
+        if (pastMeeting != null && aMeetingContainer.future(pastMeeting.getDate())) {
+            throw new IllegalArgumentException();
+        }
+        return pastMeeting;
     }
 
     @Override

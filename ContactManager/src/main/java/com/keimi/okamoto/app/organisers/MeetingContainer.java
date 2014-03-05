@@ -3,6 +3,7 @@ package com.keimi.okamoto.app.organisers;
 import com.keimi.okamoto.app.items.Contact;
 import com.keimi.okamoto.app.items.FutureMeeting;
 import com.keimi.okamoto.app.items.IllegalMeetingException;
+import com.keimi.okamoto.app.items.Meeting;
 
 import java.util.Calendar;
 import java.util.Set;
@@ -27,4 +28,6 @@ public interface MeetingContainer {
     boolean checkForPast(Calendar date);
 
     FutureMeeting getFutureMeeting(int id);
+
+    Meeting getMeeting(int id);
 }

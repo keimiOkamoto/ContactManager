@@ -3,6 +3,7 @@ package com.keimi.okamoto.app.organisers;
 import com.keimi.okamoto.app.items.Contact;
 import com.keimi.okamoto.app.items.FutureMeeting;
 import com.keimi.okamoto.app.items.IllegalMeetingException;
+import com.keimi.okamoto.app.items.Meeting;
 import com.keimi.okamoto.app.utils.MeetingFactory;
 import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
 import org.junit.Before;
@@ -54,12 +55,11 @@ public class MeetingContainerTest {
     @Test
     public void shouldBeAbleToCheckForValidDate() {
         Calendar date = Calendar.getInstance();
-        date.add(Calendar.DATE, -1);
 
+        date.add(Calendar.DATE, -1);
         assertFalse(aMeetingContainer.future(date));
 
         date.add(Calendar.DATE, 2);
-
         assertTrue(aMeetingContainer.future(date));
     }
 
@@ -84,5 +84,28 @@ public class MeetingContainerTest {
         FutureMeeting actualFutureMeeting = aMeetingContainer.getFutureMeeting(id);
 
         assertEquals(null, actualFutureMeeting);
+    }
+
+    @Test
+    public void shouldReturnMeetingWithTheRequestedId() throws IllegalMeetingException {
+        int id = 0;
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, 1);
+
+        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id);
+        when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(aFutureMeeting);
+
+        aMeetingContainer.addFutureMeeting(new HashSet<Contact>(), date);
+        Meeting actualMeeting = aMeetingContainer.getMeeting(id);
+
+        assertEquals(aFutureMeeting, actualMeeting);
+    }
+
+    @Test
+    public void shouldReturnNullIfIdDoesNotCorrespondWithMeeting() throws IllegalMeetingException {
+        int id = 0;
+        Meeting actualMeeting = aMeetingContainer.getMeeting(id);
+
+        assertEquals(null, actualMeeting);
     }
 }

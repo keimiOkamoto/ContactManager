@@ -6,6 +6,7 @@ package com.keimi.okamoto.app.organisers;
 import com.keimi.okamoto.app.items.Contact;
 import com.keimi.okamoto.app.items.FutureMeeting;
 import com.keimi.okamoto.app.items.IllegalMeetingException;
+import com.keimi.okamoto.app.items.Meeting;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Matchers;
@@ -28,6 +29,7 @@ public class ContactManagerTest {
     private Contact aContact;
     private MeetingContainer aMeetingContainer;
     private FutureMeeting aFutureMeeting;
+    private Meeting aMeeting;
 
     /**
      * Just builds up a new ContactsContainerImpl
@@ -38,6 +40,7 @@ public class ContactManagerTest {
         aContactContainer = mock(ContactsContainer.class);
         aFutureMeeting = mock(FutureMeeting.class);
         aContact = mock(Contact.class);
+        aMeeting = mock(Meeting.class);
         aContactManager = new ContactManagerImpl(aContactContainer, aMeetingContainer);
         notes = "Some notes go here";
         name = "Adam";
@@ -210,11 +213,21 @@ public class ContactManagerTest {
 
     @Test
     public void shouldReturnMeetingWithTheRequestedId() {
+        int id = 1;
+        when(aMeetingContainer.getMeeting(anyInt())).thenReturn(aMeeting);
+        Meeting actualMeeting = aContactManager.getMeeting(id);
+        verify(aMeetingContainer).getMeeting(id);
 
+        assertEquals(aMeeting, actualMeeting);
     }
 
     @Test
     public void shouldReturnNullIfIdDoesNotCorrespondWithMeeting() {
-        
+        int id = 1;
+        when(aMeetingContainer.getMeeting(anyInt())).thenReturn(null);
+        Meeting actualMeeting = aContactManager.getMeeting(id);
+        verify(aMeetingContainer).getMeeting(id);
+
+        assertEquals(null, actualMeeting);
     }
 }

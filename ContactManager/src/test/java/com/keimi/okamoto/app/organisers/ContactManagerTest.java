@@ -27,6 +27,7 @@ public class ContactManagerTest {
     private ContactManager aContactManager;
     private Contact aContact;
     private MeetingContainer aMeetingContainer;
+    private FutureMeeting aFutureMeeting;
 
     /**
      * Just builds up a new ContactsContainerImpl
@@ -35,6 +36,7 @@ public class ContactManagerTest {
     public void buildUp() {
         aMeetingContainer = mock(MeetingContainer.class);
         aContactContainer = mock(ContactsContainer.class);
+        aFutureMeeting = mock(FutureMeeting.class);
         aContact = mock(Contact.class);
         aContactManager = new ContactManagerImpl(aContactContainer, aMeetingContainer);
         notes = "Some notes go here";
@@ -174,20 +176,22 @@ public class ContactManagerTest {
 
     @Test
     public void shouldReturnTheFutureMeetingWithTheRequestedId() {
+        int id = 1;
+        Calendar date = Calendar.getInstance();
 
+        when(aMeetingContainer.getFutureMeeting(anyInt())).thenReturn(aFutureMeeting);
+        when(aMeetingContainer.checkForPast(date)).thenReturn(false);
+
+        FutureMeeting actualFutureMeeting = aContactManager.getFutureMeeting(id);
+
+        assertEquals(aFutureMeeting, actualFutureMeeting);
     }
 
-    /**
-     * if meeting is in the past
-     */
     @Test (expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionIfThereIsAMeetingWithThatIdHappeningInThePast() {
         Calendar date = Calendar.getInstance();
-        date.add(Calendar.DATE, -1);
 
-        FutureMeeting aFutureMeeting = mock(FutureMeeting.class);
         when(aFutureMeeting.getDate()).thenReturn(date);
-
         when(aMeetingContainer.getFutureMeeting(anyInt())).thenReturn(aFutureMeeting);
         when(aMeetingContainer.checkForPast(date)).thenReturn(true);
         aContactManager.getFutureMeeting(1);

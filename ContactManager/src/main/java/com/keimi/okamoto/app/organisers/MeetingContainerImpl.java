@@ -8,20 +8,22 @@ import com.keimi.okamoto.app.utils.MeetingFactory;
 import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 
 public class MeetingContainerImpl implements MeetingContainer {
-    private Map<Integer, Meeting> aFutureMeetingMap;
-    private ContactsContainer contactsContainer;
+    private Map<Integer, Meeting> aMeetingMap;
     private UniqueNumberGenerator aUniqueNumberGenerator;
     private MeetingFactory aMeetingFactory;
 
     public MeetingContainerImpl(MeetingFactory aMeetingFactory, UniqueNumberGenerator aUniqueNumberGenerator) {
+        aMeetingMap = new HashMap<>();
         this.aMeetingFactory = aMeetingFactory;
         this.aUniqueNumberGenerator = aUniqueNumberGenerator;
     }
+
     /**
      * A method to add a future meeting, taking in a Set of contacts
      * and the date.
@@ -34,14 +36,14 @@ public class MeetingContainerImpl implements MeetingContainer {
     public int addFutureMeeting(Set<Contact> aSetOfContacts, Calendar date) {
         int uniqueID = aUniqueNumberGenerator.getUniqueNumber();
 
-        if (future(date) && contactsContainer.checkForValidSetOfContacts(aSetOfContacts)) {
+        if (future(date)) {
             FutureMeeting aNewMeeting = null;
             try {
                 aNewMeeting = aMeetingFactory.createFutureMeeting(uniqueID, date, aSetOfContacts);
             } catch (IllegalMeetingException e) {
                 e.printStackTrace();
             }
-            aFutureMeetingMap.put(uniqueID, aNewMeeting);
+            aMeetingMap.put(uniqueID, aNewMeeting);
         }
         return uniqueID;
     }
@@ -77,6 +79,6 @@ public class MeetingContainerImpl implements MeetingContainer {
 
     @Override
     public FutureMeeting getFutureMeeting(int id) {
-        return null;
+        return (FutureMeeting)aMeetingMap.get(id);
     }
 }

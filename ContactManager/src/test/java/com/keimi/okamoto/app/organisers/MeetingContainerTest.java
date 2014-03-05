@@ -17,6 +17,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anySet;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -43,7 +44,7 @@ public class MeetingContainerTest {
 
         int actualId = 5;
         when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(actualId);
-        when(aMeetingFactory.createFutureMeeting(anyInt(), date, anySet())).thenReturn(aFutureMeeting);
+        when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(aFutureMeeting);
 
         aMeetingContainer.addFutureMeeting(aSetOfContacts, date);
 
@@ -60,6 +61,21 @@ public class MeetingContainerTest {
         date.add(Calendar.DATE, 2);
 
         assertTrue(aMeetingContainer.future(date));
+    }
+
+    @Test
+    public void shouldBeAbleToGetFutureMeetingById() throws IllegalMeetingException {
+        int id = 0;
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, 2);
+
+        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id);
+        when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(aFutureMeeting);
+
+        aMeetingContainer.addFutureMeeting(new HashSet<Contact>(), date);
+        FutureMeeting actualFutureMeeting = aMeetingContainer.getFutureMeeting(id);
+
+        assertEquals(aFutureMeeting, actualFutureMeeting);
     }
 
 }

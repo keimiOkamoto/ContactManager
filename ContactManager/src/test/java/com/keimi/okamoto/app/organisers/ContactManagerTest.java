@@ -196,4 +196,25 @@ public class ContactManagerTest {
         when(aMeetingContainer.checkForPast(date)).thenReturn(true);
         aContactManager.getFutureMeeting(1);
     }
+
+    @Test
+    public void shouldReturnNullIfIdDoesNotCorrespondWithFutureMeeting() {
+        int id = 1;
+
+        when(aMeetingContainer.getFutureMeeting(anyInt())).thenReturn(null);
+        FutureMeeting actualFutureMeeting = aContactManager.getFutureMeeting(id);
+
+        assertEquals(null, actualFutureMeeting);
+
+    }
+
+    @Test
+    public void shouldReturnMeetingWithTheRequestedId() {
+
+    }
+
+    @Test
+    public void shouldReturnNullIfIdDoesNotCorrespondWithMeeting() {
+        
+    }
 }

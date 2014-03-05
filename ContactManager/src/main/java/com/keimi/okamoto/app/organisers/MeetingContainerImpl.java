@@ -77,6 +77,11 @@ public class MeetingContainerImpl implements MeetingContainer {
         return true;
     }
 
+    /**
+     *
+     * @param id meeting ID
+     * @return FutureMeeting if ID exists null if id doesn't exist
+     */
     @Override
     public FutureMeeting getFutureMeeting(int id) {
         return (FutureMeeting)aMeetingMap.get(id);

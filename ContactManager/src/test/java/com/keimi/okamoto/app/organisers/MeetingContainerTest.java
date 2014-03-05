@@ -78,4 +78,11 @@ public class MeetingContainerTest {
         assertEquals(aFutureMeeting, actualFutureMeeting);
     }
 
+    @Test
+    public void shouldReturnNullIfIdDoesNotCorrespondWithFutureMeeting() {
+        int id = 1;
+        FutureMeeting actualFutureMeeting = aMeetingContainer.getFutureMeeting(id);
+
+        assertEquals(null, actualFutureMeeting);
+    }
 }

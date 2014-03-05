@@ -3,10 +3,7 @@
  */
 package com.keimi.okamoto.app.organisers;
 
-import com.keimi.okamoto.app.items.Contact;
-import com.keimi.okamoto.app.items.FutureMeeting;
-import com.keimi.okamoto.app.items.IllegalMeetingException;
-import com.keimi.okamoto.app.items.Meeting;
+import com.keimi.okamoto.app.items.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Matchers;
@@ -230,4 +227,27 @@ public class ContactManagerTest {
 
         assertEquals(null, actualMeeting);
     }
+
+    @Test
+    public void shouldReturnPastMeetingWithTheRequestedId() {
+        int id = 1;
+        PastMeeting aPastMeeting = mock(PastMeeting.class);
+        when(aMeetingContainer.getPastMeeting(anyInt())).thenReturn(aPastMeeting);
+
+        PastMeeting actualPastMeeting = aContactManager.getPastMeeting(id);
+        verify(aMeetingContainer).getPastMeeting(id);
+
+        assertEquals(aPastMeeting, actualPastMeeting);
+    }
+
+    @Test
+    public void shouldReturnNullIfIdDoesNotCorrespondAPastMeeting() {
+
+    }
+
+    @Test
+    public void shouldThrowIllegalArgumentExceptionIfThereIsAMeetingWithThatIdHappeningInTheFuture() {
+
+    }
+
 }

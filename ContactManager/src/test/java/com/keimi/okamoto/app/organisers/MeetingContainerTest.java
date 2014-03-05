@@ -108,4 +108,16 @@ public class MeetingContainerTest {
 
         assertEquals(null, actualMeeting);
     }
+
+    /**
+     * add meeting
+     * getMeeting with the id
+     * Compatare!
+     *
+     * addNewPastMeeting made first
+     */
+    @Test
+    public void shouldBeAbleToGetPastMeetingWithTheRequestedId() {
+        int id = 0;
+    }
 }

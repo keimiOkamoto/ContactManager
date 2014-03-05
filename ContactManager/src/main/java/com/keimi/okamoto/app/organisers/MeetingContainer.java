@@ -29,4 +29,6 @@ public interface MeetingContainer {
     Meeting getMeeting(int id);
 
     PastMeeting getPastMeeting(int id);
+
+    void addPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes);
 }

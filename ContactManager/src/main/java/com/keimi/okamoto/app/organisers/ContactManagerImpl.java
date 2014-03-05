@@ -65,7 +65,7 @@ public class ContactManagerImpl implements ContactManager {
 
     @Override
     public void addNewPastMeeting(Set<Contact> contacts, Calendar date, String text) {
-
+        aMeetingContainer.addPastMeeting(contacts, date, text);
     }
 
     @Override

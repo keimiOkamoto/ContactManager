@@ -100,4 +100,9 @@ public class MeetingContainerImpl implements MeetingContainer {
     public PastMeeting getPastMeeting(int id) {
         return null;
     }
+
+    @Override
+    public void addPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes) {
+
+    }
 }

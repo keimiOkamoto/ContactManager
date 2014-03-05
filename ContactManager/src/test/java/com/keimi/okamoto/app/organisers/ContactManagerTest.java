@@ -232,6 +232,20 @@ public class ContactManagerTest {
         assertEquals(null, actualMeeting);
     }
 
+    /**
+     * Note to self: refactor.
+     */
+    @Test
+    public void shouldBeAbleToAddNewPastMeeting() {
+        Set<Contact> aSetOfContacts = new HashSet<>();
+        Calendar date = Calendar.getInstance();
+
+        when(aMeetingContainer.checkForPast(date)).thenReturn(true);
+
+        aContactManager.addNewPastMeeting(aSetOfContacts, date, notes);
+        verify(aMeetingContainer).addPastMeeting(aSetOfContacts, date, notes);
+    }
+
     @Test
     public void shouldReturnPastMeetingWithTheRequestedId() {
         int id = 1;
@@ -264,4 +278,5 @@ public class ContactManagerTest {
         when(aMeetingContainer.future(eq(date))).thenReturn(true);
         aContactManager.getPastMeeting(id);
     }
+
 }

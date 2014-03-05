@@ -4,12 +4,14 @@
 package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.Contact;
+import com.keimi.okamoto.app.items.FutureMeeting;
 import com.keimi.okamoto.app.items.IllegalMeetingException;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Matchers;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -168,5 +170,26 @@ public class ContactManagerTest {
 
         when(aContactContainer.checkForValidSetOfContacts(aSetOfContacts)).thenReturn(false);
         aContactManager.addFutureMeeting(null, date);
+    }
+
+    @Test
+    public void shouldReturnTheFutureMeetingWithTheRequestedId() {
+
+    }
+
+    /**
+     * if meeting is in the past
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfThereIsAMeetingWithThatIdHappeningInThePast() {
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, -1);
+
+        FutureMeeting aFutureMeeting = mock(FutureMeeting.class);
+        when(aFutureMeeting.getDate()).thenReturn(date);
+
+        when(aMeetingContainer.getFutureMeeting(anyInt())).thenReturn(aFutureMeeting);
+        when(aMeetingContainer.checkForPast(date)).thenReturn(true);
+        aContactManager.getFutureMeeting(1);
     }
 }

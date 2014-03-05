@@ -1,6 +1,7 @@
 package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.Contact;
+import com.keimi.okamoto.app.items.FutureMeeting;
 import com.keimi.okamoto.app.items.IllegalMeetingException;
 
 import java.util.Calendar;
@@ -22,4 +23,8 @@ public interface MeetingContainer {
     int addFutureMeeting(Set<Contact> aSetOfContacts, Calendar date) throws IllegalMeetingException;
 
     boolean future(Calendar date);
+
+    boolean checkForPast(Calendar date);
+
+    FutureMeeting getFutureMeeting(int id);
 }

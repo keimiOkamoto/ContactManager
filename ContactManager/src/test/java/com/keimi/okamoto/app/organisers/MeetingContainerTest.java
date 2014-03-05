@@ -58,6 +58,7 @@ public class MeetingContainerTest {
         assertFalse(aMeetingContainer.future(date));
 
         date.add(Calendar.DATE, 2);
+
         assertTrue(aMeetingContainer.future(date));
     }
 

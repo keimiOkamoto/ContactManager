@@ -31,8 +31,12 @@ public class ContactManagerImpl implements ContactManager {
     }
 
     @Override
-    public FutureMeeting getFutureMeeting(int id) {
-        return null;
+    public FutureMeeting getFutureMeeting(int id) throws IllegalArgumentException {
+        FutureMeeting futureMeeting = aMeetingContainer.getFutureMeeting(id);
+        if (aMeetingContainer.checkForPast(futureMeeting.getDate())) {
+            throw new IllegalArgumentException();
+        }
+        return futureMeeting;
     }
 
     @Override

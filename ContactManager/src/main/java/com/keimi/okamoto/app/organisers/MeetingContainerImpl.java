@@ -59,4 +59,24 @@ public class MeetingContainerImpl implements MeetingContainer {
         }
         return true;
     }
+
+    /**
+     * method that checks if the date is in the past
+     *
+     * @param date A date
+     * @return
+     */
+    @Override
+    public boolean checkForPast(Calendar date) {
+        Calendar now = Calendar.getInstance();
+        if (date.after(now)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public FutureMeeting getFutureMeeting(int id) {
+        return null;
+    }
 }

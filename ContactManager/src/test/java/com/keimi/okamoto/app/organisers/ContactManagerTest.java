@@ -133,6 +133,7 @@ public class ContactManagerTest {
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
         when(aMeetingContainer.checkForFuture(date)).thenReturn(true);
+        when(aContactContainer.checkForValidSetOfContacts(anySet())).thenReturn(true);
 
         aContactManager.addFutureMeeting(aSetOfContacts, date);
         verify(aMeetingContainer).addFutureMeeting(aSetOfContacts, date);

@@ -114,10 +114,11 @@ public class ContactsContainerImpl implements ContactsContainer {
     @Override
     public boolean checkForValidSetOfContacts(Set<Contact> aSetOfContacts) {
         boolean result = false;
-
-        for (Contact c : aSetOfContacts) {
-            if (checkForValidId(c.getId())) {
-                result = true;
+        if (aSetOfContacts != null) {
+            for (Contact c : aSetOfContacts) {
+                if (checkForValidId(c.getId())) {
+                    result = true;
+                }
             }
         }
         return result;

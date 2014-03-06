@@ -140,7 +140,6 @@ public class MeetingContainerTest {
         PastMeeting pastMeeting = mock(PastMeeting.class);
         Set<Contact> aSetOfContacts = new HashSet<>();
 
-
         when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id);
         when(aMeetingFactory.createPastMeeting(anyInt(), anySet(), eq(date), anyString())).thenReturn(pastMeeting);
         when(pastMeeting.getId()).thenReturn(id);

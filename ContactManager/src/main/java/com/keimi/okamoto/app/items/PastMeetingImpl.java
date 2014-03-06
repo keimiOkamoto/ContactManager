@@ -17,8 +17,13 @@ public class PastMeetingImpl extends MeetingImpl implements PastMeeting {
      * @param aListOfContacts
      * @throws IllegalMeetingException
      */
-    public PastMeetingImpl(int id, Calendar date, Set<Contact> aListOfContacts) throws IllegalMeetingException {
+    public PastMeetingImpl(int id, Calendar date, Set<Contact> aListOfContacts, String notes) throws IllegalMeetingException {
         super(id, date, aListOfContacts);
+        if (notes == null) {
+            this.note = "";
+        } else {
+            this.note = notes;
+        }
     }
 
     /**

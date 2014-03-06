@@ -5,19 +5,17 @@ import com.keimi.okamoto.app.utils.MeetingFactory;
 import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.invocation.MockHandler;
 
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.*;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Matchers.anySet;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.*;
 
 
 public class MeetingContainerTest {
@@ -110,22 +108,27 @@ public class MeetingContainerTest {
      * Starts here.
      */
     @Test
-    public void shouldBeAbleToAddPastMeeting() {
+    public void shouldBeAbleToAddPastMeeting() throws IllegalMeetingException {
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
         date.add(Calendar.DATE, -1);
         String notes = "Some notes go here..";
         PastMeeting pastMeeting = mock(PastMeeting.class);
+        int id = 0;
 
-        when(aMeetingFactory.createPastMeeting(anySet(), eq(date), anyString())).thenReturn(pastMeeting);
+        when(aMeetingFactory.createPastMeeting(anyInt(), anySet(), eq(date), anyString())).thenReturn(pastMeeting);
         aMeetingContainer.addPastMeeting(aSetOfContacts, date, notes);
-        verify(aMeetingFactory).createPastMeeting(anySet(), eq(date), anyString());
+        verify(aMeetingFactory).createPastMeeting(anyInt(),anySet(), eq(date), anyString());
     }
 
-    
-    @Test
-    public void shouldThrowIllegalArgumentExceptionIfDateEnteredIsNotInThePast() {
-
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfDateEnteredIsNotInThePast() throws IllegalMeetingException {
+        Set<Contact> aSetOfContacts = new HashSet<>();
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, 1);
+        String notes = "Some notes go here..";
+        int id = 0;
+        aMeetingContainer.addPastMeeting(aSetOfContacts, date, notes);
     }
 
     /**

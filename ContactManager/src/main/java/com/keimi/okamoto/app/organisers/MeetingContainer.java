@@ -31,11 +31,12 @@ public interface MeetingContainer {
     PastMeeting getPastMeeting(int id);
 
     /**
-     * adds a past meeting to map
      *
      * @param aSetOfContacts
      * @param date
      * @param notes
+     * @throws IllegalArgumentException if date entered is not in the past
+     * @throws com.keimi.okamoto.app.items.IllegalMeetingException
      */
-    void addPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes);
+    void addPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes) throws IllegalArgumentException, IllegalMeetingException;
 }

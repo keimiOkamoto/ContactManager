@@ -232,7 +232,7 @@ public class ContactManagerTest {
      * Note to self: refactor.
      */
     @Test
-    public void shouldBeAbleToAddNewPastMeeting() {
+    public void shouldBeAbleToAddNewPastMeeting() throws IllegalMeetingException {
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
         date.add(Calendar.DATE, -1);

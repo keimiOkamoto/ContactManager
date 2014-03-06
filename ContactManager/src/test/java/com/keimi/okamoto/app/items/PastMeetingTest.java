@@ -15,9 +15,6 @@ import static org.junit.Assert.*;
 
 
 public class PastMeetingTest {
-    private int id;
-    private Calendar date;
-    private Set<Contact> aListOfContacts;
 
     /**
      * Test for to get correct notes of a past meeting
@@ -27,10 +24,13 @@ public class PastMeetingTest {
      */
     @Test
     public void shouldBeAbleToGetNotesEvenIfEmpty() throws IllegalMeetingException {
-        aListOfContacts = new HashSet<>();
+        int id = 0;
+        Calendar date = Calendar.getInstance();
+        Set<Contact> aListOfContacts = new HashSet<>();
         aListOfContacts.add(new ContactImpl("Adam", 0));
+        String notes = null;
 
-        PastMeeting aPastMeeting = new PastMeetingImpl(id, date, aListOfContacts);
+        PastMeeting aPastMeeting = new PastMeetingImpl(id, date, aListOfContacts, notes);
         String actual = aPastMeeting.getNotes();
         String expected = "";
 

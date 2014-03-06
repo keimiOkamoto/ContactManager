@@ -68,7 +68,11 @@ public class ContactManagerImpl implements ContactManager {
         if (contacts == null || date == null || notes == null ) throw new NullPointerException();
         if (contacts.isEmpty() || !aContactsContainer.checkForValidSetOfContacts(contacts)) throw new IllegalArgumentException();
 
-        aMeetingContainer.addPastMeeting(contacts, date, notes);
+        try {
+            aMeetingContainer.addPastMeeting(contacts, date, notes);
+        } catch (IllegalMeetingException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

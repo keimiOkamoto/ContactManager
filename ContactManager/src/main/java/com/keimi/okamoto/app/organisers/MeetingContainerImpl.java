@@ -102,12 +102,17 @@ public class MeetingContainerImpl implements MeetingContainer {
     }
 
     @Override
-    public void addPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes) {
-        Calendar now = Calendar.getInstance();
+    public void addPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes) throws IllegalArgumentException {
         Meeting aNewMeeting = null;
+        int id = aUniqueNumberGenerator.getUniqueNumber();
+        if(!checkForPast(date)) throw new IllegalArgumentException();
 
-        if (date.before(now)) {
-            aNewMeeting = aMeetingFactory.createPastMeeting(aSetOfContacts, date, notes);
+        try {
+            aNewMeeting = aMeetingFactory.createPastMeeting(id, aSetOfContacts, date, notes);
+        } catch (IllegalMeetingException e) {
+            e.printStackTrace();
+        }
+        if (aNewMeeting != null) {
             aMeetingMap.put(aNewMeeting.getId(), aNewMeeting);
         }
     }

@@ -15,7 +15,7 @@ public class MeetingFactoryImpl implements MeetingFactory {
     }
 
     @Override
-    public PastMeeting createPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes) {
-        return null;
+    public PastMeeting createPastMeeting(int id, Set<Contact> aSetOfContacts, Calendar date, String notes) throws IllegalArgumentException, IllegalMeetingException {
+        return new PastMeetingImpl(id, date, aSetOfContacts, notes);
     }
 }

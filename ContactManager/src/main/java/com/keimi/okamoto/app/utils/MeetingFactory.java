@@ -19,5 +19,5 @@ public interface MeetingFactory {
      */
     FutureMeeting createFutureMeeting(int id, Calendar date, Set<Contact> aSetOfContacts) throws IllegalMeetingException;
 
-    PastMeeting createPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes);
+    PastMeeting createPastMeeting(int id, Set<Contact> aSetOfContacts, Calendar date, String notes) throws IllegalArgumentException, IllegalMeetingException;
 }

@@ -1,13 +1,11 @@
 package com.keimi.okamoto.app.organisers;
 
-import com.keimi.okamoto.app.items.Contact;
-import com.keimi.okamoto.app.items.FutureMeeting;
-import com.keimi.okamoto.app.items.IllegalMeetingException;
-import com.keimi.okamoto.app.items.Meeting;
+import com.keimi.okamoto.app.items.*;
 import com.keimi.okamoto.app.utils.MeetingFactory;
 import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.invocation.MockHandler;
 
 import java.util.Calendar;
 import java.util.HashSet;
@@ -16,9 +14,7 @@ import java.util.Set;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.anyInt;
-import static org.mockito.Matchers.anySet;
-import static org.mockito.Matchers.eq;
+import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -117,11 +113,19 @@ public class MeetingContainerTest {
     public void shouldBeAbleToAddPastMeeting() {
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, -1);
         String notes = "Some notes go here..";
+        PastMeeting pastMeeting = mock(PastMeeting.class);
 
-        when(aMeetingContainer.checkForPast(eq(date))).thenReturn(true);
+        when(aMeetingFactory.createPastMeeting(anySet(), eq(date), anyString())).thenReturn(pastMeeting);
         aMeetingContainer.addPastMeeting(aSetOfContacts, date, notes);
-        verify(aMeetingContainer).addPastMeeting(aSetOfContacts, date, notes);
+        verify(aMeetingFactory).createPastMeeting(anySet(), eq(date), anyString());
+    }
+
+    
+    @Test
+    public void shouldThrowIllegalArgumentExceptionIfDateEnteredIsNotInThePast() {
+
     }
 
     /**

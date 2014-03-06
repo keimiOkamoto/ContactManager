@@ -107,7 +107,7 @@ public class MeetingContainerImpl implements MeetingContainer {
         Meeting aNewMeeting = null;
 
         if (date.before(now)) {
-            aNewMeeting = aMeetingFactory.createPastMeeting(aSetOfContacts, date, note);
+            aNewMeeting = aMeetingFactory.createPastMeeting(aSetOfContacts, date, notes);
             aMeetingMap.put(aNewMeeting.getId(), aNewMeeting);
         }
     }

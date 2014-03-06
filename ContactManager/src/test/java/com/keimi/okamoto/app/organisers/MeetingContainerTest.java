@@ -6,9 +6,7 @@ import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyInt;
@@ -114,7 +112,6 @@ public class MeetingContainerTest {
         date.add(Calendar.DATE, -1);
         String notes = "Some notes go here..";
         PastMeeting pastMeeting = mock(PastMeeting.class);
-        int id = 0;
 
         when(aMeetingFactory.createPastMeeting(anyInt(), anySet(), eq(date), anyString())).thenReturn(pastMeeting);
         aMeetingContainer.addPastMeeting(aSetOfContacts, date, notes);
@@ -127,21 +124,30 @@ public class MeetingContainerTest {
         Calendar date = Calendar.getInstance();
         date.add(Calendar.DATE, 1);
         String notes = "Some notes go here..";
-        int id = 0;
         aMeetingContainer.addPastMeeting(aSetOfContacts, date, notes);
     }
 
     /**
-     * Test for getPastMeeting()
-     * UNFINISHED
-     *
-     * add meeting
-     * getMeeting with the id
-     * Compatare!
-     *
-     * addNewPastMeeting make first
+     * Test for getPastMeeting() implementation
+     * Starts here.
      */
     @Test
-    public void shouldBeAbleToGetPastMeetingWithTheRequestedId() {
+    public void shouldBeAbleToGetPastMeetingWithTheRequestedId() throws IllegalMeetingException {
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, -2);
+        int id = 3;
+        String notes = "Some notes go here..";
+        PastMeeting pastMeeting = mock(PastMeeting.class);
+        Set<Contact> aSetOfContacts = new HashSet<>();
+
+
+        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id);
+        when(aMeetingFactory.createPastMeeting(anyInt(), anySet(), eq(date), anyString())).thenReturn(pastMeeting);
+        when(pastMeeting.getId()).thenReturn(id);
+
+        aMeetingContainer.addPastMeeting(aSetOfContacts, date, notes);
+        PastMeeting actual = aMeetingContainer.getPastMeeting(id);
+
+        assertEquals(pastMeeting, actual);
     }
 }

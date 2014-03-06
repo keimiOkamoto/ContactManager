@@ -28,7 +28,6 @@ public interface MeetingContainer {
 
     Meeting getMeeting(int id);
 
-    PastMeeting getPastMeeting(int id);
 
     /**
      *
@@ -39,4 +38,7 @@ public interface MeetingContainer {
      * @throws com.keimi.okamoto.app.items.IllegalMeetingException
      */
     void addPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes) throws IllegalArgumentException, IllegalMeetingException;
+
+    PastMeeting getPastMeeting(int id);
+
 }

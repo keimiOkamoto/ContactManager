@@ -97,16 +97,11 @@ public class MeetingContainerImpl implements MeetingContainer {
     }
 
     @Override
-    public PastMeeting getPastMeeting(int id) {
-        return null;
-    }
-
-    @Override
     public void addPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes) throws IllegalArgumentException {
         Meeting aNewMeeting = null;
         int id = aUniqueNumberGenerator.getUniqueNumber();
-        if(!checkForPast(date)) throw new IllegalArgumentException();
 
+        if(!checkForPast(date)) throw new IllegalArgumentException();
         try {
             aNewMeeting = aMeetingFactory.createPastMeeting(id, aSetOfContacts, date, notes);
         } catch (IllegalMeetingException e) {
@@ -115,5 +110,10 @@ public class MeetingContainerImpl implements MeetingContainer {
         if (aNewMeeting != null) {
             aMeetingMap.put(aNewMeeting.getId(), aNewMeeting);
         }
+    }
+
+    @Override
+    public PastMeeting getPastMeeting(int id) {
+        return (PastMeeting) aMeetingMap.get(id);
     }
 }

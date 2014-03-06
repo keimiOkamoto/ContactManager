@@ -62,7 +62,7 @@ public class ContactManagerImpl implements ContactManager {
     public List<PastMeeting> getPastMeetingList(Contact contact) {
         return null;
     }
-    //take care of empty
+
     @Override
     public void addNewPastMeeting(Set<Contact> contacts, Calendar date, String notes) throws IllegalArgumentException, NullPointerException {
         if (contacts == null || date == null || notes == null ) throw new NullPointerException();

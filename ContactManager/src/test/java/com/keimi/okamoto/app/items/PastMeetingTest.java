@@ -28,9 +28,8 @@ public class PastMeetingTest {
         Calendar date = Calendar.getInstance();
         Set<Contact> aListOfContacts = new HashSet<>();
         aListOfContacts.add(new ContactImpl("Adam", 0));
-        String notes = null;
 
-        PastMeeting aPastMeeting = new PastMeetingImpl(id, date, aListOfContacts, notes);
+        PastMeeting aPastMeeting = new PastMeetingImpl(id, date, aListOfContacts, null);
         String actual = aPastMeeting.getNotes();
         String expected = "";
 

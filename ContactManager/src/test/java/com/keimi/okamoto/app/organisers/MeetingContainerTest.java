@@ -110,14 +110,16 @@ public class MeetingContainerTest {
     }
 
     /**
+     * Test for getPastMeeting()
+     * UNFINISHED
+     *
      * add meeting
      * getMeeting with the id
      * Compatare!
      *
-     * addNewPastMeeting made first
+     * addNewPastMeeting make first
      */
     @Test
     public void shouldBeAbleToGetPastMeetingWithTheRequestedId() {
-        int id = 0;
     }
 }

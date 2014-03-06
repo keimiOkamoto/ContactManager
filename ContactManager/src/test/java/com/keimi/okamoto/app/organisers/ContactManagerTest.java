@@ -137,7 +137,7 @@ public class ContactManagerTest {
         aContactManager.addFutureMeeting(aSetOfContacts, date);
         verify(aMeetingContainer).addFutureMeeting(aSetOfContacts, date);
     }
-//////////////////////
+
     /**
      * Test for Illegal Argument exception if a
      * meeting is set in the past.
@@ -232,38 +232,68 @@ public class ContactManagerTest {
     }
 
     /**
-     * Tests For Adding new pass meeting
+     * Tests For addNewPastMeeting()
      * Note to self: refactor.
      */
     @Test
     public void shouldBeAbleToAddNewPastMeeting() {
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, -1);
 
+        aSetOfContacts.add(aContact);
         when(aMeetingContainer.checkForPast(date)).thenReturn(true);
+        when(aContactContainer.checkForValidSetOfContacts(aSetOfContacts)).thenReturn(true);
 
         aContactManager.addNewPastMeeting(aSetOfContacts, date, notes);
-        verify(aMeetingContainer).addPastMeeting(aSetOfContacts, date, notes);
+        verify(aMeetingContainer).addPastMeeting(anySet(), eq(date), anyString());
     }
 
     @Test (expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionIfListOfContactsIsEmpty() {
+        Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
-        aContactManager.addNewPastMeeting(null, date , notes);
+
+        aContactManager.addNewPastMeeting(aSetOfContacts, date , notes);
     }
 
     @Test (expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionIfContactDoesNotExist() {
+        Set<Contact> aSetOfContacts = new HashSet<>();
+        Calendar date = Calendar.getInstance();
 
+        when(aContactContainer.checkForValidSetOfContacts(anySet())).thenReturn(false);
+        aContactManager.addNewPastMeeting(aSetOfContacts, date, notes);
     }
 
     @Test (expected = NullPointerException.class)
-    public void shouldThrowNullPointerExceptionIfAnyOfTheArgumentsIsNull () {
+    public void shouldThrowNullPointerExceptionIfSetOfContactsArgumentIsNull () {
+        Calendar date = Calendar.getInstance();
 
+        when(aContactContainer.checkForValidName(anyString())).thenReturn(false);
+        aContactManager.addNewPastMeeting(null, date, notes);
     }
 
+    @Test (expected = NullPointerException.class)
+    public void shouldThrowNullPointerExceptionIfDateArgumentIsNull () {
+        Set<Contact> aSetOfContacts = new HashSet<>();
+
+        when(aContactContainer.checkForValidName(anyString())).thenReturn(false);
+        aContactManager.addNewPastMeeting(aSetOfContacts, null, notes);
+    }
+
+    @Test (expected = NullPointerException.class)
+    public void shouldThrowNullPointerExceptionIfNotesArgumentIsNull () {
+        Calendar date = Calendar.getInstance();
+        Set<Contact> aSetOfContacts = new HashSet<>();
+
+        when(aContactContainer.checkForValidName(anyString())).thenReturn(false);
+        aContactManager.addNewPastMeeting(aSetOfContacts, date, null);
+    }
+
+
     /**
-     * Test for getPastMeeting
+     * Test for getPastMeeting() starts here
      */
     @Test
     public void shouldReturnPastMeetingWithTheRequestedId() {

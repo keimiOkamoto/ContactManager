@@ -62,14 +62,13 @@ public class ContactManagerImpl implements ContactManager {
     public List<PastMeeting> getPastMeetingList(Contact contact) {
         return null;
     }
-
+    //take care of empty
     @Override
-    public void addNewPastMeeting(Set<Contact> contacts, Calendar date, String text) throws IllegalArgumentException {
-        if (!aContactsContainer.checkForValidSetOfContacts(contacts)) {
-            throw new IllegalArgumentException();
-        }
-        aMeetingContainer.addPastMeeting(contacts, date, text);
+    public void addNewPastMeeting(Set<Contact> contacts, Calendar date, String notes) throws IllegalArgumentException, NullPointerException {
+        if (contacts == null || date == null || notes == null ) throw new NullPointerException();
+        if (contacts.isEmpty() || !aContactsContainer.checkForValidSetOfContacts(contacts)) throw new IllegalArgumentException();
 
+        aMeetingContainer.addPastMeeting(contacts, date, notes);
     }
 
     @Override

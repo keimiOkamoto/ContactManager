@@ -47,7 +47,8 @@ public class ContactManagerTest {
     }
 
     /**
-     * Test to make sure a new contact can be added.
+     * Test to make sure addNewContact() is implemented
+     * as it should be.
      */
     @Test
     public void shouldBeAbleToAddNewContact() {
@@ -55,17 +56,11 @@ public class ContactManagerTest {
         verify(aContactContainer).addContact(name, notes);
     }
 
-    /**
-     * Test to make sure an exception is thrown if the name is null.
-     */
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIfNameIsEmpty() throws NullPointerException {
         aContactManager.addNewContact(null, notes);
     }
 
-    /**
-     * Test to make sure an exception is thrown if the name is null.
-     */
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIfNotesIsNull() throws NullPointerException {
         aContactManager.addNewContact(name, null);
@@ -291,7 +286,6 @@ public class ContactManagerTest {
         when(aContactContainer.checkForValidName(anyString())).thenReturn(false);
         aContactManager.addNewPastMeeting(aSetOfContacts, date, null);
     }
-
 
     /**
      * Test for getPastMeeting() starts here

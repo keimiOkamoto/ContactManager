@@ -103,6 +103,12 @@ public class MeetingContainerImpl implements MeetingContainer {
 
     @Override
     public void addPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes) {
+        Calendar now = Calendar.getInstance();
+        Meeting aNewMeeting = null;
 
+        if (date.before(now)) {
+            aNewMeeting = aMeetingFactory.createPastMeeting(aSetOfContacts, date, note);
+            aMeetingMap.put(aNewMeeting.getId(), aNewMeeting);
+        }
     }
 }

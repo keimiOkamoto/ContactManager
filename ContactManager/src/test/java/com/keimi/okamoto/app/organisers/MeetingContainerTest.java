@@ -110,6 +110,21 @@ public class MeetingContainerTest {
     }
 
     /**
+     * Test for addPastMeeting() implementation
+     * Starts here.
+     */
+    @Test
+    public void shouldBeAbleToAddPastMeeting() {
+        Set<Contact> aSetOfContacts = new HashSet<>();
+        Calendar date = Calendar.getInstance();
+        String notes = "Some notes go here..";
+
+        when(aMeetingContainer.checkForPast(eq(date))).thenReturn(true);
+        aMeetingContainer.addPastMeeting(aSetOfContacts, date, notes);
+        verify(aMeetingContainer).addPastMeeting(aSetOfContacts, date, notes);
+    }
+
+    /**
      * Test for getPastMeeting()
      * UNFINISHED
      *

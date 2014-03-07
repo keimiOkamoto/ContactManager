@@ -10,6 +10,7 @@ import org.mockito.Matchers;
 
 import java.util.Calendar;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -26,7 +27,7 @@ public class ContactManagerTest {
     private MeetingContainer aMeetingContainer;
     private FutureMeeting aFutureMeeting;
     private Meeting aMeeting;
-    PastMeeting aPastMeeting;
+    private PastMeeting aPastMeeting;
 
 
     /**
@@ -363,4 +364,22 @@ public class ContactManagerTest {
     public void shouldThrowNullPointerExceptionIfTheNotesAreNull() {
         aContactManager.addMeetingNotes(0, null);
     }
+
+    /**
+     * Test for getFutureMeetingList(Contact contact)
+     * Starts here:
+     *
+     * search meeting map
+     */
+    @Test
+    public void shouldBeAbleToReturnListOfFutureMeetingsScheduledWithThisContact() {
+
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfTheContactDoesNotExist() throws IllegalMeetingException {
+        when(aContactContainer.checkForValidName(anyString())).thenReturn(false);
+        aContactManager.getFutureMeetingList(aContact);
+    }
+
 }

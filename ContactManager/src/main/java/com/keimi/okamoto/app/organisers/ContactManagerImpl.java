@@ -10,7 +10,9 @@ public class ContactManagerImpl implements ContactManager {
     private MeetingContainer aMeetingContainer;
 
     /**
+     * Constructor for ContactManagerImpl
      * @param aContactsContainer A container that holds contacts
+     * @param aMeetingContainer A container that holds meetings
      */
     public ContactManagerImpl(ContactsContainer aContactsContainer, MeetingContainer aMeetingContainer) {
         this.aContactsContainer = aContactsContainer;
@@ -50,6 +52,9 @@ public class ContactManagerImpl implements ContactManager {
 
     @Override
     public List<Meeting> getFutureMeetingList(Contact contact) {
+        if (!aContactsContainer.checkForValidName(contact.getName())) {
+            throw new IllegalArgumentException();
+        }
         return null;
     }
 

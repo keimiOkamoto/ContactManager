@@ -44,7 +44,7 @@ public class MeetingContainerTest {
 
         aMeetingContainer.addFutureMeeting(aSetOfContacts, date);
 
-        assertEquals(actualId, 5 );
+        assertEquals(actualId, 5);
     }
 
     @Test
@@ -118,10 +118,10 @@ public class MeetingContainerTest {
 
         when(aMeetingFactory.createPastMeeting(anyInt(), anySet(), eq(date), anyString())).thenReturn(pastMeeting);
         aMeetingContainer.addPastMeeting(aSetOfContacts, date, notes);
-        verify(aMeetingFactory).createPastMeeting(anyInt(),anySet(), eq(date), anyString());
+        verify(aMeetingFactory).createPastMeeting(anyInt(), anySet(), eq(date), anyString());
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionIfDateEnteredIsNotInThePast() throws IllegalMeetingException {
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
@@ -156,8 +156,6 @@ public class MeetingContainerTest {
     /**
      * Test for addMeetingNote()
      * Starts here
-     *
-     * overwrite the meeting with the same id
      */
     @Test
     public void shouldBeAbleToConvertFutureMeetingToPastMeeting() throws IllegalMeetingException {
@@ -169,7 +167,6 @@ public class MeetingContainerTest {
         Calendar futureMeetingDate = aFutureMeeting.getDate();
         Set<Contact> futureMeetingContacts = aFutureMeeting.getContacts();
 
-
         when(aMeetingFactory.createPastMeeting(anyInt(), anySet(), eq(date), anyString())).thenReturn(aPastMeeting);
 
         assertEquals(aPastMeeting.getId(), futureMeetingId);
@@ -177,8 +174,4 @@ public class MeetingContainerTest {
         assertEquals(aPastMeeting.getContacts(), futureMeetingContacts);
     }
 
-    @Test
-    public void shouldBeAbleToAddNotesTo() {
-
-    }
 }

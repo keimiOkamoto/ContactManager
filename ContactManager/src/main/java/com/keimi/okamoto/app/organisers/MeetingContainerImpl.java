@@ -2,6 +2,7 @@ package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.*;
 import com.keimi.okamoto.app.utils.MeetingFactory;
+import com.keimi.okamoto.app.utils.MeetingFactoryImpl;
 import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
 
 import java.util.Calendar;
@@ -117,8 +118,18 @@ public class MeetingContainerImpl implements MeetingContainer {
         return (PastMeeting) aMeetingMap.get(id);
     }
 
+
     @Override
     public void convertToPastMeeting(Meeting aMeeting, String notes) {
+        int futureMeetingId = aMeeting.getId();
+        Calendar futureMeetingDate = aMeeting.getDate();
+        Set<Contact> futureContactSet = aMeeting.getContacts();
 
+        try {
+            PastMeeting pastMeeting = aMeetingFactory.createPastMeeting(futureMeetingId, futureContactSet, futureMeetingDate, notes);
+            aMeetingMap.put(futureMeetingId, pastMeeting);
+        } catch (IllegalMeetingException e) {
+            e.printStackTrace();
+        }
     }
 }

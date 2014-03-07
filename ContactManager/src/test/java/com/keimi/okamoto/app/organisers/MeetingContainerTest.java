@@ -21,12 +21,15 @@ public class MeetingContainerTest {
     private FutureMeeting aFutureMeeting;
     private MeetingFactory aMeetingFactory;
     private UniqueNumberGenerator aUniqueNumberGenerator;
+    private PastMeeting aPastMeeting;
 
     @Before
     public void buildUp() {
         aMeetingFactory = mock(MeetingFactory.class);
         aFutureMeeting = mock(FutureMeeting.class);
         aUniqueNumberGenerator = mock(UniqueNumberGenerator.class);
+        aPastMeeting = mock(PastMeeting.class);
+
         aMeetingContainer = new MeetingContainerImpl(aMeetingFactory, aUniqueNumberGenerator);
     }
 
@@ -148,5 +151,34 @@ public class MeetingContainerTest {
         PastMeeting actual = aMeetingContainer.getPastMeeting(id);
 
         assertEquals(pastMeeting, actual);
+    }
+
+    /**
+     * Test for addMeetingNote()
+     * Starts here
+     *
+     * overwrite the meeting with the same id
+     */
+    @Test
+    public void shouldBeAbleToConvertFutureMeetingToPastMeeting() throws IllegalMeetingException {
+        String notes = "Some notes...";
+        aMeetingContainer.convertToPastMeeting(aFutureMeeting, notes);
+        Calendar date = Calendar.getInstance();
+
+        int futureMeetingId = aFutureMeeting.getId();
+        Calendar futureMeetingDate = aFutureMeeting.getDate();
+        Set<Contact> futureMeetingContacts = aFutureMeeting.getContacts();
+
+
+        when(aMeetingFactory.createPastMeeting(anyInt(), anySet(), eq(date), anyString())).thenReturn(aPastMeeting);
+
+        assertEquals(aPastMeeting.getId(), futureMeetingId);
+        assertEquals(aPastMeeting.getDate(), futureMeetingDate);
+        assertEquals(aPastMeeting.getContacts(), futureMeetingContacts);
+    }
+
+    @Test
+    public void shouldBeAbleToAddNotesTo() {
+
     }
 }

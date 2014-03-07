@@ -76,8 +76,13 @@ public class ContactManagerImpl implements ContactManager {
     }
 
     @Override
-    public void addMeetingNotes(int id, String text) {
+    public void addMeetingNotes(int id, String text) throws NullPointerException, IllegalArgumentException, IllegalStateException {
+        if (text == null) throw new NullPointerException();
+        Meeting aMeeting = aMeetingContainer.getMeeting(id);
+        if (aMeeting == null) throw new IllegalArgumentException();
+        if (aMeetingContainer.checkForFuture(aMeeting.getDate())) throw new IllegalStateException();
 
+        aMeetingContainer.convertToPastMeeting(aMeeting, text);
     }
 
     /**

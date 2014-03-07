@@ -41,4 +41,5 @@ public interface MeetingContainer {
 
     PastMeeting getPastMeeting(int id);
 
+    void convertToPastMeeting(Meeting aMeeting, String notes);
 }

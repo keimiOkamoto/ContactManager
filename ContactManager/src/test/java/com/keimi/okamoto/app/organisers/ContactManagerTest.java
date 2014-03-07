@@ -322,4 +322,45 @@ public class ContactManagerTest {
         when(aMeetingContainer.checkForFuture(eq(date))).thenReturn(true);
         aContactManager.getPastMeeting(id);
     }
+
+    /**
+     * Test for addMeetingNotes() starts here
+     */
+    @Test
+    public void shouldBeAbleToAddMeetingNotes() {
+        Calendar date = Calendar.getInstance();
+        String notes = "Some notes...";
+
+        when(aMeetingContainer.getMeeting(anyInt())).thenReturn(aFutureMeeting);
+        when(aMeetingContainer.checkForFuture(eq(date))).thenReturn(false);
+        when(aFutureMeeting.getDate()).thenReturn(date);
+
+        aContactManager.addMeetingNotes(0, notes);
+        verify(aMeetingContainer).convertToPastMeeting(aFutureMeeting, notes);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfTheMeetingDoesNotExist() {
+        String notes = "Some notes...";
+
+        when(aMeetingContainer.getMeeting(anyInt())).thenReturn(null);
+        aContactManager.addMeetingNotes(0, notes);
+    }
+
+    @Test (expected = IllegalStateException.class)
+    public void  IllegalStateExceptionIfTheMeetingIsSetForADateInTheFuture() {
+        Calendar date = Calendar.getInstance();
+        String notes = "Some notes...";
+
+        when(aMeetingContainer.getMeeting(anyInt())).thenReturn(aFutureMeeting);
+        when(aMeetingContainer.checkForFuture(eq(date))).thenReturn(true);
+        when(aFutureMeeting.getDate()).thenReturn(date);
+
+        aContactManager.addMeetingNotes(0, notes);
+    }
+
+    @Test (expected = NullPointerException.class)
+    public void shouldThrowNullPointerExceptionIfTheNotesAreNull() {
+        aContactManager.addMeetingNotes(0, null);
+    }
 }

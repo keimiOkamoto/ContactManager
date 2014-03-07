@@ -116,4 +116,9 @@ public class MeetingContainerImpl implements MeetingContainer {
     public PastMeeting getPastMeeting(int id) {
         return (PastMeeting) aMeetingMap.get(id);
     }
+
+    @Override
+    public void convertToPastMeeting(Meeting aMeeting, String notes) {
+
+    }
 }

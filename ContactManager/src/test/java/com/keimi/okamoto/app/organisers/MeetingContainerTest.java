@@ -172,4 +172,67 @@ public class MeetingContainerTest {
 
         assertEquals(aPastMeeting, actualPastMeeting);
     }
+
+    /**
+     * Test for getMeetingIdListBy(Contact)
+     * Starts here
+     */
+    @Test
+    public void shouldBeAbleToGetMeetingIdListByContact() throws IllegalMeetingException {
+        int id0 = 2;
+        int id1 = 3;
+        int id2 = 4;
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, 2);
+
+        int contactId = 3;
+        String contactName = "Adam";
+        String contactNotes = "Some notes about Adam...";
+        Set<Contact> contactSet = new HashSet<>();
+
+        Contact contact1 = contactMaker(contactId, contactName, contactNotes);
+        contactSet.add(contact1);
+
+        FutureMeeting futureMeeting = futureMeetingMaker(id0, date, contactSet);
+        FutureMeeting futureMeeting1 = futureMeetingMaker(id1, date, contactSet);
+        FutureMeeting futureMeeting2 = futureMeetingMaker(id2, date, contactSet);
+
+        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id0);
+        when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(futureMeeting);
+        aMeetingContainer.addFutureMeeting(contactSet, date);
+
+        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id1);
+        when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(futureMeeting1);
+        aMeetingContainer.addFutureMeeting(contactSet, date);
+
+        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id2);
+        when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(futureMeeting2);
+        aMeetingContainer.addFutureMeeting(contactSet, date);
+
+        List<Integer> expected = Arrays.asList(id0, id1, id2);
+        List<Integer> meetingIds = aMeetingContainer.getMeetingIdListBy(contact1);
+
+        assertEquals(expected, meetingIds);
+    }
+
+    /*
+     * Helpers for tests
+     */
+    private Contact contactMaker(int contactId, String contactName, String contactNotes) {
+        Contact contact1 = mock(Contact.class);
+        when(contact1.getId()).thenReturn(contactId);
+        when(contact1.getName()).thenReturn(contactName);
+        when(contact1.getNotes()).thenReturn(contactNotes);
+
+        return contact1;
+    }
+
+    private FutureMeeting futureMeetingMaker(int meetingId, Calendar date, Set<Contact> contactSet) {
+        FutureMeeting futureMeeting = mock(FutureMeeting.class);
+        when(futureMeeting.getId()).thenReturn(meetingId);
+        when(futureMeeting.getDate()).thenReturn(date);
+        when(futureMeeting.getContacts()).thenReturn(contactSet);
+
+        return futureMeeting;
+    }
 }

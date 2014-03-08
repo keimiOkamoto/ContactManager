@@ -2,7 +2,6 @@ package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.*;
 import com.keimi.okamoto.app.utils.MeetingFactory;
-import com.keimi.okamoto.app.utils.MeetingFactoryImpl;
 import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
 
 import java.util.*;
@@ -12,11 +11,13 @@ public class MeetingContainerImpl implements MeetingContainer {
     private Map<Integer, Meeting> aMeetingMap;
     private UniqueNumberGenerator aUniqueNumberGenerator;
     private MeetingFactory aMeetingFactory;
+    private Map <Integer, List<Integer>> contactMeetingMap;
 
     public MeetingContainerImpl(MeetingFactory aMeetingFactory, UniqueNumberGenerator aUniqueNumberGenerator) {
         aMeetingMap = new HashMap<>();
         this.aMeetingFactory = aMeetingFactory;
         this.aUniqueNumberGenerator = aUniqueNumberGenerator;
+        contactMeetingMap = new HashMap<>();
     }
 
     /**
@@ -38,9 +39,26 @@ public class MeetingContainerImpl implements MeetingContainer {
             } catch (IllegalMeetingException e) {
                 e.printStackTrace();
             }
+            addToContactMeetingMap(aSetOfContacts, aNewMeeting);
             aMeetingMap.put(uniqueID, aNewMeeting);
         }
         return uniqueID;
+    }
+
+    /*
+     * Helper method to add to a contactMeetingMap
+     */
+    private void addToContactMeetingMap(Set<Contact> aSetOfContacts, FutureMeeting aNewMeeting) {
+        for (Contact contact : aSetOfContacts) {
+            List<Integer> meetingIds = contactMeetingMap.get(contact.getId());
+            if (meetingIds == null) {
+                meetingIds = new ArrayList<>();
+                meetingIds.add(aNewMeeting.getId());
+                contactMeetingMap.put(contact.getId(), meetingIds);
+            } else {
+                meetingIds.add(aNewMeeting.getId());
+            }
+        }
     }
 
     /**
@@ -131,6 +149,6 @@ public class MeetingContainerImpl implements MeetingContainer {
 
     @Override
     public List<Integer> getMeetingIdListBy(Contact contact) {
-        return null;
+        return contactMeetingMap.get(contact.getId());
     }
 }

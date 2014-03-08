@@ -54,19 +54,22 @@ public class ContactManagerImpl implements ContactManager {
     public List<Meeting> getFutureMeetingList(Contact contact) throws IllegalArgumentException {
         if (!aContactsContainer.checkForValidName(contact.getName())) throw new IllegalArgumentException();
 
-        List<Integer> meetingIds = aMeetingContainer.getMeetingIdListBy(contact);
+        Set<Integer> meetingIds = aMeetingContainer.getMeetingIdListBy(contact);
         List<Meeting> meetings = new ArrayList<>();
-        for (int id : meetingIds) {
-            Meeting aMeeting = aMeetingContainer.getMeeting(id);
-                if (aMeeting instanceof FutureMeeting) {
-                    meetings.add(aMeeting);
-                }
+        if (meetingIds != null) {
+            for (int id : meetingIds) {
+                Meeting aMeeting = aMeetingContainer.getMeeting(id);
+                    if (aMeeting instanceof FutureMeeting) {
+                        meetings.add(aMeeting);
+                    }
+            }
         }
         return sortInChronologicalOrder(meetings);
     }
 
     /**
      * A private method that sorts meeting in chronological order.
+     *
      * @param meetings a list of meetings
      * @return a list of meeting sorted in chronological order
      */

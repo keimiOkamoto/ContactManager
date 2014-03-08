@@ -44,6 +44,6 @@ public interface MeetingContainer {
 
     void convertToPastMeeting(Meeting aMeeting, String notes);
 
-    List<Integer> getMeetingIdListBy(Contact contact);
+    Set<Integer> getMeetingIdListBy(Contact contact);
 
 }

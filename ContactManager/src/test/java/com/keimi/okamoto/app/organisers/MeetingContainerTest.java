@@ -209,8 +209,45 @@ public class MeetingContainerTest {
         when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(futureMeeting2);
         aMeetingContainer.addFutureMeeting(contactSet, date);
 
-        List<Integer> expected = Arrays.asList(id0, id1, id2);
-        List<Integer> meetingIds = aMeetingContainer.getMeetingIdListBy(contact1);
+        Set<Integer> expected = new HashSet<>();
+        expected.add(id0);
+        expected.add(id1);
+        expected.add(id2);
+
+        Set<Integer> meetingIds = aMeetingContainer.getMeetingIdListBy(contact1);
+
+        assertEquals(expected, meetingIds);
+    }
+
+    @Test
+    public void shouldHaveNoDuplicateMeetings() throws IllegalMeetingException {
+        int id0 = 2;
+
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, 2);
+
+        int contactId = 3;
+        String contactName = "Adam";
+        String contactNotes = "Some notes about Adam...";
+        Set<Contact> contactSet = new HashSet<>();
+
+        Contact contact1 = contactMaker(contactId, contactName, contactNotes);
+        contactSet.add(contact1);
+
+        FutureMeeting futureMeeting = futureMeetingMaker(id0, date, contactSet);
+        FutureMeeting futureMeeting1 = futureMeetingMaker(id0, date, contactSet);
+
+        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id0);
+        when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(futureMeeting);
+        aMeetingContainer.addFutureMeeting(contactSet, date);
+
+        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id0);
+        when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(futureMeeting1);
+        aMeetingContainer.addFutureMeeting(contactSet, date);
+
+        Set<Integer> expected = new HashSet<>();
+        expected.add(id0);
+        Set<Integer> meetingIds = aMeetingContainer.getMeetingIdListBy(contact1);
 
         assertEquals(expected, meetingIds);
     }

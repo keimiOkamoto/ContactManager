@@ -11,7 +11,7 @@ public class MeetingContainerImpl implements MeetingContainer {
     private Map<Integer, Meeting> aMeetingMap;
     private UniqueNumberGenerator aUniqueNumberGenerator;
     private MeetingFactory aMeetingFactory;
-    private Map <Integer, List<Integer>> contactMeetingMap;
+    private Map <Integer, Set<Integer>> contactMeetingMap;
 
     public MeetingContainerImpl(MeetingFactory aMeetingFactory, UniqueNumberGenerator aUniqueNumberGenerator) {
         aMeetingMap = new HashMap<>();
@@ -50,9 +50,9 @@ public class MeetingContainerImpl implements MeetingContainer {
      */
     private void addToContactMeetingMap(Set<Contact> aSetOfContacts, FutureMeeting aNewMeeting) {
         for (Contact contact : aSetOfContacts) {
-            List<Integer> meetingIds = contactMeetingMap.get(contact.getId());
+            Set<Integer> meetingIds = contactMeetingMap.get(contact.getId());
             if (meetingIds == null) {
-                meetingIds = new ArrayList<>();
+                meetingIds = new HashSet<>();
                 meetingIds.add(aNewMeeting.getId());
                 contactMeetingMap.put(contact.getId(), meetingIds);
             } else {
@@ -148,7 +148,7 @@ public class MeetingContainerImpl implements MeetingContainer {
     }
 
     @Override
-    public List<Integer> getMeetingIdListBy(Contact contact) {
+    public Set<Integer> getMeetingIdListBy(Contact contact) {
         return contactMeetingMap.get(contact.getId());
     }
 }

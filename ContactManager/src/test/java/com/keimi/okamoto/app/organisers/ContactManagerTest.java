@@ -372,13 +372,19 @@ public class ContactManagerTest {
     @Test
     public void shouldBeAbleToReturnListOfFutureMeetingsScheduledWithThisContact() {
         when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, 2);
+        Set<Contact> contactSet = new HashSet<>();
+        Set<Integer> meetingIds = new HashSet<>();
+        meetingIds.add(1);
+        meetingIds.add(2);
+        meetingIds.add(3);
+        meetingIds.add(4);
 
-        List<Integer> meetingIds = Arrays.asList(1,2,3,4);
-
-        FutureMeeting fm1 = mock(FutureMeeting.class);
-        FutureMeeting fm2 = mock(FutureMeeting.class);
-        FutureMeeting fm3 = mock(FutureMeeting.class);
-        FutureMeeting fm4 = mock(FutureMeeting.class);
+        FutureMeeting fm1 = futureMeetingMaker(1, date, contactSet);
+        FutureMeeting fm2 = futureMeetingMaker(2, date, contactSet);
+        FutureMeeting fm3 = futureMeetingMaker(3, date, contactSet);
+        FutureMeeting fm4 = futureMeetingMaker(4, date, contactSet);
 
         when(aMeetingContainer.getMeetingIdListBy(eq(aContact))).thenReturn(meetingIds);
         when(aMeetingContainer.getMeeting(anyInt())).thenReturn(fm1,fm2,fm3,fm4);
@@ -395,11 +401,18 @@ public class ContactManagerTest {
     public void shouldBeAbleToReturnListOfOnlyFutureMeetingsScheduledWithThisContact() {
         when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
 
-        List<Integer> meetingIds = Arrays.asList(1,2,3,4);
+        Set<Integer> meetingIds = new HashSet<>();
+        meetingIds.add(1);
+        meetingIds.add(2);
+        meetingIds.add(3);
+        meetingIds.add(4);
 
-        FutureMeeting fm1 = mock(FutureMeeting.class);
-        FutureMeeting fm2 = mock(FutureMeeting.class);
-        FutureMeeting fm4 = mock(FutureMeeting.class);
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, 2);
+        Set<Contact> contactSet = new HashSet<>();
+        FutureMeeting fm1 = futureMeetingMaker(1, date, contactSet);
+        FutureMeeting fm2 = futureMeetingMaker(2, date, contactSet);
+        FutureMeeting fm4 = futureMeetingMaker(3, date, contactSet);
 
         when(aMeetingContainer.getMeetingIdListBy(eq(aContact))).thenReturn(meetingIds);
         when(aMeetingContainer.getMeeting(anyInt())).thenReturn(fm1,fm2,null,fm4);
@@ -422,7 +435,12 @@ public class ContactManagerTest {
     public void shouldReturnListOfMeetingsInChronologicalOrder() {
         when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
 
-        List<Integer> meetingIds = Arrays.asList(1,2,3,4,5);
+        Set<Integer> meetingIds = new HashSet<>();
+        meetingIds.add(1);
+        meetingIds.add(2);
+        meetingIds.add(3);
+        meetingIds.add(4);
+        meetingIds.add(5);
 
         Calendar date1 = Calendar.getInstance();
         Calendar date2= Calendar.getInstance();
@@ -453,12 +471,30 @@ public class ContactManagerTest {
         verify(aMeetingContainer,times(5)).getMeeting(anyInt());
     }
 
+    @Test
     public void shouldReturnNullifListIsEmpty() {
+        when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
 
+        Set<Integer> meetingIds = null;
+
+        Calendar date1 = Calendar.getInstance();
+        date1.add(Calendar.DATE, -1);
+        Set<Contact> contactSet = new HashSet<>();
+        FutureMeeting fm1 = futureMeetingMaker(1, date1, contactSet);
+
+        when(aMeetingContainer.getMeetingIdListBy(eq(aContact))).thenReturn(meetingIds);
+        when(aMeetingContainer.getMeeting(anyInt())).thenReturn(fm1);
+
+        List<FutureMeeting> expected = Arrays.asList();
+        List<FutureMeeting> actual = (List<FutureMeeting>) (List<?>) aContactManager.getFutureMeetingList(aContact);
+
+        assertEquals(expected, actual);
+        verify(aMeetingContainer,never()).getMeeting(anyInt());
     }
+
     /*
      * Helper for test.
-     * Makes future meeting.
+     * Makes a future meeting.
      */
     private FutureMeeting futureMeetingMaker(int meetingId, Calendar date, Set<Contact> contactSet) {
         FutureMeeting futureMeeting = mock(FutureMeeting.class);

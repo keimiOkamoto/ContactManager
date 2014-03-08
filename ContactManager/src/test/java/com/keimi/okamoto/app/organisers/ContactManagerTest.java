@@ -364,10 +364,6 @@ public class ContactManagerTest {
     /**
      * Test for getFutureMeetingList(Contact contact)
      * Starts here:
-     *
-     * search meeting map for each meeting containing contact
-     * then add into list
-     * return list even if empty
      */
     @Test
     public void shouldBeAbleToReturnListOfFutureMeetingsScheduledWithThisContact() {
@@ -432,7 +428,7 @@ public class ContactManagerTest {
     }
 
     @Test
-    public void shouldReturnListOfMeetingsInChronologicalOrder() {
+    public void shouldReturnListOfFutureMeetingsInChronologicalOrder() {
         when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
 
         Set<Integer> meetingIds = new HashSet<>();
@@ -472,7 +468,7 @@ public class ContactManagerTest {
     }
 
     @Test
-    public void shouldReturnNullifListIsEmpty() {
+    public void shouldReturnAnEmptyListIfMeetingIdListIsEmptyForFutureMeeting() {
         when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
 
         Set<Integer> meetingIds = null;
@@ -490,6 +486,155 @@ public class ContactManagerTest {
 
         assertEquals(expected, actual);
         verify(aMeetingContainer,never()).getMeeting(anyInt());
+    }
+
+    /**
+     * Test for getPastMeetingList(Contact contact)
+     * Starts here:
+     */
+    @Test
+    public void shouldBeAbleToReturnListOfOnlyPastMeetingsScheduledWithThisContact() {
+        when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, 2);
+        String notes = "Some notes go here...";
+        Set<Contact> contactSet = new HashSet<>();
+
+        Set<Integer> meetingIds = new HashSet<>();
+        meetingIds.add(1);
+        meetingIds.add(2);
+        meetingIds.add(3);
+        meetingIds.add(4);
+
+        int id1 = 1;
+        int id2 = 2;
+        int id3 = 3;
+        int id4 = 4;
+        PastMeeting pm1 = pastMeetingMaker(id1, date, notes, contactSet);
+        PastMeeting pm2 = pastMeetingMaker(id2, date, notes, contactSet);
+        PastMeeting pm3 = pastMeetingMaker(id3, date, notes, contactSet);
+        PastMeeting pm4 = pastMeetingMaker(id4, date, notes, contactSet);
+
+        when(aMeetingContainer.getMeetingIdListBy(eq(aContact))).thenReturn(meetingIds);
+        when(aMeetingContainer.getMeeting(anyInt())).thenReturn(pm1,pm2,pm3,pm4);
+
+        List<PastMeeting> expected = Arrays.asList(pm1,pm2, pm3, pm4);
+
+        List<PastMeeting> actual = (List<PastMeeting>) (List<?>) aContactManager.getPastMeetingList(aContact);
+
+        assertEquals(expected, actual);
+        verify(aMeetingContainer,times(4)).getMeeting(anyInt());
+    }
+
+    @Test
+    public void shouldBeAbleToReturnListOfOnlyFutureMeetingsScheduledWithThisContactInPastMeeting() {
+        when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
+
+        Set<Integer> meetingIds = new HashSet<>();
+        meetingIds.add(1);
+        meetingIds.add(2);
+        meetingIds.add(3);
+        meetingIds.add(4);
+
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, 2);
+        String notes = "Some notes go here...";
+        Set<Contact> contactSet = new HashSet<>();
+        PastMeeting fm1 = pastMeetingMaker(1, date, notes, contactSet);
+        PastMeeting fm2 = pastMeetingMaker(2, date, notes, contactSet);
+        PastMeeting fm4 = pastMeetingMaker(3, date, notes, contactSet);
+
+        when(aMeetingContainer.getMeetingIdListBy(eq(aContact))).thenReturn(meetingIds);
+        when(aMeetingContainer.getMeeting(anyInt())).thenReturn(fm1,fm2,null,fm4);
+
+        List<PastMeeting> expected = Arrays.asList(fm1,fm2,fm4);
+        List<PastMeeting> actual = aContactManager.getPastMeetingList(aContact);
+
+        assertEquals(expected, actual);
+        verify(aMeetingContainer,times(4)).getMeeting(anyInt());
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfTheContactDoesNotExistInPastMeeting() throws IllegalMeetingException {
+        when(aContactContainer.checkForValidName(anyString())).thenReturn(false);
+        aContactManager.getPastMeetingList(aContact);
+    }
+
+    @Test
+    public void shouldReturnListOfPastMeetingsInChronologicalOrder() {
+        when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
+
+        Set<Integer> meetingIds = new HashSet<>();
+        meetingIds.add(1);
+        meetingIds.add(2);
+        meetingIds.add(3);
+        meetingIds.add(4);
+        meetingIds.add(5);
+
+        Calendar date1 = Calendar.getInstance();
+        Calendar date2= Calendar.getInstance();
+        Calendar date3 = Calendar.getInstance();
+        Calendar date4 = Calendar.getInstance();
+        Calendar date5 = Calendar.getInstance();
+        date1.add(Calendar.DATE, -3);
+        date2.add(Calendar.DATE, -1);
+        date3.add(Calendar.DATE, -2);
+        date4.add(Calendar.DATE, -5);
+        date5.add(Calendar.DATE, -4);
+
+        Set<Contact> contactSet = new HashSet<>();
+        String notes = "Some notes go here...";
+
+        PastMeeting pm1 = pastMeetingMaker(1, date1, notes, contactSet);
+        PastMeeting pm2 = pastMeetingMaker(2, date2, notes, contactSet);
+        PastMeeting pm3 = pastMeetingMaker(3, date3, notes, contactSet);
+        PastMeeting pm4 = pastMeetingMaker(4, date4, notes, contactSet);
+        PastMeeting pm5 = pastMeetingMaker(5, date5, notes, contactSet);
+
+        when(aMeetingContainer.getMeetingIdListBy(eq(aContact))).thenReturn(meetingIds);
+        when(aMeetingContainer.getMeeting(anyInt())).thenReturn(pm1,pm2,pm3,pm4,pm5);
+
+        List<PastMeeting> expected = Arrays.asList(pm4,pm5,pm1,pm3,pm2);
+        List<PastMeeting> actual = aContactManager.getPastMeetingList(aContact);
+
+        assertEquals(expected, actual);
+        verify(aMeetingContainer,times(5)).getMeeting(anyInt());
+    }
+
+    @Test
+    public void shouldReturnAnEmptyListIfMeetingIdListIsEmptyForPastMeeting() {
+        when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
+
+        Set<Integer> meetingIds = null;
+
+        Calendar date1 = Calendar.getInstance();
+        date1.add(Calendar.DATE, -1);
+        Set<Contact> contactSet = new HashSet<>();
+        String notes = "Some notes...";
+        PastMeeting fm1 = pastMeetingMaker(1, date1, notes, contactSet);
+
+        when(aMeetingContainer.getMeetingIdListBy(eq(aContact))).thenReturn(meetingIds);
+        when(aMeetingContainer.getMeeting(anyInt())).thenReturn(fm1);
+
+        List<PastMeeting> expected = Arrays.asList();
+        List<PastMeeting> actual = aContactManager.getPastMeetingList(aContact);
+
+        assertEquals(expected, actual);
+        verify(aMeetingContainer,never()).getMeeting(anyInt());
+    }
+
+    /*
+     * Helper for test.
+     * Makes a past meeting.
+     */
+    private PastMeeting pastMeetingMaker(int id, Calendar date, String notes, Set<Contact> contactSet) {
+        PastMeeting pastMeeting = mock(PastMeeting.class);
+        when(pastMeeting.getId()).thenReturn(id);
+        when(pastMeeting.getContacts()).thenReturn(contactSet);
+        when(pastMeeting.getNotes()).thenReturn(notes);
+        when(pastMeeting.getDate()).thenReturn(date);
+
+        return pastMeeting;
     }
 
     /*

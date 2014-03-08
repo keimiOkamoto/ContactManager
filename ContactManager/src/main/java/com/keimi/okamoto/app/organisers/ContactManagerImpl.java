@@ -90,7 +90,19 @@ public class ContactManagerImpl implements ContactManager {
 
     @Override
     public List<PastMeeting> getPastMeetingList(Contact contact) {
-        return null;
+        if (!aContactsContainer.checkForValidName(contact.getName())) throw new IllegalArgumentException();
+
+        Set<Integer> meetingIds = aMeetingContainer.getMeetingIdListBy(contact);
+        List<Meeting> meetings = new ArrayList<>();
+        if (meetingIds != null) {
+            for (int id : meetingIds) {
+                Meeting aMeeting = aMeetingContainer.getMeeting(id);
+                if (aMeeting instanceof PastMeeting) {
+                    meetings.add(aMeeting);
+                }
+            }
+        }
+        return (List<PastMeeting>) (List<?>) sortInChronologicalOrder(meetings);
     }
 
     @Override

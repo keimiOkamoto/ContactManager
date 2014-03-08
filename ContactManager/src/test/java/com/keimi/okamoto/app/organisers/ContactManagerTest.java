@@ -26,7 +26,6 @@ public class ContactManagerTest {
     private Meeting aMeeting;
     private PastMeeting aPastMeeting;
 
-
     /**
      * Just builds up a new ContactsContainerImpl
      */
@@ -417,5 +416,56 @@ public class ContactManagerTest {
     public void shouldThrowIllegalArgumentExceptionIfTheContactDoesNotExist() throws IllegalMeetingException {
         when(aContactContainer.checkForValidName(anyString())).thenReturn(false);
         aContactManager.getFutureMeetingList(aContact);
+    }
+
+    @Test
+    public void shouldReturnListOfMeetingsInChronologicalOrder() {
+        when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
+
+        List<Integer> meetingIds = Arrays.asList(1,2,3,4,5);
+
+        Calendar date1 = Calendar.getInstance();
+        Calendar date2= Calendar.getInstance();
+        Calendar date3 = Calendar.getInstance();
+        Calendar date4 = Calendar.getInstance();
+        Calendar date5 = Calendar.getInstance();
+        date1.add(Calendar.DATE, 3);
+        date2.add(Calendar.DATE, 1);
+        date3.add(Calendar.DATE, 2);
+        date4.add(Calendar.DATE, 5);
+        date5.add(Calendar.DATE, 4);
+
+        Set<Contact> contactSet = new HashSet<>();
+
+        FutureMeeting fm1 = futureMeetingMaker(1, date1, contactSet);
+        FutureMeeting fm2 = futureMeetingMaker(1, date2, contactSet);
+        FutureMeeting fm3 = futureMeetingMaker(1, date3, contactSet);
+        FutureMeeting fm4 = futureMeetingMaker(1, date4, contactSet);
+        FutureMeeting fm5 = futureMeetingMaker(1, date5, contactSet);
+
+        when(aMeetingContainer.getMeetingIdListBy(eq(aContact))).thenReturn(meetingIds);
+        when(aMeetingContainer.getMeeting(anyInt())).thenReturn(fm1,fm2,fm3,fm4,fm5);
+
+        List<FutureMeeting> expected = Arrays.asList(fm2,fm3,fm1,fm5,fm4);
+        List<FutureMeeting> actual = (List<FutureMeeting>) (List<?>) aContactManager.getFutureMeetingList(aContact);
+
+        assertEquals(expected, actual);
+        verify(aMeetingContainer,times(5)).getMeeting(anyInt());
+    }
+
+    public void shouldReturnNullifListIsEmpty() {
+
+    }
+    /*
+     * Helper for test.
+     * Makes future meeting.
+     */
+    private FutureMeeting futureMeetingMaker(int meetingId, Calendar date, Set<Contact> contactSet) {
+        FutureMeeting futureMeeting = mock(FutureMeeting.class);
+        when(futureMeeting.getId()).thenReturn(meetingId);
+        when(futureMeeting.getDate()).thenReturn(date);
+        when(futureMeeting.getContacts()).thenReturn(contactSet);
+
+        return futureMeeting;
     }
 }

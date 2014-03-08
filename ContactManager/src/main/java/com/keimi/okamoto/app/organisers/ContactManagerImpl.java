@@ -56,13 +56,27 @@ public class ContactManagerImpl implements ContactManager {
 
         List<Integer> meetingIds = aMeetingContainer.getMeetingIdListBy(contact);
         List<Meeting> meetings = new ArrayList<>();
-
         for (int id : meetingIds) {
             Meeting aMeeting = aMeetingContainer.getMeeting(id);
                 if (aMeeting instanceof FutureMeeting) {
                     meetings.add(aMeeting);
                 }
         }
+        return sortInChronologicalOrder(meetings);
+    }
+
+    /**
+     * A private method that sorts meeting in chronological order.
+     * @param meetings a list of meetings
+     * @return a list of meeting sorted in chronological order
+     */
+    private List<Meeting> sortInChronologicalOrder(List<Meeting> meetings) {
+        Collections.sort(meetings, new Comparator<Meeting>() {
+            @Override
+            public int compare(Meeting o1, Meeting o2) {
+               return o1.getDate().compareTo(o2.getDate());
+            }
+        });
         return meetings;
     }
 

@@ -3,6 +3,7 @@ package com.keimi.okamoto.app.organisers;
 import com.keimi.okamoto.app.items.*;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -42,4 +43,7 @@ public interface MeetingContainer {
     PastMeeting getPastMeeting(int id);
 
     void convertToPastMeeting(Meeting aMeeting, String notes);
+
+    List<Integer> getMeetingListBy(Contact contact);
+
 }

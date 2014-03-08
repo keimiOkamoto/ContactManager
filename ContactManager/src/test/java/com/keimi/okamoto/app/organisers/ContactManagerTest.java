@@ -8,10 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Matchers;
 
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyInt;
@@ -369,11 +366,30 @@ public class ContactManagerTest {
      * Test for getFutureMeetingList(Contact contact)
      * Starts here:
      *
-     * search meeting map
+     * search meeting map for each meeting containing contact
+     * then add into list
+     * return list even if empty
      */
     @Test
     public void shouldBeAbleToReturnListOfFutureMeetingsScheduledWithThisContact() {
+        when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
 
+        List<Integer> meetingIds = Arrays.asList(1,2,3,4);
+
+        FutureMeeting fm1 = mock(FutureMeeting.class);
+        FutureMeeting fm2 = mock(FutureMeeting.class);
+        FutureMeeting fm3 = mock(FutureMeeting.class);
+        FutureMeeting fm4 = mock(FutureMeeting.class);
+
+        when(aMeetingContainer.getMeetingListBy(eq(aContact))).thenReturn(meetingIds);
+        when(aMeetingContainer.getFutureMeeting(anyInt())).thenReturn(fm1,fm2,fm3,fm4);
+
+        List<FutureMeeting> expected = Arrays.asList(fm1,fm2, fm3, fm4);
+
+        List<FutureMeeting> actual = (List<FutureMeeting>) (List<?>) aContactManager.getFutureMeetingList(aContact);
+
+        assertEquals(expected, actual);
+        verify(aMeetingContainer,times(4)).getFutureMeeting(anyInt());
     }
 
     @Test (expected = IllegalArgumentException.class)
@@ -381,5 +397,4 @@ public class ContactManagerTest {
         when(aContactContainer.checkForValidName(anyString())).thenReturn(false);
         aContactManager.getFutureMeetingList(aContact);
     }
-
 }

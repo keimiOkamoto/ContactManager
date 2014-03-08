@@ -5,10 +5,7 @@ import com.keimi.okamoto.app.utils.MeetingFactory;
 import com.keimi.okamoto.app.utils.MeetingFactoryImpl;
 import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
 
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 
 public class MeetingContainerImpl implements MeetingContainer {
@@ -118,7 +115,6 @@ public class MeetingContainerImpl implements MeetingContainer {
         return (PastMeeting) aMeetingMap.get(id);
     }
 
-
     @Override
     public void convertToPastMeeting(Meeting aMeeting, String notes) {
         int futureMeetingId = aMeeting.getId();
@@ -131,5 +127,10 @@ public class MeetingContainerImpl implements MeetingContainer {
         } catch (IllegalMeetingException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<Integer> getMeetingListBy(Contact contact) {
+        return null;
     }
 }

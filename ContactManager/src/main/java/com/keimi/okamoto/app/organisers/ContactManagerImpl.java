@@ -50,12 +50,22 @@ public class ContactManagerImpl implements ContactManager {
        return aMeetingContainer.getMeeting(id);
     }
 
+    /**
+     * contactsManager care about the sorting of the
+     * @param contact one of the user’s contacts
+     * @return
+     */
     @Override
     public List<Meeting> getFutureMeetingList(Contact contact) {
-        if (!aContactsContainer.checkForValidName(contact.getName())) {
-            throw new IllegalArgumentException();
+        if (!aContactsContainer.checkForValidName(contact.getName())) throw new IllegalArgumentException();
+
+        List<Integer> meetingIds = aMeetingContainer.getMeetingListBy(contact);
+        List<Meeting> meetings = new ArrayList<>();
+
+        for (int id : meetingIds) {
+            meetings.add(aMeetingContainer.getFutureMeeting(id));
         }
-        return null;
+        return meetings;
     }
 
     @Override

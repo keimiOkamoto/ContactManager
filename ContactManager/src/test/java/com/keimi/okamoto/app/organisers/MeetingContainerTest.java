@@ -160,18 +160,16 @@ public class MeetingContainerTest {
     @Test
     public void shouldBeAbleToConvertFutureMeetingToPastMeeting() throws IllegalMeetingException {
         String notes = "Some notes...";
-        aMeetingContainer.convertToPastMeeting(aFutureMeeting, notes);
         Calendar date = Calendar.getInstance();
-
-        int futureMeetingId = aFutureMeeting.getId();
-        Calendar futureMeetingDate = aFutureMeeting.getDate();
-        Set<Contact> futureMeetingContacts = aFutureMeeting.getContacts();
+        Set<Contact> contactSet = new HashSet<>();
+        when(aFutureMeeting.getDate()).thenReturn(date);
+        when(aFutureMeeting.getId()).thenReturn(4);
+        when(aFutureMeeting.getContacts()).thenReturn(contactSet);
 
         when(aMeetingFactory.createPastMeeting(anyInt(), anySet(), eq(date), anyString())).thenReturn(aPastMeeting);
+        aMeetingContainer.convertToPastMeeting(aFutureMeeting, notes);
+        PastMeeting actualPastMeeting = aMeetingContainer.getPastMeeting(4);
 
-        assertEquals(aPastMeeting.getId(), futureMeetingId);
-        assertEquals(aPastMeeting.getDate(), futureMeetingDate);
-        assertEquals(aPastMeeting.getContacts(), futureMeetingContacts);
+        assertEquals(aPastMeeting, actualPastMeeting);
     }
-
 }

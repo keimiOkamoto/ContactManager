@@ -130,7 +130,7 @@ public class MeetingContainerImpl implements MeetingContainer {
     }
 
     @Override
-    public List<Integer> getMeetingListBy(Contact contact) {
+    public List<Integer> getMeetingIdListBy(Contact contact) {
         return null;
     }
 }

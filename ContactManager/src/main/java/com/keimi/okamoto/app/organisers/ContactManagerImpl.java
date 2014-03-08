@@ -59,11 +59,16 @@ public class ContactManagerImpl implements ContactManager {
     public List<Meeting> getFutureMeetingList(Contact contact) {
         if (!aContactsContainer.checkForValidName(contact.getName())) throw new IllegalArgumentException();
 
-        List<Integer> meetingIds = aMeetingContainer.getMeetingListBy(contact);
+        List<Integer> meetingIds = aMeetingContainer.getMeetingIdListBy(contact);
         List<Meeting> meetings = new ArrayList<>();
 
+
         for (int id : meetingIds) {
-            meetings.add(aMeetingContainer.getFutureMeeting(id));
+            Meeting aMeeting = aMeetingContainer.getMeeting(id);
+
+                if (aMeeting instanceof FutureMeeting) {
+                    meetings.add(aMeeting);
+                }
         }
         return meetings;
     }

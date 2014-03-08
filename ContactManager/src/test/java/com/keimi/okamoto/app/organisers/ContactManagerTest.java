@@ -381,15 +381,36 @@ public class ContactManagerTest {
         FutureMeeting fm3 = mock(FutureMeeting.class);
         FutureMeeting fm4 = mock(FutureMeeting.class);
 
-        when(aMeetingContainer.getMeetingListBy(eq(aContact))).thenReturn(meetingIds);
-        when(aMeetingContainer.getFutureMeeting(anyInt())).thenReturn(fm1,fm2,fm3,fm4);
+        when(aMeetingContainer.getMeetingIdListBy(eq(aContact))).thenReturn(meetingIds);
+        when(aMeetingContainer.getMeeting(anyInt())).thenReturn(fm1,fm2,fm3,fm4);
 
         List<FutureMeeting> expected = Arrays.asList(fm1,fm2, fm3, fm4);
 
         List<FutureMeeting> actual = (List<FutureMeeting>) (List<?>) aContactManager.getFutureMeetingList(aContact);
 
         assertEquals(expected, actual);
-        verify(aMeetingContainer,times(4)).getFutureMeeting(anyInt());
+        verify(aMeetingContainer,times(4)).getMeeting(anyInt());
+    }
+
+    @Test
+    public void shouldBeAbleToReturnListOfOnlyFutureMeetingsScheduledWithThisContact() {
+        when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
+
+        List<Integer> meetingIds = Arrays.asList(1,2,3,4);
+
+        FutureMeeting fm1 = mock(FutureMeeting.class);
+        FutureMeeting fm2 = mock(FutureMeeting.class);
+        FutureMeeting fm4 = mock(FutureMeeting.class);
+
+        when(aMeetingContainer.getMeetingIdListBy(eq(aContact))).thenReturn(meetingIds);
+        when(aMeetingContainer.getMeeting(anyInt())).thenReturn(fm1,fm2,null,fm4);
+
+        List<FutureMeeting> expected = Arrays.asList(fm1,fm2,fm4);
+
+        List<FutureMeeting> actual = (List<FutureMeeting>) (List<?>) aContactManager.getFutureMeetingList(aContact);
+
+        assertEquals(expected, actual);
+        verify(aMeetingContainer,times(4)).getMeeting(anyInt());
     }
 
     @Test (expected = IllegalArgumentException.class)

@@ -14,6 +14,12 @@ public class MeetingContainerImpl implements MeetingContainer, Serializable {
     private MeetingFactory aMeetingFactory;
     private Map <Integer, Set<Integer>> contactMeetingMap;
 
+    /**
+     * Constructor method for MeetingContainerImpl
+     *
+     * @param aMeetingFactory a Factory in charge of creation of meetings
+     * @param aUniqueNumberGeneratorUtilities a unique number generator
+     */
     public MeetingContainerImpl(MeetingFactory aMeetingFactory, UniqueNumberGeneratorUtilities aUniqueNumberGeneratorUtilities) {
         aMeetingMap = new HashMap<>();
         this.aMeetingFactory = aMeetingFactory;
@@ -21,14 +27,6 @@ public class MeetingContainerImpl implements MeetingContainer, Serializable {
         contactMeetingMap = new HashMap<>();
     }
 
-    /**
-     * A method to add a checkForFuture meeting, taking in a Set of contacts
-     * and the date.
-     *
-     * @param aSetOfContacts contacts that will attend the meeting
-     * @param date of the meeting
-     * @return the meeting id
-     */
     @Override
     public int addFutureMeeting(Set<Contact> aSetOfContacts, Calendar date) {
         int uniqueID = aUniqueNumberGeneratorUtilities.getUniqueNumber();
@@ -62,52 +60,22 @@ public class MeetingContainerImpl implements MeetingContainer, Serializable {
         }
     }
 
-    /**
-     * method that checks if the date is in the past
-     * @param date A date
-     * @return true if date is in the checkForFuture
-     */
     @Override
     public boolean checkForFuture(Calendar date) {
         Calendar now = Calendar.getInstance();
-        if (date.before(now)) {
-            return false;
-        }
-        return true;
+        return date.after(now);
     }
 
-    /**
-     * method that checks if the date is in the past
-     *
-     * @param date A date
-     * @return true if the date is in the past
-     */
     @Override
     public boolean checkForPast(Calendar date) {
-        Calendar now = Calendar.getInstance();
-        if (date.after(now)) {
-            return false;
-        }
-        return true;
+        return !checkForFuture(date);
     }
 
-    /**
-     * Returns the FutureMeeting corresponding to that id in
-     * aMeetingMAp and null if there is none.
-     *
-     * @param id checkForFuture meeting ID
-     * @return FutureMeeting if ID exists null if id doesn't exist
-     */
     @Override
     public FutureMeeting getFutureMeeting(int id) {
         return (FutureMeeting)aMeetingMap.get(id);
     }
 
-    /**
-     *
-     * @param id meeting ID
-     * @return Meeting if ID exists null if id doesn't exist
-     */
     @Override
     public Meeting getMeeting(int id) {
         return aMeetingMap.get(id);

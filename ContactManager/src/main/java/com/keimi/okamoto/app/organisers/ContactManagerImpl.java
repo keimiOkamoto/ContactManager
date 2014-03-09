@@ -148,13 +148,14 @@ public class ContactManagerImpl implements ContactManager {
             throw new IllegalArgumentException();
 
         aMeetingContainer.addPastMeeting(contacts, date, notes);
-
     }
 
     @Override
     public void addMeetingNotes(int id, String text) throws NullPointerException, IllegalArgumentException, IllegalStateException {
         if (text == null) throw new NullPointerException();
+
         Meeting aMeeting = aMeetingContainer.getMeeting(id);
+
         if (aMeeting == null) throw new IllegalArgumentException();
         if (aMeetingContainer.checkForFuture(aMeeting.getDate())) throw new IllegalStateException();
 
@@ -170,9 +171,8 @@ public class ContactManagerImpl implements ContactManager {
 
     @Override
     public Set<Contact> getContacts(int... ids) throws IllegalArgumentException {
-        if (!aContactsContainer.checkForValidId(ids)) {
-            throw new IllegalArgumentException();
-        }
+        if (!aContactsContainer.checkForValidId(ids)) throw new IllegalArgumentException();
+
         Set<Contact> result = new HashSet<>();
         for (int id : ids) {
             result.add(aContactsContainer.getContact(id));

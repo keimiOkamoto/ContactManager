@@ -1,7 +1,3 @@
-/**
- * ContactsContainer class created to take the implementation
- * responsibilities away from ContactManager.
- */
 package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.Contact;
@@ -28,12 +24,6 @@ public class ContactsContainerImpl implements ContactsContainer, Serializable {
         this.aUniqueNumberGeneratorUtilities = aUniqueNumberGeneratorUtilities;
     }
 
-    /**
-     * Method that adds a contact to a HashMap
-     *
-     * @param name  Contacts name
-     * @param notes Contact note
-     */
     @Override
     public void addContact(String name, String notes) {
         int uniqueID = aUniqueNumberGeneratorUtilities.getUniqueNumber();
@@ -42,23 +32,11 @@ public class ContactsContainerImpl implements ContactsContainer, Serializable {
         contactMap.put(uniqueID, aNewContact);
     }
 
-    /**
-     * Gets a contact from HashMap using the contacts ID.
-     *
-     * @param contactId contact's ID
-     * @return a contact
-     */
     @Override
     public Contact getContact(int contactId) {
         return contactMap.get(contactId);
     }
 
-    /**
-     * Checks for a valid id.
-     *
-     * @param ids Contact id
-     * @return true if the contact exists.
-     */
     @Override
     public boolean checkForValidId(int... ids) {
         boolean result = true;
@@ -70,12 +48,6 @@ public class ContactsContainerImpl implements ContactsContainer, Serializable {
         return result;
     }
 
-    /**
-     * Get's contact by name.
-     *
-     * @param name of contact
-     * @return a Set if contacts by valid names
-     */
     @Override
     public Set<Contact> getContacts(String name) {
         Set<Contact> resultSet = new HashSet<>();
@@ -88,13 +60,6 @@ public class ContactsContainerImpl implements ContactsContainer, Serializable {
 
     }
 
-    /**
-     * check for valid name, if not valid returns
-     * false.
-     *
-     * @param name of contact
-     * @return false if name does not exist
-     */
     @Override
     public boolean checkForValidName(String name) {
         boolean result = false;
@@ -106,12 +71,6 @@ public class ContactsContainerImpl implements ContactsContainer, Serializable {
         return result;
     }
 
-    /**
-     * Method checks that all contacts exist or is not null
-     *
-     * @param aSetOfContacts a list of contacts
-     * @return false if the contact doesn't exist or is a null Set
-     */
     @Override
     public boolean checkForValidSetOfContacts(Set<Contact> aSetOfContacts) {
         boolean result = false;

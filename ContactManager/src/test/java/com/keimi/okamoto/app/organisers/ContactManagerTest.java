@@ -14,6 +14,11 @@ import static org.mockito.Mockito.*;
 
 /**
  * Test for ContactManager
+ *
+ * Using the mocking framework test is made simpler
+ * first verify, verifies the number of times the
+ * getContacts() is being called 4 times ensuring that
+ * 4 elements have been added.
  */
 public class ContactManagerTest {
     private String notes;
@@ -28,7 +33,7 @@ public class ContactManagerTest {
     private DiskWriter aDiskWriter;
 
     /**
-     * Just builds up a new ContactsContainerImpl
+     * Builds up a new ContactsContainerImpl
      */
     @Before
     public void buildUp() {
@@ -45,9 +50,9 @@ public class ContactManagerTest {
         name = "Adam";
     }
 
-    /**
-     * Test to make sure addNewContact() is implemented
-     * as it should be.
+    /*
+     * Test for addNewContact()
+     * Starts here:
      */
     @Test
     public void shouldBeAbleToAddNewContact() {
@@ -65,14 +70,12 @@ public class ContactManagerTest {
         aContactManager.addNewContact(name, null);
     }
 
-    /**
-     * Using the mocking framework test is made simpler
-     * first verify, verifies the number of times the
-     * getContacts() is being called 4 times ensuring that
-     * 4 elements have been added.
+    /*
+     * Test for getContacts(int... ids)
+     * Starts here:
      */
     @Test
-    public void shouldBeAbleToGetSetOfContactsDependingOnId() {
+    public void shouldBeAbleToGetSetOfContactsDependingOnVariableNumberOdIds() {
         when(aContactContainer.checkForValidId(Matchers.<int[]>anyVararg())).thenReturn(true);
         when(aContactContainer.getContact(anyInt())).thenReturn(mock(Contact.class), mock(Contact.class), mock(Contact.class), mock(Contact.class));
 
@@ -82,10 +85,6 @@ public class ContactManagerTest {
         assertEquals(contactSet.size(), 4);
     }
 
-    /**
-     * Tests that an IllegalArgumentException is thrown if
-     * non-existent id is asked for.
-     */
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionIfIdIsNotValid() {
         Integer num = 26;
@@ -93,8 +92,9 @@ public class ContactManagerTest {
         aContactManager.getContacts(num);
     }
 
-    /**
-     * Test that should return a set of contacts by name.
+    /*
+     * Test for getContacts(String name)
+     * Starts here:
      */
     @Test
     public void shouldBeAbleToGetSetOfContactsByName() {
@@ -108,10 +108,7 @@ public class ContactManagerTest {
         assertEquals(expected, actual);
     }
 
-    /**
-     * Test that checks that a NullPointerException is being
-     * thrown if the parameter is null.
-     */
+
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointerExceptionIfParameterIsNull() {
         String name = null;
@@ -119,9 +116,10 @@ public class ContactManagerTest {
         aContactManager.getContacts(name);
     }
 
-    /**
-     * Test that a checkForFuture meeting can be added.
-     */
+    /*
+    * Test for addFutureMeeting(Set contacts, Calendar date)
+    * Starts here:
+    */
     @Test
     public void shouldBeAbleToAddFutureMeeting() throws IllegalMeetingException {
         Set<Contact> aSetOfContacts = new HashSet<>();
@@ -133,10 +131,6 @@ public class ContactManagerTest {
         verify(aMeetingContainer).addFutureMeeting(aSetOfContacts, date);
     }
 
-    /**
-     * Test for Illegal Argument exception if a
-     * meeting is set in the past.
-     */
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionIfDateIsInThePast() throws IllegalMeetingException {
         Set<Contact> aSetOfContacts = new HashSet<>();
@@ -147,9 +141,6 @@ public class ContactManagerTest {
         aContactManager.addFutureMeeting(aSetOfContacts, date);
     }
 
-    /**
-     * contact is unknown - zak
-     */
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionIfContactIsUnknownInSet() throws IllegalMeetingException {
         Set<Contact> aSetOfContacts = new HashSet<>();
@@ -159,10 +150,6 @@ public class ContactManagerTest {
         aContactManager.addFutureMeeting(aSetOfContacts, date);
     }
 
-    /**
-     * Test for Illegal Argument exception if a
-     * non-existent contact Set is added. (with null value)
-     */
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionIfContactDoesNotExistInSet() throws IllegalMeetingException {
         Set<Contact> aSetOfContacts = new HashSet<>();
@@ -172,6 +159,10 @@ public class ContactManagerTest {
         aContactManager.addFutureMeeting(null, date);
     }
 
+    /*
+     * Test for FutureMeeting getFutureMeeting(int id)
+     * Starts here:
+     */
     @Test
     public void shouldReturnTheFutureMeetingWithTheRequestedId() {
         int id = 1;
@@ -206,6 +197,10 @@ public class ContactManagerTest {
 
     }
 
+    /*
+     * Test for getMeeting(int id)
+     * Starts here:
+     */
     @Test
     public void shouldReturnMeetingWithTheRequestedId() {
         int id = 1;
@@ -226,9 +221,9 @@ public class ContactManagerTest {
         assertEquals(null, actualMeeting);
     }
 
-    /**
+    /*
      * Tests For addNewPastMeeting()
-     * Note to self: refactor.
+     * Starts here:
      */
     @Test
     public void shouldBeAbleToAddNewPastMeeting() throws IllegalMeetingException {
@@ -286,7 +281,7 @@ public class ContactManagerTest {
         aContactManager.addNewPastMeeting(aSetOfContacts, date, null);
     }
 
-    /**
+    /*
      * Test for getPastMeeting() starts here
      */
     @Test
@@ -322,8 +317,9 @@ public class ContactManagerTest {
         aContactManager.getPastMeeting(id);
     }
 
-    /**
-     * Test for addMeetingNotes() starts here
+    /*
+     * Test for addMeetingNotes()
+     * Starts here:
      */
     @Test
     public void shouldBeAbleToAddMeetingNotes() {
@@ -363,7 +359,7 @@ public class ContactManagerTest {
         aContactManager.addMeetingNotes(0, null);
     }
 
-    /**
+    /*
      * Test for getFutureMeetingList(Contact contact)
      * Starts here:
      */
@@ -490,7 +486,7 @@ public class ContactManagerTest {
         verify(aMeetingContainer,never()).getMeeting(anyInt());
     }
 
-    /**
+    /*
      * Test for getPastMeetingList(Contact contact)
      * Starts here:
      */
@@ -562,6 +558,10 @@ public class ContactManagerTest {
         aContactManager.getPastMeetingList(aContact);
     }
 
+    /*
+     * Test for getPastMeetingList(Contact contact)
+     * Starts here:
+     */
     @Test
     public void shouldReturnListOfPastMeetingsInChronologicalOrder() {
         when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
@@ -626,8 +626,8 @@ public class ContactManagerTest {
     }
 
     /*
-     *  Test for getFutureMeetingList(Date aDate)
-     *  Starts here:
+     * Test for getFutureMeetingList(Date aDate)
+     * Starts here:
      */
     @Test
     public void shouldBeAbleToReturnListOfOnlyFutureMeetingsAccordingToDate() {
@@ -675,6 +675,10 @@ public class ContactManagerTest {
         verify(aMeetingContainer,never()).getMeeting(anyInt());
     }
 
+    /*
+     * Test for flush()
+     * Starts here:
+     */
     @Test
     public void shouldBeAbleToWriteToDisk() {
         aContactManager.flush();

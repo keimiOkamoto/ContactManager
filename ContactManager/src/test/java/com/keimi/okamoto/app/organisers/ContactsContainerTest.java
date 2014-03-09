@@ -18,6 +18,9 @@ import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+/*
+ * Test for a ContactsContainer
+ */
 public class ContactsContainerTest {
     private ContactsContainer aContactContainer;
     private UniqueNumberGeneratorUtilities aUniqueNumberGeneratorUtilities;
@@ -39,9 +42,9 @@ public class ContactsContainerTest {
         aContactContainer.addContact("Derek", "Some notes about Derek...");
     }
 
-    /**
-     * Test that takes in a contact from ContactManager
-     * and adds it to a HashMap.
+    /*
+     * Test for addContact(String name, String notes)
+     * Starts here:
      */
     @Test
     public void shouldBeAbleToAddContact() {
@@ -61,9 +64,6 @@ public class ContactsContainerTest {
         assertEquals(nameExpected, actualName);
     }
 
-    /**
-     * Test to check that the valid Id exists
-     */
     @Test
     public void shouldBeAbleToCheckForValidId() {
         assertFalse(aContactContainer.checkForValidId(100));
@@ -78,9 +78,9 @@ public class ContactsContainerTest {
         assertFalse(aContactContainer.checkForValidId(1, 2, 260));
     }
 
-    /**
-     * checking if get contacts returns a Set of contacts
-     * using relevant name
+    /*
+     * Test for getContact(int contactId)
+     * Starts here:
      */
     @Test
     public void shouldBeAbleToGetContactsByName() {
@@ -109,8 +109,8 @@ public class ContactsContainerTest {
         assertTrue(actualSet.size() == 2);
     }
 
-    /**
-     * Test that makes sure checkForValidName()
+    /*
+     * Test for checkForValidName()
      * is working.
      */
     @Test
@@ -121,8 +121,10 @@ public class ContactsContainerTest {
         assertFalse(aContactContainer.checkForValidName("Terry"));
     }
 
-    //if set is null should return false
-    //if id doesn't exist in set then null
+    /*
+     * Test for checkForValidSetOfContacts(Set<Contact> aSetOfContacts)
+     * Starts here:
+     */
     @Test
     public void shouldBeAbleToCheckForValidSetOfContacts() {
         assertFalse(aContactContainer.checkForValidSetOfContacts(null));
@@ -142,13 +144,9 @@ public class ContactsContainerTest {
         assertTrue(aContactContainer.checkForValidSetOfContacts(contactSet));
     }
 
-    /**
-     * A method that helps add a contact to avoid
-     * repeating code.
-     *
-     * @param name name of a contact
-     * @param id id of a id
-     * @param notes notes of a id
+    /*
+     * Method that helps the test
+     * Adds a contact
      */
     private void addContact(String name, int id, String notes) {
         Contact mContact = mock(Contact.class);
@@ -160,5 +158,4 @@ public class ContactsContainerTest {
 
         aContactContainer.addContact(name, notes);
     }
-
 }

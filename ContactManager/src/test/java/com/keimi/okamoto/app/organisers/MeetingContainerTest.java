@@ -33,6 +33,10 @@ public class MeetingContainerTest {
         aMeetingContainer = new MeetingContainerImpl(aMeetingFactory, aUniqueNumberGeneratorUtilities);
     }
 
+    /*
+     * Test for addFutureMeeting(Set<Contact> aSetOfContacts, Calendar date)
+     * Starts here:
+     */
     @Test
     public void shouldBeAbleToAddFutureMeetingAndReturnId() throws IllegalMeetingException {
         Set<Contact> aSetOfContacts = new HashSet<>();
@@ -47,8 +51,27 @@ public class MeetingContainerTest {
         assertEquals(actualId, 5);
     }
 
+    /*
+     * Test for checkForPast(Calendar date)
+     * Starts here:
+     */
     @Test
-    public void shouldBeAbleToCheckForValidDate() {
+    public void shouldBeAbleToCheckForValidPastDate() {
+        Calendar date = Calendar.getInstance();
+
+        date.add(Calendar.DATE, 1);
+        assertFalse(aMeetingContainer.checkForPast(date));
+
+        date.add(Calendar.DATE, -2);
+        assertTrue(aMeetingContainer.checkForPast(date));
+    }
+
+    /*
+     * Test for getFutureMeeting(int id)
+     * Starts here:
+     */
+    @Test
+    public void shouldBeAbleToCheckForValidFutureDate() {
         Calendar date = Calendar.getInstance();
 
         date.add(Calendar.DATE, -1);
@@ -58,6 +81,10 @@ public class MeetingContainerTest {
         assertTrue(aMeetingContainer.checkForFuture(date));
     }
 
+    /*
+     * Test for getFutureMeeting(int id)
+     * Starts here:
+     */
     @Test
     public void shouldBeAbleToGetFutureMeetingById() throws IllegalMeetingException {
         int id = 0;
@@ -81,6 +108,10 @@ public class MeetingContainerTest {
         assertEquals(null, actualFutureMeeting);
     }
 
+    /*
+    * Test for getMeeting(int id)
+    * Starts here:
+    */
     @Test
     public void shouldReturnMeetingWithTheRequestedId() throws IllegalMeetingException {
         int id = 0;
@@ -104,7 +135,7 @@ public class MeetingContainerTest {
         assertEquals(null, actualMeeting);
     }
 
-    /**
+    /*
      * Test for addPastMeeting() implementation
      * Starts here.
      */
@@ -130,7 +161,7 @@ public class MeetingContainerTest {
         aMeetingContainer.addPastMeeting(aSetOfContacts, date, notes);
     }
 
-    /**
+    /*
      * Test for getPastMeeting() implementation
      * Starts here.
      */
@@ -153,9 +184,9 @@ public class MeetingContainerTest {
         assertEquals(pastMeeting, actual);
     }
 
-    /**
-     * Test for addMeetingNote()
-     * Starts here
+    /*
+     * Test for convertToPastMeeting(Meeting aMeeting, String notes)
+     * Starts here:
      */
     @Test
     public void shouldBeAbleToConvertFutureMeetingToPastMeeting() throws IllegalMeetingException {
@@ -173,9 +204,9 @@ public class MeetingContainerTest {
         assertEquals(aPastMeeting, actualPastMeeting);
     }
 
-    /**
+    /*
      * Test for getMeetingIdListBy(Contact)
-     * Starts here
+     * Starts here:
      */
     @Test
     public void shouldBeAbleToGetMeetingIdListByContact() throws IllegalMeetingException {

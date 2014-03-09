@@ -1,6 +1,3 @@
-/**
- * Test for ContactManager
- */
 package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.*;
@@ -15,7 +12,9 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.*;
 
-
+/**
+ * Test for ContactManager
+ */
 public class ContactManagerTest {
     private String notes;
     private String name;
@@ -677,11 +676,10 @@ public class ContactManagerTest {
     }
 
     @Test
-    public void shouldBeAbleToWriteToDick() {
+    public void shouldBeAbleToWriteToDisk() {
         aContactManager.flush();
         verify(aDiskWriter).writeToDisk(eq(aContactContainer), eq(aMeetingContainer));
     }
-
 
     /*
      * Helper for test.

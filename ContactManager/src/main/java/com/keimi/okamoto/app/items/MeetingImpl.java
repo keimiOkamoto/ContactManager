@@ -13,7 +13,13 @@ public class MeetingImpl implements Meeting, Serializable {
     private Calendar date;
     private Set<Contact> aListOfContacts;
 
-
+    /**
+     * Constructor for MeetingImpl
+     * @param id an id for a meeting
+     * @param date a date for the meeting
+     * @param aListOfContacts a list of contacts
+     * @throws IllegalMeetingException if there is not more than one contact in the list
+     */
     public MeetingImpl(int id, Calendar date, Set<Contact> aListOfContacts) throws IllegalMeetingException {
         if (aListOfContacts.size() < 1) throw new IllegalMeetingException();
         this.id = id;
@@ -21,31 +27,17 @@ public class MeetingImpl implements Meeting, Serializable {
         this.aListOfContacts = aListOfContacts;
     }
 
-    /**
-     * Returns the id of the
-     * @return the id of the
-     */
     @Override
     public int getId() {
         return id;
     }
 
-    /**
-     * Return the date of the meeting.
-     * @return the date of the meeting.
-     */
     @Override
     public Calendar getDate() {
         return date;
     }
 
-    /**
-     * Return the details of people that attended the meeting.
-     * The list contains a minimum of one contact (if there were
-     * just two people: the user and the contact) and may contain an
-     * arbitrary number of them.
-     * @return the details of people that attended the meeting.
-     */
+
     @Override
     public Set<Contact> getContacts() {
         return aListOfContacts;

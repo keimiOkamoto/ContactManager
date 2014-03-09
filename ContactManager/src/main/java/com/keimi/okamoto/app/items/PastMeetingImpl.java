@@ -1,21 +1,19 @@
-/**
- * A meeting that was held in the past.
- * It includes your notes about what happened and what was agreed.
- */
 package com.keimi.okamoto.app.items;
 
 import java.util.Calendar;
 import java.util.Set;
 
+
 public class PastMeetingImpl extends MeetingImpl implements PastMeeting {
     private String note = "";
 
     /**
+     * Constructor for PastMeetingImpl
      *
-     * @param id
-     * @param date
-     * @param aListOfContacts
-     * @throws IllegalMeetingException
+     * @param id an id for a PastMeeting
+     * @param date a date for the PastMeeting
+     * @param aListOfContacts a list of contacts
+     * @throws IllegalMeetingException if there is not more than one contact in the list
      */
     public PastMeetingImpl(int id, Calendar date, Set<Contact> aListOfContacts, String notes) throws IllegalMeetingException {
         super(id, date, aListOfContacts);
@@ -26,12 +24,6 @@ public class PastMeetingImpl extends MeetingImpl implements PastMeeting {
         }
     }
 
-    /**
-     * Returns the notes from the meeting. *
-     * If there are no notes, the empty string is returned. *
-     *
-     * @return the notes from the meeting.
-     */
     @Override
     public String getNotes() {
         return note;

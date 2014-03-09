@@ -182,9 +182,8 @@ public class ContactManagerImpl implements ContactManager {
 
     @Override
     public Set<Contact> getContacts(String name) throws NullPointerException {
-        if (!aContactsContainer.checkForValidName(name)) {
-            throw new NullPointerException();
-        }
+        if (!aContactsContainer.checkForValidName(name)) throw new NullPointerException();
+
         return aContactsContainer.getContacts(name);
     }
 

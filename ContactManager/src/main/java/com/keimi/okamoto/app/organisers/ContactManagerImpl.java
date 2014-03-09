@@ -85,8 +85,18 @@ public class ContactManagerImpl implements ContactManager {
 
     @Override
     public List<Meeting> getFutureMeetingList(Calendar date) {
-        return null;
-    }
+        Set<Integer> meetingIds = aMeetingContainer.getMeetingIdListBy(date);
+        List<Meeting> meetings = new ArrayList<>();
+        if (meetingIds != null) {
+            for (int id : meetingIds) {
+                Meeting aMeeting = aMeetingContainer.getMeeting(id);
+                if (aMeeting instanceof FutureMeeting) {
+                    meetings.add(aMeeting);
+                }
+            }
+        }
+        return sortInChronologicalOrder(meetings);
+    } // TODO
 
     @Override
     public List<PastMeeting> getPastMeetingList(Contact contact) {

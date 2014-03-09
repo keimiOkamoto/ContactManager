@@ -624,6 +624,36 @@ public class ContactManagerTest {
     }
 
     /*
+     *  Test for getFutureMeetingList(Date aDate)
+     *  Starts here:
+     */
+    @Test
+    public void shouldBeAbleToReturnListOfOnlyFutureMeetingsAccordingToDate() {
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, 2);
+        Set<Contact> contactSet = new HashSet<>();
+        Set<Integer> meetingIds = new HashSet<>();
+        meetingIds.add(1);
+        meetingIds.add(2);
+        meetingIds.add(3);
+        meetingIds.add(4);
+
+        FutureMeeting fm1 = futureMeetingMaker(1, date, contactSet);
+        FutureMeeting fm2 = futureMeetingMaker(2, date, contactSet);
+        FutureMeeting fm3 = futureMeetingMaker(3, date, contactSet);
+        FutureMeeting fm4 = futureMeetingMaker(4, date, contactSet);
+
+        when(aMeetingContainer.getMeetingIdListBy(eq(date))).thenReturn(meetingIds);
+        when(aMeetingContainer.getMeeting(anyInt())).thenReturn(fm1,fm2,fm3,fm4);
+
+        List<FutureMeeting> expected = Arrays.asList(fm1,fm2, fm3, fm4);
+        List<FutureMeeting> actual = (List<FutureMeeting>) (List<?>) aContactManager.getFutureMeetingList(date);
+
+        assertEquals(expected, actual);
+        verify(aMeetingContainer,times(4)).getMeeting(anyInt());
+    }
+
+    /*
      * Helper for test.
      * Makes a past meeting.
      */

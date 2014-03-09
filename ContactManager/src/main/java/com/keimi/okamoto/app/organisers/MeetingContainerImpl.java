@@ -151,4 +151,9 @@ public class MeetingContainerImpl implements MeetingContainer {
     public Set<Integer> getMeetingIdListBy(Contact contact) {
         return contactMeetingMap.get(contact.getId());
     }
+
+    @Override
+    public Set<Integer> getMeetingIdListBy(Calendar date) {
+        return null;
+    }
 }

@@ -46,4 +46,5 @@ public interface MeetingContainer {
 
     Set<Integer> getMeetingIdListBy(Contact contact);
 
+    Set<Integer> getMeetingIdListBy(Calendar date);
 }

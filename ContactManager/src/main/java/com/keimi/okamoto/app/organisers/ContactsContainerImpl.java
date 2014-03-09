@@ -6,7 +6,7 @@ package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.Contact;
 import com.keimi.okamoto.app.utils.ContactFactory;
-import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
+import com.keimi.okamoto.app.utils.UniqueNumberGeneratorUtilities;
 
 import java.io.Serializable;
 import java.util.*;
@@ -14,7 +14,7 @@ import java.util.*;
 public class ContactsContainerImpl implements ContactsContainer, Serializable {
     private Map<Integer, Contact> contactMap;
     private ContactFactory aContactFactory;
-    private UniqueNumberGenerator aUniqueNumberGenerator;
+    private UniqueNumberGeneratorUtilities aUniqueNumberGeneratorUtilities;
 
     /**
      * Constructor that makes a HashMap.
@@ -22,10 +22,10 @@ public class ContactsContainerImpl implements ContactsContainer, Serializable {
      * so a contactFactor must be passed through.
      * Dependency injection for unique number.
      */
-    public ContactsContainerImpl(ContactFactory aContactFactory, UniqueNumberGenerator aUniqueNumberGenerator) {
+    public ContactsContainerImpl(ContactFactory aContactFactory, UniqueNumberGeneratorUtilities aUniqueNumberGeneratorUtilities) {
         contactMap = new HashMap<>();
         this.aContactFactory = aContactFactory;
-        this.aUniqueNumberGenerator = aUniqueNumberGenerator;
+        this.aUniqueNumberGeneratorUtilities = aUniqueNumberGeneratorUtilities;
     }
 
     /**
@@ -36,7 +36,7 @@ public class ContactsContainerImpl implements ContactsContainer, Serializable {
      */
     @Override
     public void addContact(String name, String notes) {
-        int uniqueID = aUniqueNumberGenerator.getUniqueNumber();
+        int uniqueID = aUniqueNumberGeneratorUtilities.getUniqueNumber();
 
         Contact aNewContact = aContactFactory.createContact(uniqueID, name, notes);
         contactMap.put(uniqueID, aNewContact);

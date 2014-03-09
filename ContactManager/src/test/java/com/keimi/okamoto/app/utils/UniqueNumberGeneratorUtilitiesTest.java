@@ -8,7 +8,7 @@ package com.keimi.okamoto.app.utils;
 import org.junit.Test;
 import static junit.framework.Assert.assertEquals;
 
-public class UniqueNumberGeneratorTest {
+public class UniqueNumberGeneratorUtilitiesTest {
 
     /**
      * Test to make sure the method is returning a
@@ -16,13 +16,13 @@ public class UniqueNumberGeneratorTest {
      */
     @Test
     public void shouldBeAbleToGenerateUniqueNumber() {
-        UniqueNumberGenerator aUniqueNumberGenerator = UniqueNumberGeneratorImpl.getInstance();
-        int actual = aUniqueNumberGenerator.getUniqueNumber();
+        UniqueNumberGeneratorUtilities aUniqueNumberGeneratorUtilities = UniqueNumberGeneratorUtilitiesImpl.getInstance();
+        int actual = aUniqueNumberGeneratorUtilities.getUniqueNumber();
         int expected = 0;
 
         assertEquals(expected, actual);
 
-        actual = aUniqueNumberGenerator.getUniqueNumber();
+        actual = aUniqueNumberGeneratorUtilities.getUniqueNumber();
         expected = 1;
 
         assertEquals(expected, actual);

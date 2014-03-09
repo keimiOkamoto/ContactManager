@@ -6,7 +6,7 @@ package com.keimi.okamoto.app.organisers;
 import com.keimi.okamoto.app.items.Contact;
 import com.keimi.okamoto.app.items.ContactImpl;
 import com.keimi.okamoto.app.utils.ContactFactory;
-import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
+import com.keimi.okamoto.app.utils.UniqueNumberGeneratorUtilities;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 
 public class ContactsContainerTest {
     private ContactsContainer aContactContainer;
-    private UniqueNumberGenerator aUniqueNumberGenerator;
+    private UniqueNumberGeneratorUtilities aUniqueNumberGeneratorUtilities;
     private ContactFactory aContactFactory;
     private Contact aContact;
 
@@ -28,11 +28,11 @@ public class ContactsContainerTest {
     public void buildUp() {
         aContact = mock(Contact.class);
         aContactFactory = mock(ContactFactory.class);
-        aUniqueNumberGenerator = mock(UniqueNumberGenerator.class);
+        aUniqueNumberGeneratorUtilities = mock(UniqueNumberGeneratorUtilities.class);
 
-        aContactContainer = new ContactsContainerImpl(aContactFactory, aUniqueNumberGenerator);
+        aContactContainer = new ContactsContainerImpl(aContactFactory, aUniqueNumberGeneratorUtilities);
 
-        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(1, 2, 3, 4);
+        when(aUniqueNumberGeneratorUtilities.getUniqueNumber()).thenReturn(1, 2, 3, 4);
         aContactContainer.addContact("Adam", "Some notes go here");
         aContactContainer.addContact("Barry", "Some notes about Barry...");
         aContactContainer.addContact("Carl", "Some notes about Carl...");
@@ -49,7 +49,7 @@ public class ContactsContainerTest {
         String notesExpected = "Some notes goes here...";
         int id = 5;
 
-        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id);
+        when(aUniqueNumberGeneratorUtilities.getUniqueNumber()).thenReturn(id);
         when(aContact.getName()).thenReturn(nameExpected);
         when(aContactFactory.createContact(anyInt(), anyString(), anyString())).thenReturn(aContact);
 
@@ -70,7 +70,7 @@ public class ContactsContainerTest {
 
         assertFalse(aContactContainer.checkForValidId(100, 200));
 
-        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(100);
+        when(aUniqueNumberGeneratorUtilities.getUniqueNumber()).thenReturn(100);
         when(aContactFactory.createContact(anyInt(), anyString(), anyString())).thenReturn(aContact);
 
         assertTrue(aContactContainer.checkForValidId(1));
@@ -155,7 +155,7 @@ public class ContactsContainerTest {
         when(mContact.getName()).thenReturn(name);
         when(mContact.getId()).thenReturn(id);
         when(mContact.getNotes()).thenReturn(notes);
-        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id);
+        when(aUniqueNumberGeneratorUtilities.getUniqueNumber()).thenReturn(id);
         when(aContactFactory.createContact(anyInt(), anyString(), anyString())).thenReturn(mContact);
 
         aContactContainer.addContact(name, notes);

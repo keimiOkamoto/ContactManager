@@ -2,7 +2,7 @@ package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.*;
 import com.keimi.okamoto.app.utils.MeetingFactory;
-import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
+import com.keimi.okamoto.app.utils.UniqueNumberGeneratorUtilities;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,17 +20,17 @@ public class MeetingContainerTest {
     private MeetingContainer aMeetingContainer;
     private FutureMeeting aFutureMeeting;
     private MeetingFactory aMeetingFactory;
-    private UniqueNumberGenerator aUniqueNumberGenerator;
+    private UniqueNumberGeneratorUtilities aUniqueNumberGeneratorUtilities;
     private PastMeeting aPastMeeting;
 
     @Before
     public void buildUp() {
         aMeetingFactory = mock(MeetingFactory.class);
         aFutureMeeting = mock(FutureMeeting.class);
-        aUniqueNumberGenerator = mock(UniqueNumberGenerator.class);
+        aUniqueNumberGeneratorUtilities = mock(UniqueNumberGeneratorUtilities.class);
         aPastMeeting = mock(PastMeeting.class);
 
-        aMeetingContainer = new MeetingContainerImpl(aMeetingFactory, aUniqueNumberGenerator);
+        aMeetingContainer = new MeetingContainerImpl(aMeetingFactory, aUniqueNumberGeneratorUtilities);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class MeetingContainerTest {
         Calendar date = Calendar.getInstance();
 
         int actualId = 5;
-        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(actualId);
+        when(aUniqueNumberGeneratorUtilities.getUniqueNumber()).thenReturn(actualId);
         when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(aFutureMeeting);
 
         aMeetingContainer.addFutureMeeting(aSetOfContacts, date);
@@ -64,7 +64,7 @@ public class MeetingContainerTest {
         Calendar date = Calendar.getInstance();
         date.add(Calendar.DATE, 2);
 
-        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id);
+        when(aUniqueNumberGeneratorUtilities.getUniqueNumber()).thenReturn(id);
         when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(aFutureMeeting);
 
         aMeetingContainer.addFutureMeeting(new HashSet<Contact>(), date);
@@ -87,7 +87,7 @@ public class MeetingContainerTest {
         Calendar date = Calendar.getInstance();
         date.add(Calendar.DATE, 1);
 
-        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id);
+        when(aUniqueNumberGeneratorUtilities.getUniqueNumber()).thenReturn(id);
         when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(aFutureMeeting);
 
         aMeetingContainer.addFutureMeeting(new HashSet<Contact>(), date);
@@ -143,7 +143,7 @@ public class MeetingContainerTest {
         PastMeeting pastMeeting = mock(PastMeeting.class);
         Set<Contact> aSetOfContacts = new HashSet<>();
 
-        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id);
+        when(aUniqueNumberGeneratorUtilities.getUniqueNumber()).thenReturn(id);
         when(aMeetingFactory.createPastMeeting(anyInt(), anySet(), eq(date), anyString())).thenReturn(pastMeeting);
         when(pastMeeting.getId()).thenReturn(id);
 
@@ -197,15 +197,15 @@ public class MeetingContainerTest {
         FutureMeeting futureMeeting1 = futureMeetingMaker(id1, date, contactSet);
         FutureMeeting futureMeeting2 = futureMeetingMaker(id2, date, contactSet);
 
-        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id0);
+        when(aUniqueNumberGeneratorUtilities.getUniqueNumber()).thenReturn(id0);
         when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(futureMeeting);
         aMeetingContainer.addFutureMeeting(contactSet, date);
 
-        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id1);
+        when(aUniqueNumberGeneratorUtilities.getUniqueNumber()).thenReturn(id1);
         when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(futureMeeting1);
         aMeetingContainer.addFutureMeeting(contactSet, date);
 
-        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id2);
+        when(aUniqueNumberGeneratorUtilities.getUniqueNumber()).thenReturn(id2);
         when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(futureMeeting2);
         aMeetingContainer.addFutureMeeting(contactSet, date);
 
@@ -237,11 +237,11 @@ public class MeetingContainerTest {
         FutureMeeting futureMeeting = futureMeetingMaker(id0, date, contactSet);
         FutureMeeting futureMeeting1 = futureMeetingMaker(id0, date, contactSet);
 
-        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id0);
+        when(aUniqueNumberGeneratorUtilities.getUniqueNumber()).thenReturn(id0);
         when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(futureMeeting);
         aMeetingContainer.addFutureMeeting(contactSet, date);
 
-        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id0);
+        when(aUniqueNumberGeneratorUtilities.getUniqueNumber()).thenReturn(id0);
         when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(futureMeeting1);
         aMeetingContainer.addFutureMeeting(contactSet, date);
 
@@ -265,7 +265,7 @@ public class MeetingContainerTest {
 
         FutureMeeting futureMeeting = futureMeetingMaker(id0, date, contactSet);
 
-        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id0);
+        when(aUniqueNumberGeneratorUtilities.getUniqueNumber()).thenReturn(id0);
         when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(futureMeeting);
         aMeetingContainer.addFutureMeeting(contactSet, date);
 

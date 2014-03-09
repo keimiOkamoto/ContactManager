@@ -7,15 +7,15 @@ package com.keimi.okamoto.app.utils;
 
 import java.io.Serializable;
 
-public class UniqueNumberGeneratorImpl implements UniqueNumberGenerator, Serializable {
-    private static UniqueNumberGenerator singleton;
-    private static int id = 0;
+public class UniqueNumberGeneratorUtilitiesImpl implements UniqueNumberGeneratorUtilities, Serializable {
+    private static UniqueNumberGeneratorUtilities singleton;
+    private int id = 0;
 
     /**
      * Private method to stop other classes from
      * instantiating this object.
      */
-    private UniqueNumberGeneratorImpl() {
+    private UniqueNumberGeneratorUtilitiesImpl() {
     }
 
     /**
@@ -24,9 +24,9 @@ public class UniqueNumberGeneratorImpl implements UniqueNumberGenerator, Seriali
      *
      * @return the single instance.
      */
-    public static UniqueNumberGenerator getInstance() {
+    public static UniqueNumberGeneratorUtilities getInstance() {
         if (singleton == null) {
-            singleton = new UniqueNumberGeneratorImpl();
+            singleton = new UniqueNumberGeneratorUtilitiesImpl();
         }
         return singleton;
     }
@@ -38,6 +38,6 @@ public class UniqueNumberGeneratorImpl implements UniqueNumberGenerator, Seriali
      */
     @Override
     public int getUniqueNumber() {
-        return UniqueNumberGeneratorImpl.id++;
+        return id++;
     }
 }

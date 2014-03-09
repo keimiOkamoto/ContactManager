@@ -5,7 +5,7 @@
  */
 package com.keimi.okamoto.app.utils;
 
-public interface UniqueNumberGenerator {
+public interface UniqueNumberGeneratorUtilities {
     /**
      * Method that gets a unique number;
      * @return a unique number

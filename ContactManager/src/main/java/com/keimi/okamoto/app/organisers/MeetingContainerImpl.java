@@ -2,7 +2,7 @@ package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.*;
 import com.keimi.okamoto.app.utils.MeetingFactory;
-import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
+import com.keimi.okamoto.app.utils.UniqueNumberGeneratorUtilities;
 
 import java.io.Serializable;
 import java.util.*;
@@ -10,14 +10,14 @@ import java.util.*;
 
 public class MeetingContainerImpl implements MeetingContainer, Serializable {
     private Map<Integer, Meeting> aMeetingMap;
-    private UniqueNumberGenerator aUniqueNumberGenerator;
+    private UniqueNumberGeneratorUtilities aUniqueNumberGeneratorUtilities;
     private MeetingFactory aMeetingFactory;
     private Map <Integer, Set<Integer>> contactMeetingMap;
 
-    public MeetingContainerImpl(MeetingFactory aMeetingFactory, UniqueNumberGenerator aUniqueNumberGenerator) {
+    public MeetingContainerImpl(MeetingFactory aMeetingFactory, UniqueNumberGeneratorUtilities aUniqueNumberGeneratorUtilities) {
         aMeetingMap = new HashMap<>();
         this.aMeetingFactory = aMeetingFactory;
-        this.aUniqueNumberGenerator = aUniqueNumberGenerator;
+        this.aUniqueNumberGeneratorUtilities = aUniqueNumberGeneratorUtilities;
         contactMeetingMap = new HashMap<>();
     }
 
@@ -31,7 +31,7 @@ public class MeetingContainerImpl implements MeetingContainer, Serializable {
      */
     @Override
     public int addFutureMeeting(Set<Contact> aSetOfContacts, Calendar date) {
-        int uniqueID = aUniqueNumberGenerator.getUniqueNumber();
+        int uniqueID = aUniqueNumberGeneratorUtilities.getUniqueNumber();
 
         if (checkForFuture(date)) {
             FutureMeeting aNewMeeting = null;
@@ -116,7 +116,7 @@ public class MeetingContainerImpl implements MeetingContainer, Serializable {
     @Override
     public void addPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes) throws IllegalArgumentException {
         Meeting aNewMeeting = null;
-        int id = aUniqueNumberGenerator.getUniqueNumber();
+        int id = aUniqueNumberGeneratorUtilities.getUniqueNumber();
 
         if(!checkForPast(date)) throw new IllegalArgumentException();
         try {

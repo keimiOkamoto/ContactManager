@@ -4,6 +4,7 @@
  */
 package com.keimi.okamoto.app.items;
 
+import com.keimi.okamoto.app.utils.IllegalMeetingException;
 import org.junit.*;
 
 import java.util.Calendar;
@@ -23,7 +24,7 @@ public class MeetingTest {
      * Builds a Calender holding the current date.
      * Builds a MeetingImpl object to be utilised.
      *
-     * @throws com.keimi.okamoto.app.items.IllegalMeetingException if the set does not contain at least one contact.
+     * @throws com.keimi.okamoto.app.utils.IllegalMeetingException if the set does not contain at least one contact.
      */
     @Before
     public void buildUp() throws IllegalMeetingException {

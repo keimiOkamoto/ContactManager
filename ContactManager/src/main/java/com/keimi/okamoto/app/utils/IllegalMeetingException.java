@@ -1,4 +1,4 @@
-package com.keimi.okamoto.app.items;
+package com.keimi.okamoto.app.utils;
 
 /**
  * This class is mhy own exception.

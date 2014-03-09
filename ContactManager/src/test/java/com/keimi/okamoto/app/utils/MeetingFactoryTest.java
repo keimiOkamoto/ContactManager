@@ -2,7 +2,6 @@ package com.keimi.okamoto.app.utils;
 
 import com.keimi.okamoto.app.items.Contact;
 import com.keimi.okamoto.app.items.FutureMeeting;
-import com.keimi.okamoto.app.items.IllegalMeetingException;
 import com.keimi.okamoto.app.items.PastMeeting;
 import org.junit.Test;
 

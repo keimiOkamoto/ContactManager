@@ -3,6 +3,7 @@
  */
 package com.keimi.okamoto.app.items;
 
+import com.keimi.okamoto.app.utils.IllegalMeetingException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -23,7 +24,7 @@ public class IllegalMeetingExceptionTest {
      * Tests for the correct exception and message to be printed if a
      * IllegalMeetingException is thrown.
      *
-     * @throws com.keimi.okamoto.app.items.IllegalMeetingException if the set does not contain at least one contact.
+     * @throws com.keimi.okamoto.app.utils.IllegalMeetingException if the set does not contain at least one contact.
      */
     @Test
     public void shouldHaveAppropriateMessage() throws IllegalMeetingException {

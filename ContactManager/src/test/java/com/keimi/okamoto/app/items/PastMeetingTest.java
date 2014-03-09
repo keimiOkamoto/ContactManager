@@ -5,6 +5,7 @@
  */
 package com.keimi.okamoto.app.items;
 
+import com.keimi.okamoto.app.utils.IllegalMeetingException;
 import org.junit.Test;
 
 import java.util.Calendar;
@@ -20,7 +21,7 @@ public class PastMeetingTest {
      * Test for to get correct notes of a past meeting
      * even if the note is empty.
      *
-     * @throws com.keimi.okamoto.app.items.IllegalMeetingException if the set does not contain at least one contact.
+     * @throws com.keimi.okamoto.app.utils.IllegalMeetingException if the set does not contain at least one contact.
      */
     @Test
     public void shouldBeAbleToGetNotesEvenIfEmpty() throws IllegalMeetingException {

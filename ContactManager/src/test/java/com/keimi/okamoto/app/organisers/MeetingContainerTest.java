@@ -1,6 +1,7 @@
 package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.*;
+import com.keimi.okamoto.app.utils.IllegalMeetingException;
 import com.keimi.okamoto.app.utils.MeetingFactory;
 import com.keimi.okamoto.app.utils.UniqueNumberGeneratorUtilities;
 import org.junit.Before;

@@ -4,10 +4,11 @@
  */
 package com.keimi.okamoto.app.items;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Set;
 
-public class MeetingImpl implements Meeting {
+public class MeetingImpl implements Meeting, Serializable {
     private int id = 0;
     private Calendar date;
     private Set<Contact> aListOfContacts;

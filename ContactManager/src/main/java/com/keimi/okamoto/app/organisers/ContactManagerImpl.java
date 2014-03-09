@@ -4,6 +4,7 @@ import com.keimi.okamoto.app.items.Contact;
 import com.keimi.okamoto.app.items.FutureMeeting;
 import com.keimi.okamoto.app.items.Meeting;
 import com.keimi.okamoto.app.items.PastMeeting;
+import com.keimi.okamoto.app.utils.*;
 
 import java.util.*;
 
@@ -20,9 +21,22 @@ public class ContactManagerImpl implements ContactManager {
      * @param aMeetingContainer  A container that holds meetings
      */
     public ContactManagerImpl(ContactsContainer aContactsContainer, MeetingContainer aMeetingContainer, DiskWriter aDiskWriter) {
-        this.aContactsContainer = aContactsContainer;
-        this.aMeetingContainer = aMeetingContainer;
+        if (aDiskWriter.checkIfDataExists()) {
+            aDiskWriter.readDisk();
+            this.aContactsContainer = aDiskWriter.getContactContainer();
+            this.aMeetingContainer = aDiskWriter.getMeetingContainer();
+        } else {
+            this.aContactsContainer = aContactsContainer;
+            this.aMeetingContainer = aMeetingContainer;
+        }
         this.aDiskWriter = aDiskWriter;
+        addShutdownHook();
+    }
+
+    /**
+     * This method adds a shutdown hook
+     */
+    private void addShutdownHook() {
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
             public void run() {
@@ -200,5 +214,18 @@ public class ContactManagerImpl implements ContactManager {
     @Override
     public void flush() {
         aDiskWriter.writeToDisk(aContactsContainer, aMeetingContainer);
+    }
+
+    public static void main (String [] args) {
+        ContactFactory contactFactory = new ContactFactoryImpl();
+        MeetingFactory meetingFactory = new MeetingFactoryImpl();
+        UniqueNumberGenerator uniqueNumberGenerator = UniqueNumberGeneratorImpl.getInstance();
+        DiskWriter diskWriter = new DiskWriterImpl();
+
+        ContactsContainer contactsContainer = new ContactsContainerImpl(contactFactory, uniqueNumberGenerator);
+        MeetingContainer meetingContainer = new MeetingContainerImpl(meetingFactory, uniqueNumberGenerator);
+        ContactManager contactManager = new ContactManagerImpl(contactsContainer, meetingContainer, diskWriter);
+        contactManager.getFutureMeeting(20);
+
     }
 }

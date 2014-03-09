@@ -5,7 +5,9 @@
  */
 package com.keimi.okamoto.app.utils;
 
-public class UniqueNumberGeneratorImpl implements UniqueNumberGenerator {
+import java.io.Serializable;
+
+public class UniqueNumberGeneratorImpl implements UniqueNumberGenerator, Serializable {
     private static UniqueNumberGenerator singleton;
     private static int id = 0;
 

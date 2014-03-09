@@ -8,9 +8,10 @@ import com.keimi.okamoto.app.items.Contact;
 import com.keimi.okamoto.app.utils.ContactFactory;
 import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class ContactsContainerImpl implements ContactsContainer {
+public class ContactsContainerImpl implements ContactsContainer, Serializable {
     private Map<Integer, Contact> contactMap;
     private ContactFactory aContactFactory;
     private UniqueNumberGenerator aUniqueNumberGenerator;

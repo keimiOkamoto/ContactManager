@@ -4,10 +4,11 @@ import com.keimi.okamoto.app.items.*;
 import com.keimi.okamoto.app.utils.MeetingFactory;
 import com.keimi.okamoto.app.utils.UniqueNumberGenerator;
 
+import java.io.Serializable;
 import java.util.*;
 
 
-public class MeetingContainerImpl implements MeetingContainer {
+public class MeetingContainerImpl implements MeetingContainer, Serializable {
     private Map<Integer, Meeting> aMeetingMap;
     private UniqueNumberGenerator aUniqueNumberGenerator;
     private MeetingFactory aMeetingFactory;

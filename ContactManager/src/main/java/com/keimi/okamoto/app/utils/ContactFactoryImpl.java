@@ -8,8 +8,10 @@ package com.keimi.okamoto.app.utils;
 import com.keimi.okamoto.app.items.Contact;
 import com.keimi.okamoto.app.items.ContactImpl;
 
+import java.io.Serializable;
 
-public class ContactFactoryImpl implements ContactFactory {
+
+public class ContactFactoryImpl implements ContactFactory, Serializable {
     /**
      * Single method that creates contact
      * @param id id of a contact

@@ -239,7 +239,7 @@ public class MeetingContainerTest {
         PastMeeting actualPastMeeting = aMeetingContainer.getPastMeeting(4);
 
         assertEquals(aPastMeeting, actualPastMeeting);
-    } //TODO
+    }
 
     @Test (expected = IllegalArgumentException.class)
     public void shouldThrowIllegalArgumentExceptionIfParameterForAFutureMeetingIsNullInConvertToFutureMeeting() {
@@ -295,7 +295,7 @@ public class MeetingContainerTest {
         Set<Integer> meetingIds = aMeetingContainer.getMeetingIdListBy(contact1);
 
         assertEquals(expected, meetingIds);
-    } //TODO
+    }
 
     @Test
     public void shouldHaveNoDuplicateMeetings() throws IllegalMeetingException {

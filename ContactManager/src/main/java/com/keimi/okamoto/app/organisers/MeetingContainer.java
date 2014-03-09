@@ -19,7 +19,7 @@ public interface MeetingContainer {
      * @param date of the meeting
      * @return the meeting id
      */
-    int addFutureMeeting(Set<Contact> aSetOfContacts, Calendar date) throws IllegalMeetingException;
+    int addFutureMeeting(Set<Contact> aSetOfContacts, Calendar date);
 
     boolean checkForFuture(Calendar date);
 
@@ -35,10 +35,8 @@ public interface MeetingContainer {
      * @param aSetOfContacts
      * @param date
      * @param notes
-     * @throws IllegalArgumentException if date entered is not in the past
-     * @throws com.keimi.okamoto.app.items.IllegalMeetingException
      */
-    void addPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes) throws IllegalArgumentException, IllegalMeetingException;
+    void addPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes);
 
     PastMeeting getPastMeeting(int id);
 

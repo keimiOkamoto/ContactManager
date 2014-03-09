@@ -1,6 +1,9 @@
 package com.keimi.okamoto.app.organisers;
 
-import com.keimi.okamoto.app.items.*;
+import com.keimi.okamoto.app.items.Contact;
+import com.keimi.okamoto.app.items.FutureMeeting;
+import com.keimi.okamoto.app.items.Meeting;
+import com.keimi.okamoto.app.items.PastMeeting;
 
 import java.util.*;
 
@@ -11,8 +14,9 @@ public class ContactManagerImpl implements ContactManager {
 
     /**
      * Constructor for ContactManagerImpl
+     *
      * @param aContactsContainer A container that holds contacts
-     * @param aMeetingContainer A container that holds meetings
+     * @param aMeetingContainer  A container that holds meetings
      */
     public ContactManagerImpl(ContactsContainer aContactsContainer, MeetingContainer aMeetingContainer) {
         this.aContactsContainer = aContactsContainer;
@@ -20,7 +24,7 @@ public class ContactManagerImpl implements ContactManager {
     }
 
     @Override
-    public int addFutureMeeting(Set<Contact> contacts, Calendar date) throws IllegalArgumentException, IllegalMeetingException {
+    public int addFutureMeeting(Set<Contact> contacts, Calendar date) throws IllegalArgumentException {
         if (!aMeetingContainer.checkForFuture(date) || !aContactsContainer.checkForValidSetOfContacts(contacts)) {
             throw new IllegalArgumentException();
         }
@@ -47,7 +51,7 @@ public class ContactManagerImpl implements ContactManager {
 
     @Override
     public Meeting getMeeting(int id) {
-       return aMeetingContainer.getMeeting(id);
+        return aMeetingContainer.getMeeting(id);
     }
 
     @Override
@@ -59,9 +63,9 @@ public class ContactManagerImpl implements ContactManager {
         if (meetingIds != null) {
             for (int id : meetingIds) {
                 Meeting aMeeting = aMeetingContainer.getMeeting(id);
-                    if (aMeeting instanceof FutureMeeting) {
-                        meetings.add(aMeeting);
-                    }
+                if (aMeeting instanceof FutureMeeting) {
+                    meetings.add(aMeeting);
+                }
             }
         }
         return sortInChronologicalOrder(meetings);
@@ -77,7 +81,7 @@ public class ContactManagerImpl implements ContactManager {
         Collections.sort(meetings, new Comparator<Meeting>() {
             @Override
             public int compare(Meeting o1, Meeting o2) {
-               return o1.getDate().compareTo(o2.getDate());
+                return o1.getDate().compareTo(o2.getDate());
             }
         });
         return meetings;
@@ -117,14 +121,12 @@ public class ContactManagerImpl implements ContactManager {
 
     @Override
     public void addNewPastMeeting(Set<Contact> contacts, Calendar date, String notes) throws IllegalArgumentException, NullPointerException {
-        if (contacts == null || date == null || notes == null ) throw new NullPointerException();
-        if (contacts.isEmpty() || !aContactsContainer.checkForValidSetOfContacts(contacts)) throw new IllegalArgumentException();
+        if (contacts == null || date == null || notes == null) throw new NullPointerException();
+        if (contacts.isEmpty() || !aContactsContainer.checkForValidSetOfContacts(contacts))
+            throw new IllegalArgumentException();
 
-        try {
-            aMeetingContainer.addPastMeeting(contacts, date, notes);
-        } catch (IllegalMeetingException e) {
-            e.printStackTrace();
-        }
+        aMeetingContainer.addPastMeeting(contacts, date, notes);
+
     }
 
     @Override
@@ -184,5 +186,10 @@ public class ContactManagerImpl implements ContactManager {
             throw new NullPointerException();
         }
         return aContactsContainer.getContacts(name);
+    }
+
+    @Override
+    public void flush() {
+
     }
 }

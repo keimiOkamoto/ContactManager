@@ -673,6 +673,8 @@ public class ContactManagerTest {
         verify(aMeetingContainer,never()).getMeeting(anyInt());
     }
 
+
+
     /*
      * Helper for test.
      * Makes a past meeting.

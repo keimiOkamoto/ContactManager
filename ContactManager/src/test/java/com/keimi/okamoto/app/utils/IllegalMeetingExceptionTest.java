@@ -1,7 +1,7 @@
 /**
  * Test class for IllegalMeetingException.
  */
-package com.keimi.okamoto.app.items;
+package com.keimi.okamoto.app.utils;
 
 import com.keimi.okamoto.app.utils.IllegalMeetingException;
 import org.junit.Rule;

@@ -25,7 +25,8 @@ public class ContactsContainerImpl implements ContactsContainer, Serializable {
     }
 
     @Override
-    public void addContact(String name, String notes) {
+    public void addContact(String name, String notes) throws IllegalArgumentException {
+        if (name == null || notes == null) throw new IllegalArgumentException();
         int uniqueID = aUniqueNumberGeneratorUtilities.getUniqueNumber();
 
         Contact aNewContact = aContactFactory.createContact(uniqueID, name, notes);
@@ -49,7 +50,9 @@ public class ContactsContainerImpl implements ContactsContainer, Serializable {
     }
 
     @Override
-    public Set<Contact> getContacts(String name) {
+    public Set<Contact> getContacts(String name) throws IllegalArgumentException {
+        if (name == null) throw new IllegalArgumentException();
+
         Set<Contact> resultSet = new HashSet<>();
         for (Contact c : contactMap.values()) {
             if (c != null && c.getName().equals(name)) {
@@ -61,7 +64,9 @@ public class ContactsContainerImpl implements ContactsContainer, Serializable {
     }
 
     @Override
-    public boolean checkForValidName(String name) {
+    public boolean checkForValidName(String name) throws IllegalArgumentException {
+        if (name == null) throw new IllegalArgumentException();
+
         boolean result = false;
         for (Contact c : contactMap.values()) {
             if (c != null && c.getName().equals(name)) {
@@ -72,13 +77,13 @@ public class ContactsContainerImpl implements ContactsContainer, Serializable {
     }
 
     @Override
-    public boolean checkForValidSetOfContacts(Set<Contact> aSetOfContacts) {
+    public boolean checkForValidSetOfContacts(Set<Contact> aSetOfContacts) throws IllegalArgumentException {
+        if (aSetOfContacts == null) throw new IllegalArgumentException();
+
         boolean result = false;
-        if (aSetOfContacts != null) {
-            for (Contact c : aSetOfContacts) {
-                if (checkForValidId(c.getId())) {
-                    result = true;
-                }
+        for (Contact c : aSetOfContacts) {
+            if (checkForValidId(c.getId())) {
+                result = true;
             }
         }
         return result;

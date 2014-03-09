@@ -40,9 +40,4 @@ public class ContactFactoryTest {
         assertEquals(actual.getNotes(), note);
         assertEquals(aContact, actual);
     }
-
-    @Test
-    public void shouldBeAbleToCreateAPastMeeting() {
-
-    }
 }

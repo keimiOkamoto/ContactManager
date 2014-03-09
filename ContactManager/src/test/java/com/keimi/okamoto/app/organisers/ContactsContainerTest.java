@@ -64,6 +64,20 @@ public class ContactsContainerTest {
         assertEquals(nameExpected, actualName);
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfNameParameterIsNullWhenAddingContact() {
+        aContactContainer.addContact(null, "");
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfNoteParameterIsNullWhenAddingContact() {
+        aContactContainer.addContact("Adam", null);
+    }
+
+    /*
+     * Test for checkForValidId()
+     * Starts here:
+     */
     @Test
     public void shouldBeAbleToCheckForValidId() {
         assertFalse(aContactContainer.checkForValidId(100));
@@ -77,6 +91,8 @@ public class ContactsContainerTest {
 
         assertFalse(aContactContainer.checkForValidId(1, 2, 260));
     }
+
+
 
     /*
      * Test for getContact(int contactId)
@@ -109,6 +125,11 @@ public class ContactsContainerTest {
         assertTrue(actualSet.size() == 2);
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfNameParameterIsNullWhenGettingContactByName() {
+        aContactContainer.getContacts(null);
+    }
+
     /*
      * Test for checkForValidName()
      * is working.
@@ -121,14 +142,17 @@ public class ContactsContainerTest {
         assertFalse(aContactContainer.checkForValidName("Terry"));
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfNameParameterIsNullWhenCheckingForValidName() {
+        aContactContainer.checkForValidName(null);
+    }
+
     /*
      * Test for checkForValidSetOfContacts(Set<Contact> aSetOfContacts)
      * Starts here:
      */
     @Test
     public void shouldBeAbleToCheckForValidSetOfContacts() {
-        assertFalse(aContactContainer.checkForValidSetOfContacts(null));
-
         String name1 = "Adam";
         String name2 = "Benny";
         int id1 = 1;
@@ -142,6 +166,11 @@ public class ContactsContainerTest {
         addContact(name2, id2 , "Some notes about Benny...");
 
         assertTrue(aContactContainer.checkForValidSetOfContacts(contactSet));
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfNameParameterIsNullWhenCheckingForValidSetOfContacts() {
+        aContactContainer.checkForValidSetOfContacts(null);
     }
 
     /*

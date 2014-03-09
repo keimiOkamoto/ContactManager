@@ -28,9 +28,10 @@ public class MeetingContainerImpl implements MeetingContainer, Serializable {
     }
 
     @Override
-    public int addFutureMeeting(Set<Contact> aSetOfContacts, Calendar date) {
-        int uniqueID = aUniqueNumberGeneratorUtilities.getUniqueNumber();
+    public int addFutureMeeting(Set<Contact> aSetOfContacts, Calendar date) throws IllegalArgumentException {
+        if (checkForPast(date)) throw new IllegalArgumentException();
 
+        int uniqueID = aUniqueNumberGeneratorUtilities.getUniqueNumber();
         if (checkForFuture(date)) {
             FutureMeeting aNewMeeting = null;
             try {
@@ -61,13 +62,14 @@ public class MeetingContainerImpl implements MeetingContainer, Serializable {
     }
 
     @Override
-    public boolean checkForFuture(Calendar date) {
+    public boolean checkForFuture(Calendar date) throws IllegalArgumentException {
+        if (date == null) throw new IllegalArgumentException();
         Calendar now = Calendar.getInstance();
         return date.after(now);
     }
 
     @Override
-    public boolean checkForPast(Calendar date) {
+    public boolean checkForPast(Calendar date) throws IllegalArgumentException {
         return !checkForFuture(date);
     }
 
@@ -83,10 +85,9 @@ public class MeetingContainerImpl implements MeetingContainer, Serializable {
 
     @Override
     public void addPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes) throws IllegalArgumentException {
+        if (checkForFuture(date) || aSetOfContacts == null || notes == null) throw new IllegalArgumentException();
         Meeting aNewMeeting = null;
         int id = aUniqueNumberGeneratorUtilities.getUniqueNumber();
-
-        if(!checkForPast(date)) throw new IllegalArgumentException();
         try {
             aNewMeeting = aMeetingFactory.createPastMeeting(id, aSetOfContacts, date, notes);
         } catch (IllegalMeetingException e) {
@@ -103,7 +104,9 @@ public class MeetingContainerImpl implements MeetingContainer, Serializable {
     }
 
     @Override
-    public void convertToPastMeeting(Meeting aMeeting, String notes) {
+    public void convertToPastMeeting(Meeting aMeeting, String notes) throws IllegalArgumentException {
+        if (aMeeting == null || notes == null) throw new IllegalArgumentException();
+
         int futureMeetingId = aMeeting.getId();
         Calendar futureMeetingDate = aMeeting.getDate();
         Set<Contact> futureContactSet = aMeeting.getContacts();
@@ -117,12 +120,16 @@ public class MeetingContainerImpl implements MeetingContainer, Serializable {
     }
 
     @Override
-    public Set<Integer> getMeetingIdListBy(Contact contact) {
+    public Set<Integer> getMeetingIdListBy(Contact contact) throws IllegalArgumentException {
+        if (contact == null) throw new IllegalArgumentException();
+
         return contactMeetingMap.get(contact.getId());
     }
 
     @Override
-    public Set<Integer> getMeetingIdListBy(Calendar date) {
+    public Set<Integer> getMeetingIdListBy(Calendar date) throws IllegalArgumentException {
+        if (date == null) throw new IllegalArgumentException();
+
         Set<Integer> meetingIds = new HashSet<>();
         for (Meeting meeting : aMeetingMap.values()) {
             if (meeting instanceof FutureMeeting && meeting.getDate() == date) {

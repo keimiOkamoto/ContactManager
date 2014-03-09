@@ -41,6 +41,7 @@ public class MeetingContainerTest {
     public void shouldBeAbleToAddFutureMeetingAndReturnId() throws IllegalMeetingException {
         Set<Contact> aSetOfContacts = new HashSet<>();
         Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, 1);
 
         int actualId = 5;
         when(aUniqueNumberGeneratorUtilities.getUniqueNumber()).thenReturn(actualId);
@@ -49,6 +50,15 @@ public class MeetingContainerTest {
         aMeetingContainer.addFutureMeeting(aSetOfContacts, date);
 
         assertEquals(actualId, 5);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfDateIsInThePast() {
+        Set<Contact> aSetOfContacts = new HashSet<>();
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, -2);
+
+        aMeetingContainer.addFutureMeeting(aSetOfContacts, date);
     }
 
     /*
@@ -66,6 +76,11 @@ public class MeetingContainerTest {
         assertTrue(aMeetingContainer.checkForPast(date));
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfParameterIsNullForPastDate() {
+        aMeetingContainer.checkForPast(null);
+    }
+
     /*
      * Test for getFutureMeeting(int id)
      * Starts here:
@@ -79,6 +94,11 @@ public class MeetingContainerTest {
 
         date.add(Calendar.DATE, 2);
         assertTrue(aMeetingContainer.checkForFuture(date));
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfParameterIsNullForFutureDate() {
+        aMeetingContainer.checkForFuture(null);
     }
 
     /*
@@ -107,6 +127,7 @@ public class MeetingContainerTest {
 
         assertEquals(null, actualFutureMeeting);
     }
+
 
     /*
     * Test for getMeeting(int id)
@@ -161,6 +182,21 @@ public class MeetingContainerTest {
         aMeetingContainer.addPastMeeting(aSetOfContacts, date, notes);
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfASetOfContactsIsNull() {
+        aMeetingContainer.addPastMeeting(null, Calendar.getInstance(), "");
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfADateIsNull() {
+        aMeetingContainer.addPastMeeting(new HashSet<Contact>(), null, "");
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfANoteIsNull() {
+        aMeetingContainer.addPastMeeting(new HashSet<Contact>(), Calendar.getInstance(), null);
+    }
+
     /*
      * Test for getPastMeeting() implementation
      * Starts here.
@@ -202,6 +238,16 @@ public class MeetingContainerTest {
         PastMeeting actualPastMeeting = aMeetingContainer.getPastMeeting(4);
 
         assertEquals(aPastMeeting, actualPastMeeting);
+    } //TODO
+
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfParameterForAFutureMeetingIsNullInConvertToFutureMeeting() {
+        aMeetingContainer.convertToPastMeeting(null, "");
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfParameterForNotesIsNullInConvertToFutureMeeting() {
+        aMeetingContainer.convertToPastMeeting(aFutureMeeting, null);
     }
 
     /*
@@ -248,7 +294,7 @@ public class MeetingContainerTest {
         Set<Integer> meetingIds = aMeetingContainer.getMeetingIdListBy(contact1);
 
         assertEquals(expected, meetingIds);
-    }
+    } //TODO
 
     @Test
     public void shouldHaveNoDuplicateMeetings() throws IllegalMeetingException {
@@ -283,6 +329,11 @@ public class MeetingContainerTest {
         assertEquals(expected, meetingIds);
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfParameterForContactIsNullInGetMeetingListByContact() {
+        Contact contact = null;
+        aMeetingContainer.getMeetingIdListBy(contact);
+    }
     /*
      * Test for getMeetingIdListBy(Calendar date).
      * Starts here:
@@ -305,6 +356,12 @@ public class MeetingContainerTest {
         expected.add(id0);
 
         assertEquals(expected, actual);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void shouldThrowIllegalArgumentExceptionIfParameterForDateIsNullInGetMeetingListByDate() {
+        Calendar date = null;
+        aMeetingContainer.getMeetingIdListBy(date);
     }
 
     /*

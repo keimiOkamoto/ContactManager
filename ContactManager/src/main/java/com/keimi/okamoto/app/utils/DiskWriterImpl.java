@@ -1,10 +1,11 @@
-package com.keimi.okamoto.app.organisers;
+package com.keimi.okamoto.app.utils;
+
+import com.keimi.okamoto.app.organisers.ContactsContainer;
+import com.keimi.okamoto.app.organisers.MeetingContainer;
 
 import java.io.*;
 
-/**
- * Created by keimiokamoto on 09/03/2014.
- */
+
 public class DiskWriterImpl implements DiskWriter {
     private static final String filename = "contacts.txt";
     private ContactsContainer contactsContainer;
@@ -24,7 +25,6 @@ public class DiskWriterImpl implements DiskWriter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override

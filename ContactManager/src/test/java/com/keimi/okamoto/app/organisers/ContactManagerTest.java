@@ -4,6 +4,7 @@
 package com.keimi.okamoto.app.organisers;
 
 import com.keimi.okamoto.app.items.*;
+import com.keimi.okamoto.app.utils.DiskWriter;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Matchers;

@@ -161,13 +161,6 @@ public class ContactManagerImpl implements ContactManager {
         aMeetingContainer.convertToPastMeeting(aMeeting, text);
     }
 
-    /**
-     * Adds a new contact to a HashMap
-     *
-     * @param name  the name of the contact.
-     * @param notes notes to be added about the contact.
-     * @throws NullPointerException
-     */
     @Override
     public void addNewContact(String name, String notes) throws NullPointerException {
         if (name == null || notes == null) throw new NullPointerException();
@@ -175,13 +168,6 @@ public class ContactManagerImpl implements ContactManager {
         aContactsContainer.addContact(name, notes);
     }
 
-    /**
-     * Gets a Set of contacts based on ID parameter.
-     *
-     * @param ids an arbitrary number of contact IDs (variable argument)
-     * @return a Set of contacts based on ID parameter.
-     * @throws java.lang.IllegalArgumentException if ID does not exist
-     */
     @Override
     public Set<Contact> getContacts(int... ids) throws IllegalArgumentException {
         if (!aContactsContainer.checkForValidId(ids)) {
@@ -194,14 +180,6 @@ public class ContactManagerImpl implements ContactManager {
         return result;
     }
 
-    /**
-     * Gets a Set containing the relevant contacts
-     * from contact container.
-     *
-     * @param name the string to search for
-     * @return a Set of contacts retrieved by name
-     * @throws NullPointerException if the name is equal to null
-     */
     @Override
     public Set<Contact> getContacts(String name) throws NullPointerException {
         if (!aContactsContainer.checkForValidName(name)) {
@@ -209,23 +187,9 @@ public class ContactManagerImpl implements ContactManager {
         }
         return aContactsContainer.getContacts(name);
     }
-    //user requests
-    //app closed hook
+
     @Override
     public void flush() {
         aDiskWriter.writeToDisk(aContactsContainer, aMeetingContainer);
-    }
-
-    public static void main (String [] args) {
-        ContactFactory contactFactory = new ContactFactoryImpl();
-        MeetingFactory meetingFactory = new MeetingFactoryImpl();
-        UniqueNumberGenerator uniqueNumberGenerator = UniqueNumberGeneratorImpl.getInstance();
-        DiskWriter diskWriter = new DiskWriterImpl();
-
-        ContactsContainer contactsContainer = new ContactsContainerImpl(contactFactory, uniqueNumberGenerator);
-        MeetingContainer meetingContainer = new MeetingContainerImpl(meetingFactory, uniqueNumberGenerator);
-        ContactManager contactManager = new ContactManagerImpl(contactsContainer, meetingContainer, diskWriter);
-        contactManager.getFutureMeeting(20);
-
     }
 }

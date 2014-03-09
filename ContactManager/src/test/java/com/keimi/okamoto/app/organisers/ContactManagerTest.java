@@ -25,6 +25,7 @@ public class ContactManagerTest {
     private FutureMeeting aFutureMeeting;
     private Meeting aMeeting;
     private PastMeeting aPastMeeting;
+    private DiskWriter aDiskWriter;
 
     /**
      * Just builds up a new ContactsContainerImpl
@@ -36,9 +37,10 @@ public class ContactManagerTest {
         aFutureMeeting = mock(FutureMeeting.class);
         aContact = mock(Contact.class);
         aMeeting = mock(Meeting.class);
-        aPastMeeting= mock(PastMeeting.class);
+        aPastMeeting = mock(PastMeeting.class);
+        aDiskWriter = mock(DiskWriter.class);
 
-        aContactManager = new ContactManagerImpl(aContactContainer, aMeetingContainer);
+        aContactManager = new ContactManagerImpl(aContactContainer, aMeetingContainer, aDiskWriter);
         notes = "Some notes go here";
         name = "Adam";
     }
@@ -673,6 +675,11 @@ public class ContactManagerTest {
         verify(aMeetingContainer,never()).getMeeting(anyInt());
     }
 
+    @Test
+    public void shouldBeAbleToWriteToDick() {
+        aContactManager.flush();
+        verify(aDiskWriter).writeToDisk(eq(aContactContainer), eq(aMeetingContainer));
+    }
 
 
     /*

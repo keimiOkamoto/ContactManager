@@ -11,6 +11,7 @@ import java.util.*;
 public class ContactManagerImpl implements ContactManager {
     private ContactsContainer aContactsContainer;
     private MeetingContainer aMeetingContainer;
+    private DiskWriter aDiskWriter;
 
     /**
      * Constructor for ContactManagerImpl
@@ -18,9 +19,16 @@ public class ContactManagerImpl implements ContactManager {
      * @param aContactsContainer A container that holds contacts
      * @param aMeetingContainer  A container that holds meetings
      */
-    public ContactManagerImpl(ContactsContainer aContactsContainer, MeetingContainer aMeetingContainer) {
+    public ContactManagerImpl(ContactsContainer aContactsContainer, MeetingContainer aMeetingContainer, DiskWriter aDiskWriter) {
         this.aContactsContainer = aContactsContainer;
         this.aMeetingContainer = aMeetingContainer;
+        this.aDiskWriter = aDiskWriter;
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            @Override
+            public void run() {
+                flush();
+            }
+        });
     }
 
     @Override
@@ -187,9 +195,10 @@ public class ContactManagerImpl implements ContactManager {
         }
         return aContactsContainer.getContacts(name);
     }
-
+    //user requests
+    //app closed hook
     @Override
     public void flush() {
-
+        aDiskWriter.writeToDisk(aContactsContainer, aMeetingContainer);
     }
 }

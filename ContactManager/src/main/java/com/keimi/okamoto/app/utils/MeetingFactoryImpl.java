@@ -1,6 +1,5 @@
 package com.keimi.okamoto.app.utils;
 
-
 import com.keimi.okamoto.app.items.*;
 
 import java.io.Serializable;
@@ -16,7 +15,7 @@ public class MeetingFactoryImpl implements MeetingFactory, Serializable {
     }
 
     @Override
-    public PastMeeting createPastMeeting(int id, Set<Contact> aSetOfContacts, Calendar date, String notes) throws IllegalArgumentException, IllegalMeetingException {
+    public PastMeeting createPastMeeting(int id, Set<Contact> aSetOfContacts, Calendar date, String notes) throws IllegalMeetingException {
         return new PastMeetingImpl(id, date, aSetOfContacts, notes);
     }
 }

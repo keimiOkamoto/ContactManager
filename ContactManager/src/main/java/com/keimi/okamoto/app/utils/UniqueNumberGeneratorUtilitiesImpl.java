@@ -1,8 +1,3 @@
-/**
- * Implementation for unique number generator. As the meeting and contact
- * both have unique numbers to avoid code repetition a tool package
- * was made.
- */
 package com.keimi.okamoto.app.utils;
 
 import java.io.Serializable;
@@ -31,11 +26,6 @@ public class UniqueNumberGeneratorUtilitiesImpl implements UniqueNumberGenerator
         return singleton;
     }
 
-    /**
-     * Method that gets a unique number.
-     *
-     * @return a unique number
-     */
     @Override
     public int getUniqueNumber() {
         return id++;

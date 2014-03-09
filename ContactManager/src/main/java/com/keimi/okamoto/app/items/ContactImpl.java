@@ -13,9 +13,7 @@ public class ContactImpl implements Contact, Serializable {
     }
 
     /**
-     * Returns the ID of the contact.
-     *
-     * @return the ID of the contact.
+     * {@inheritdoc}
      */
     @Override
     public int getId() {
@@ -35,7 +33,7 @@ public class ContactImpl implements Contact, Serializable {
     /**
      * Returns our notes about the contact, if any.
      * If we have not written anything about the contact, the empty
-     * string is returned. *
+     * string is returned.
      *
      * @return a string with notes about the contact, maybe empty.
      */

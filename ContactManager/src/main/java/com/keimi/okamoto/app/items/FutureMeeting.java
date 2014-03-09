@@ -1,7 +1,7 @@
 package com.keimi.okamoto.app.items;
 
 /**
- * Created by keimiokamoto on 27/02/2014.
+ * A future meeting that extends Meeting
  */
 public interface FutureMeeting extends Meeting {
 }

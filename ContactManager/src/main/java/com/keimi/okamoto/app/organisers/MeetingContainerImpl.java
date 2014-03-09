@@ -154,6 +154,12 @@ public class MeetingContainerImpl implements MeetingContainer {
 
     @Override
     public Set<Integer> getMeetingIdListBy(Calendar date) {
-        return null;
+        Set<Integer> meetingIds = new HashSet<>();
+        for (Meeting meeting : aMeetingMap.values()) {
+            if (meeting instanceof FutureMeeting && meeting.getDate() == date) {
+                meetingIds.add(meeting.getId());
+            }
+        }
+        return meetingIds;
     }
 }

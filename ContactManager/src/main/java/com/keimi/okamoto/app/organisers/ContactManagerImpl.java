@@ -96,7 +96,7 @@ public class ContactManagerImpl implements ContactManager {
             }
         }
         return sortInChronologicalOrder(meetings);
-    } // TODO
+    }
 
     @Override
     public List<PastMeeting> getPastMeetingList(Contact contact) {

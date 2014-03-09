@@ -493,7 +493,7 @@ public class ContactManagerTest {
      * Starts here:
      */
     @Test
-    public void shouldBeAbleToReturnListOfOnlyPastMeetingsScheduledWithThisContact() {
+    public void shouldBeAbleToReturnListPastMeetingsScheduledWithThisContact() {
         when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
         Calendar date = Calendar.getInstance();
         date.add(Calendar.DATE, 2);
@@ -527,7 +527,7 @@ public class ContactManagerTest {
     }
 
     @Test
-    public void shouldBeAbleToReturnListOfOnlyFutureMeetingsScheduledWithThisContactInPastMeeting() {
+    public void shouldBeAbleToReturnListOfOnlyPastMeetingsScheduledWithThisContact() {
         when(aContactContainer.checkForValidName(aContact.getName())).thenReturn(true);
 
         Set<Integer> meetingIds = new HashSet<>();
@@ -651,6 +651,26 @@ public class ContactManagerTest {
 
         assertEquals(expected, actual);
         verify(aMeetingContainer,times(4)).getMeeting(anyInt());
+    }
+
+    @Test
+    public void shouldReturnAnEmptyListIfMeetingIdListIsEmptyForFutureMeetingAccordingToDate() {
+
+        Set<Integer> meetingIds = null;
+
+        Calendar date1 = Calendar.getInstance();
+        date1.add(Calendar.DATE, -1);
+        Set<Contact> contactSet = new HashSet<>();
+        FutureMeeting fm1 = futureMeetingMaker(1, date1, contactSet);
+
+        when(aMeetingContainer.getMeetingIdListBy(eq(date1))).thenReturn(meetingIds);
+        when(aMeetingContainer.getMeeting(anyInt())).thenReturn(fm1);
+
+        List<FutureMeeting> expected = Arrays.asList();
+        List<FutureMeeting> actual = (List<FutureMeeting>) (List<?>) aContactManager.getFutureMeetingList(date1);
+
+        assertEquals(expected, actual);
+        verify(aMeetingContainer,never()).getMeeting(anyInt());
     }
 
     /*

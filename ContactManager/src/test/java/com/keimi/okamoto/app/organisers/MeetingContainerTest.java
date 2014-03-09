@@ -253,6 +253,30 @@ public class MeetingContainerTest {
     }
 
     /*
+     * Test for getMeetingIdListBy(Calendar date).
+     * Starts here:
+     */
+    @Test
+    public void shouldBeAbleToGetMeetingIdListByDate() throws IllegalMeetingException {
+        int id0 = 2;
+        Calendar date = Calendar.getInstance();
+        date.add(Calendar.DATE, 2);
+        Set<Contact> contactSet = new HashSet<>();
+
+        FutureMeeting futureMeeting = futureMeetingMaker(id0, date, contactSet);
+
+        when(aUniqueNumberGenerator.getUniqueNumber()).thenReturn(id0);
+        when(aMeetingFactory.createFutureMeeting(anyInt(), eq(date), anySet())).thenReturn(futureMeeting);
+        aMeetingContainer.addFutureMeeting(contactSet, date);
+
+        Set<Integer> actual = aMeetingContainer.getMeetingIdListBy(date);
+        Set<Integer> expected = new HashSet<>();
+        expected.add(id0);
+
+        assertEquals(expected, actual);
+    }
+
+    /*
      * Helpers for tests
      */
     private Contact contactMaker(int contactId, String contactName, String contactNotes) {

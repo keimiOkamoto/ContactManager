@@ -15,8 +15,9 @@ public class MeetingImpl implements Meeting, Serializable {
 
     /**
      * Constructor for MeetingImpl
-     * @param id an id for a meeting
-     * @param date a date for the meeting
+     *
+     * @param id              an id for a meeting
+     * @param date            a date for the meeting
      * @param aListOfContacts a list of contacts
      * @throws IllegalMeetingException if there is not more than one contact in the list
      */

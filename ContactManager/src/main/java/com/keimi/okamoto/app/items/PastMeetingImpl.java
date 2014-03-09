@@ -10,8 +10,8 @@ public class PastMeetingImpl extends MeetingImpl implements PastMeeting {
     /**
      * Constructor for PastMeetingImpl
      *
-     * @param id an id for a PastMeeting
-     * @param date a date for the PastMeeting
+     * @param id              an id for a PastMeeting
+     * @param date            a date for the PastMeeting
      * @param aListOfContacts a list of contacts
      * @throws IllegalMeetingException if there is not more than one contact in the list
      */

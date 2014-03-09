@@ -4,7 +4,7 @@ import com.keimi.okamoto.app.items.Contact;
 import com.keimi.okamoto.app.items.FutureMeeting;
 import com.keimi.okamoto.app.items.Meeting;
 import com.keimi.okamoto.app.items.PastMeeting;
-import com.keimi.okamoto.app.utils.*;
+import com.keimi.okamoto.app.utils.DiskWriter;
 
 import java.util.*;
 

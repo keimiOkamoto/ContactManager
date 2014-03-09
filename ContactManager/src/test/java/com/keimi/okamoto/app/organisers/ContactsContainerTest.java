@@ -92,8 +92,6 @@ public class ContactsContainerTest {
         assertFalse(aContactContainer.checkForValidId(1, 2, 260));
     }
 
-
-
     /*
      * Test for getContact(int contactId)
      * Starts here:

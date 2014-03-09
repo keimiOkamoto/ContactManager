@@ -1,6 +1,9 @@
 package com.keimi.okamoto.app.organisers;
 
-import com.keimi.okamoto.app.items.*;
+import com.keimi.okamoto.app.items.Contact;
+import com.keimi.okamoto.app.items.FutureMeeting;
+import com.keimi.okamoto.app.items.Meeting;
+import com.keimi.okamoto.app.items.PastMeeting;
 
 import java.util.Calendar;
 import java.util.List;
@@ -17,7 +20,7 @@ public interface ContactManager {
      * @param date     the date on which the meeting will take place
      * @return the ID for the meeting
      * @throws java.lang.IllegalAccessException if meeting is set for the time in the past,
-     * of/if any contact is unknown/non-existant.
+     *                                          of/if any contact is unknown/non-existant.
      */
     int addFutureMeeting(Set<Contact> contacts, Calendar date);
 
@@ -140,7 +143,7 @@ public interface ContactManager {
 
     /**
      * Save all data to disk.
-     *
+     * <p/>
      * This method must be executed when the program
      * is closed and when/if the user requests it.
      */

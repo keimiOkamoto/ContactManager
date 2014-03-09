@@ -1,9 +1,11 @@
 package com.keimi.okamoto.app.organisers;
 
-import com.keimi.okamoto.app.items.*;
+import com.keimi.okamoto.app.items.Contact;
+import com.keimi.okamoto.app.items.FutureMeeting;
+import com.keimi.okamoto.app.items.Meeting;
+import com.keimi.okamoto.app.items.PastMeeting;
 
 import java.util.Calendar;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -18,7 +20,7 @@ public interface MeetingContainer {
      * and the date.
      *
      * @param aSetOfContacts contacts that will attend the meeting
-     * @param date date of a meeting
+     * @param date           date of a meeting
      * @return the meeting id
      */
     int addFutureMeeting(Set<Contact> aSetOfContacts, Calendar date);
@@ -59,8 +61,8 @@ public interface MeetingContainer {
      * Adds a past meeting to map.
      *
      * @param aSetOfContacts a set of contacts who attended the meeting
-     * @param date the date the meeting was held
-     * @param notes some notes about the meeting
+     * @param date           the date the meeting was held
+     * @param notes          some notes about the meeting
      */
     void addPastMeeting(Set<Contact> aSetOfContacts, Calendar date, String notes);
 
@@ -77,7 +79,7 @@ public interface MeetingContainer {
      * happened in the past.
      *
      * @param aMeeting A meeting to be converted to a PastMeeting
-     * @param notes some notes about the meeting
+     * @param notes    some notes about the meeting
      */
     void convertToPastMeeting(Meeting aMeeting, String notes);
 

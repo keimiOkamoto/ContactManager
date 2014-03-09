@@ -9,8 +9,9 @@ public class ContactImpl implements Contact, Serializable {
 
     /**
      * Constructor method
+     *
      * @param name a name of a contact
-     * @param id an id for a contact
+     * @param id   an id for a contact
      */
     public ContactImpl(String name, int id) {
         this.name = name;

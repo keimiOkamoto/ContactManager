@@ -5,7 +5,10 @@ import com.keimi.okamoto.app.utils.ContactFactory;
 import com.keimi.okamoto.app.utils.UniqueNumberGeneratorUtilities;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class ContactsContainerImpl implements ContactsContainer, Serializable {
     private Map<Integer, Contact> contactMap;
@@ -60,7 +63,6 @@ public class ContactsContainerImpl implements ContactsContainer, Serializable {
             }
         }
         return resultSet;
-
     }
 
     @Override

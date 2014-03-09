@@ -13,7 +13,7 @@ public interface DiskWriter {
      * Writes data to disk. Data is serialized here.
      *
      * @param aContactsContainer a ContactsContainer
-     * @param aMeetingContainer a MeetingContainer
+     * @param aMeetingContainer  a MeetingContainer
      */
     void writeToDisk(ContactsContainer aContactsContainer, MeetingContainer aMeetingContainer);
 

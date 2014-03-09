@@ -11,7 +11,7 @@ public interface ContactFactory {
     /**
      * Single method that creates contact
      *
-     * @param id id of a contact
+     * @param id   id of a contact
      * @param name name of a contact
      * @param note note for the contact
      * @return a new contact

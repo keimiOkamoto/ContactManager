@@ -12,12 +12,12 @@ public class MeetingContainerImpl implements MeetingContainer, Serializable {
     private Map<Integer, Meeting> aMeetingMap;
     private UniqueNumberGeneratorUtilities aUniqueNumberGeneratorUtilities;
     private MeetingFactory aMeetingFactory;
-    private Map<Integer, Set<Integer>> contactMeetingMap;
+    private Map <Integer, Set<Integer>> contactMeetingMap;
 
     /**
      * Constructor method for MeetingContainerImpl
      *
-     * @param aMeetingFactory                 a Factory in charge of creation of meetings
+     * @param aMeetingFactory a Factory in charge of creation of meetings
      * @param aUniqueNumberGeneratorUtilities a unique number generator
      */
     public MeetingContainerImpl(MeetingFactory aMeetingFactory, UniqueNumberGeneratorUtilities aUniqueNumberGeneratorUtilities) {
@@ -75,7 +75,7 @@ public class MeetingContainerImpl implements MeetingContainer, Serializable {
 
     @Override
     public FutureMeeting getFutureMeeting(int id) {
-        return (FutureMeeting) aMeetingMap.get(id);
+        return (FutureMeeting)aMeetingMap.get(id);
     }
 
     @Override
@@ -122,7 +122,6 @@ public class MeetingContainerImpl implements MeetingContainer, Serializable {
     @Override
     public Set<Integer> getMeetingIdListBy(Contact contact) throws IllegalArgumentException {
         if (contact == null) throw new IllegalArgumentException();
-
         return contactMeetingMap.get(contact.getId());
     }
 
